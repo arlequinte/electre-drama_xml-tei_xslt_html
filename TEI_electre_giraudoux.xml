@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-model href="ODD_electre_giraudoux.rng" lang="fr" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="ODD_electre_giraudoux.rng" lang="fr" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<!DOCTYPE ns1:TEI SYSTEM "DTD_electre_giraudoux.dtd">
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+
+ <teiHeader>
+
+  <fileDesc>
+   <titleStmt>
+    <title>Électre</title>
+    <author key="Jean Giraudoux (1882-1944)" ref="https://isni.org/isni/000000012117821X">Jean Giraudoux</author>
+   </titleStmt>
+     
+   <editionStmt><p>Encodage ludique par Anne Bugner, pour le master TNAH de l'école des Chartes, année 2023.</p></editionStmt>
+
+   <publicationStmt>
+    <publisher>Éditions Bernard Grasset</publisher>
+    <date when-iso="1937">1937</date></publicationStmt>
+
+   <sourceDesc>
+    <bibl>
+     <title>Électre</title>
+      <author>Jean Giraudoux</author>
+      <publisher>Librairie Générale Française</publisher>
+      <date when-iso="1987">1987</date>
+      <idno type="ISBN">978-2-253-00129-4</idno>
+    
+     </bibl>
+     <bibl><distributor facs="https://fr.wikisource.org/wiki/%C3%89lectre_(Giraudoux)"/></bibl>
+    </sourceDesc>
+   </fileDesc>
+
+   <profileDesc>
+    <langUsage>
+     <language ident="fr">French</language></langUsage>
+
+   <textDesc>
+     <domain type="art"/> 
+     <factuality type="fiction"/>      
+    <derivation type="réécriture"/>    
+    <interaction type="partial" active="singular" passive="world"/>  
+    <purpose type="distrayant" degree="high"/>
+    <purpose type="instructif" degree="high"/>
+    <purpose type="déprimant" degree="medium"/>  
+
+   </textDesc>
+
+   <particDesc>
+    <listPerson type="fictional">
+              
+               <!-- Premier groupe: personnages canoniques issus de la littérature grecque classique -->
+     <person xml:id="el">
+      <persName>Électre</persName></person>
+     <person xml:id="o">
+       <persName>Oreste</persName></person>
+     <person xml:id="cly">
+      <persName>Clytemnestre</persName></person>
+     <person xml:id="eg">
+      <persName>Égisthe</persName></person>
+     <person xml:id="em1">
+      <persName>Première Euménide</persName></person>
+     <person xml:id="em2">
+      <persName>Deuxième Euménide</persName></person>
+     <person xml:id="emd3">
+      <persName>Troisième Euménide</persName></person>
+     <person xml:id="jd">
+      <persName>Le Jardinier</persName>
+     <note>
+       La tragédie d'inspiration, celle d'Euripide, présentait le personnage du Laboureur, à qui Égisthe marie Électre pour l'éloigner du palais.
+     </note></person>
+               
+
+               <!-- Personnages non actants dans nos extraits, mais mentionnés -->
+     <person xml:id="agm">
+      <persName>Agamemnon</persName></person>
+     <person xml:id="atree">
+      <persName>Atrée</persName></person>
+     <person xml:id="thyeste">
+      <persName>Thyeste</persName></person>
+     <person xml:id="chrysothemis">
+      <persName>Chrysothémis</persName></person>
+     <person xml:id="cassandre">
+      <persName>Cassandre</persName></person>
+
+               <!-- Second groupe: ajouts propres à Giraudoux -->
+     <person xml:id="mdt">
+      <persName>Le Mendiant</persName></person>
+     <person xml:id="fns">
+      <persName>La Femme Narsès</persName></person>
+      
+              <!-- Enfin, puisqu'il en est question plusieurs fois dans notre texte -->
+     <person xml:id="abd"><persName>anybody</persName><note>Expression du collectif: tout le monde, et personne en particulier. 
+      Peut également désigner, par effet de mise en abyme et d'ironie tragique, le public.</note></person>
+
+    <listRelation>
+                  <!-- La famille d'Électre, les Atrides, dans la pièce -->
+     <relation name="adelphes" mutual="#el #o #chrysothemis"/>
+     <relation name="mère" active="#cly" passive="#el #o #chrysothemis"/>
+     <relation name="père" active="#agm" passive="#el #o #chrysothemis"/>
+     <relation name="époux" mutual="#cly #agm"/>
+     <relation name="fiancés" mutual="#el #jd"/>
+                 
+                  <!-- Le passif des parents d'Électre : le meurtre d'Agamemnon -->
+     <relation name="haine" active="#cly" passive="#agm"/>
+     <relation name="amants" mutual="#cly #eg"/>
+     <relation name="amants" mutual="#agm #cassandre"/>
+     <relation name="meurtriers" active="#cly #eg" passive="#agm"/>
+     <relation name="meurtriers" active="#cly #eg" passive="#cassandre"/>
+   
+                  <!-- Le passif de la famille paternelle d'Électre: la malédiction des Atrides -->
+     <relation name="adelphes" mutual="#atree #thyeste"/>
+     <relation name="haine" mutual="#atree #thyeste"/>
+     <relation name="tortionnaires" active="#em1 #em2 #em3" passive="#atree #thyeste"/>
+     <relation name="père" active="#atree" passive="#agm"/>
+     <relation name="père" active="#thyeste" passive="#eg"/>
+                
+                  <!-- Les sentiments des uns pour les autres dans la pièce -->         
+     <relation name="haine" active="#el" passive="#cly"/>
+     <relation name="attirance_cachée" active="#jd" passive="#el"/>
+     <relation name="attirance_cachée" active="#eg" passive="#el"/>
+     <relation name="amour_très_freudien" active="#el" passive="#agm #o"/>
+     <relation name="affection" mutual="#mdt #el; #o"/>
+     <relation name="affection" mutual="#mdt #fns"/>
+     <relation name="affection" mutual="#fns #el"/>
+     <relation name="mépris" active="#em1 #em2 #em3" passive="#o"/>
+     <relation name="mépris" active="#em1 #em2 #em3" passive="#el"/>  
+    </listRelation>
+   </listPerson>
+  </particDesc>
+ </profileDesc>
+</teiHeader>
+
+<text>
+ <front>
+  <docTitle>
+   <titlePart>Électre<lb/>
+              Pièce en deux actes
+   </titlePart></docTitle>    
+   <set><p>Cour intérieure dans le palais d'Agamemnon.</p></set>
+  </front>
+
+  <body>
+   <div1 type="act" n="1">
+    <head>ACTE I</head>
+
+
+    <div2 type="scene" n="1" ana="Scène_d'exposition" decls="dialogues">
+     <head>Scène I</head>
+
+     <stage type="entrance">Un étranger (Oreste) entre escorté de trois petites filles, au moment où, de l’autre côté, arrivent 
+            le jardinier, en costume de fête, et les invités villageois.</stage>
+               
+     <sp who="#em1" toWhom="#abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><seg ana="enallage">Ce qu’<persPronouns corresp="#jd">il</persPronouns> <w type="&p1;" function="&desc;">est</w> <emph xml:id="beauté">beau</emph>, <persName ref="#jd" type="&phr;">le jardinier</persName> <pc type="&exc;" ana="&ett;">!</pc></seg></p></sp>
+               
+     <sp who="#em2" toWhom="#em1">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><seg ana="enallage"><persPronouns corresp="#em1">Tu</persPronouns> <w type="&p1;" function="&ac;">penses</w> <pc type="&exc;" ana="&ett;">!</pc></seg> C’<w type="&p1;" function="&ac;">est</w> <emph xml:id="temps">le jour de</emph> son <emph corresp="#&bt;">mariage</emph>.</p></sp>
+               
+     <sp who="#em3" toWhom="#o">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+      <p>Le <emph corresp="#&tps;">voilà</emph>, <persName ref="#o" type="&phr;">monsieur</persName>, votre <emph xml:id="statut_royal">palais</emph> d’<persName ref="#agm" type="&pn;">Agamemnon</persName><pc type="&exc;" ana="&ett;">!</pc></p></sp>
+       
+     <sp who="#o" toWhom="#em1 #em2 #em3">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p><emph xml:id="laideur">Curieuse</emph> façade <pc type="&exc;" ana="surprise">!</pc><pc type="&ssp;" ana="&desv;">…</pc>  Elle <w type="&p1;" function="&ac;">est</w> d’aplomb <pc type="&int;" ana="&rh;">?</pc></p></sp>
+       
+     <sp who="#em1" toWhom="#o">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><seg ana="prétérition">Non. Le côté droit <w type="&p1;" function="&hab;">n’existe</w> pas. <persPronouns corresp="#abd">On</persPronouns> <w type="&p1;" function="&hab;">croit</w> le voir, mais c’<w type="&p1;" function="&hab;">est</w> un <emph xml:id="folie">mirage</emph>. C’<w type="&p1;" function="&hab;">est</w> comme le jardinier qui <w type="&p1;" function="&ac;">vient</w> là, qui <w type="&p1;" function="&ac;">veut</w> <persPronouns corresp="#o">vous</persPronouns> parler. <persPronouns corresp="#jd">Il</persPronouns> ne <w type="&p1;" function="&ac;">vient</w> pas. <persPronouns corresp="#jd">Il</persPronouns> ne <w type="&fp1;" function="&poss;">va pas pouvoir</w> dire un mot.</seg></p></sp>
+             
+      <sp who="#em2" toWhom="#o">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p>Ou <persPronouns corresp="#jd">il</persPronouns> <emph xml:id="bestiaire" corresp="#&ld;"> <w type="&fp1;" function="&poss;">va braire</w></emph>. Ou <emph corresp="#&bst; #&ld;">miauler</emph>.</p></sp>
+       
+     <sp who="#jd" toWhom="#o">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p>La façade <w type="&p1;" function="&hab;">est</w> bien d’aplomb, <persName ref="#o" type="&phr;">étranger</persName> ; <w type="&imp;" function="&csl;">n’écoutez pas</w> <persName ref="#em1 #em2 #em3" type="&phr;">ces menteuses</persName>. Ce qui <persPronouns corresp="#o">vous</persPronouns> <w type="&p1;" function="&hab;">trompe</w>, c’est que <seg ana="personnification">le corps de droite</seg> <w type="&p1;" function="&hab;">est construit</w> en <emph corresp="#&ld;">pierres gauloises</emph>, qui <emph corresp="#&ld;"><w type="&p1;" function="&hab;">suintent</w></emph> <emph corresp="#&tps;">à certaines époques de l’année</emph>. <said ana="&ind;" who="#abd">Les habitants de la ville <w type="&p1;" function="&hab;">disent</w> <emph corresp="#&tps;">alors</emph> que <seg ana="personnification"><emph corresp="#&stat;">le palais</emph> <emph xml:id="deuil"> <w type="&p1;" function="&hab;">pleure</w></emph>.</seg></said> Et que le <seg ana="personnification">corps de gauche</seg> est en <emph corresp="#&stat;">marbre d’Argos</emph>, lequel, sans qu’<persPronouns corresp="#jd">on</persPronouns> <w type="&ps2;" function="&gen;">ait jamais su</w> pourquoi, <emph xml:id="paix"><w type="&p1;" function="&hab;">s’ensoleille</w></emph> <emph corresp="#&tps;">soudain</emph>, même <emph corresp="#&de; #&tps;">la nuit</emph>. <persPronouns corresp="#abd">On</persPronouns> <w type="&p1;" function="&hab;">dit</w> <emph corresp="#&tps;">alors</emph> que <emph corresp="#&stat;">le palais</emph> <emph corresp="#&px;"><w type="&p1;" function="&hab;">rit</w></emph>. <seg ana="mise_en_abyme">Ce qui <w type="&p1;" function="&ac;">se passe</w>, c’est qu’<emph corresp="#&tps;">en ce moment</emph> <seg ana="personnification"><emph corresp="#&stat;">le palais</emph> <emph corresp="#&px; #&de;"><w type="&p1;" function="&ac;">rit et pleure</w></emph> à la fois.</seg></seg></p></sp>
+              
+      <sp who="#em1" toWhom="#o #jd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><seg ana="personnification">Comme ça, il <w type="&p1;" function="&ac;">est</w> sûr de ne pas se tromper.</seg></p></sp>
+               
+      <sp who="#em2" toWhom="#o #jd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><seg ana="allusion"><w type="&p1;" function="&ac;">C’est</w> tout à fait <emph corresp="#&stat;">un palais</emph> de <persName ref="#cly" type="&phr;"><emph corresp="#&de;">veuve</emph></persName></seg>.</p></sp>
+ <note>Allusion à l'opérette (<span rend="italics">La Veuve Joyeuse</span> d'Offenbach), genre prisé de Giraudoux, présent en demi-teinte dans l'ensemble de ses oeuvres.</note>
+               
+      <sp who="#em1" toWhom="#o #jd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><seg ana="allusion">Ou de <emph xml:id="tendresse">souvenirs d’enfance</emph>.</seg></p></sp>
+       
+      <sp who="#o" toWhom="#jd">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p><persPronouns corresp="#o">Je ne me</persPronouns> <w type="&i1;" function="&desc;">rappelais</w> pas une <seg ana="personnification">façade aussi <emph corresp="#&tdr;">sensible</emph></seg> <pc type="&ssp;" ana="incertitude">…</pc></p></sp>
+               
+     <sp who="#jd" toWhom="#o">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p><persPronouns corresp="#o">Vous</persPronouns> <w type="&pc1;" function="&evm;">avez déjà visité</w> <emph corresp="#&stat;">le palais</emph> <pc type="&int;" ana="&enq;">?</pc></p></sp>
+               
+     <sp who="#em1" toWhom="#o #jd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><persName ref="#o" type="&phr;"><emph corresp="#&tdr;">Tout enfant</emph></persName>.</p></sp>
+       
+     <sp who="#em2" toWhom="#o #jd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><emph corresp="#&tps;">Il y a vingt ans</emph>.</p></sp>
+               
+     <sp who="#em3" toWhom="#o #jd">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+      <p><persPronouns corresp="#o">Il</persPronouns> ne <w type="&i1;" function="&desc;">marchait</w> pas 
+         encore<pc type="&ssp;" ana="&attd;">…</pc></p></sp>
+               
+     <sp who="#jd" toWhom="#o">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p><persPronouns corresp="#abd">On</persPronouns> s’en <w type="&p1;" function="&hab;">souvient</w>, pourtant, quand <persPronouns corresp="#abd">on</persPronouns> l’<w type="&pc1;" function="&evm;">a vu</w>.</p></sp>
+              
+     <sp who="#o" toWhom="#jd #abd">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p>Tout ce que <persPronouns corresp="#o">je me</persPronouns> <w type="&p1;" function="&ac;">rappelle</w>, du <emph corresp="#&stat;">palais</emph> d’<persName ref="#agm" type="&pn;">Agamemnon</persName>, c’<w type="&p1;" function="&ac;">est</w> une <emph corresp="#&stat;">mosaïque</emph>. <persPronouns corresp="#abd">On</persPronouns> <persPronouns corresp="#o">me</persPronouns> <w type="&i1;" function="&hab;">posait</w> dans un losange de <emph corresp="#&bst;" xml:id="violence">tigres</emph> quand <persPronouns corresp="#o">j’</persPronouns><w type="&i1;" function="&hab;">étais</w> <emph corresp="#&ld;">méchant</emph>, et dans un hexagone de <emph corresp="#&px; #&bt;">fleurs</emph> quand <persPronouns corresp="#o">j’</persPronouns> <w type="&i1;" function="&hab;">étais </w><emph corresp="#&px;">sage</emph>. Et <persPronouns corresp="#o">je me</persPronouns> <w type="&i1;" function="&ac;">rappelle</w> le chemin qui <persPronouns corresp="#o">me</persPronouns> <w type="&i1;" function="&hab;">menait</w> <seg ana="hypallage"><emph corresp="#&bst; #&bt;">rampant</emph></seg> de l’un à l’autre<pc type="&ssp;" ana="&attd;">…</pc> <persPronouns corresp="#abd">On</persPronouns> <w type="&i1;" function="&hab;">passait</w> par des  <emph corresp="#&bst; #&bt;">oiseaux</emph>.</p></sp>
+               
+     <sp who="#em1" toWhom="#o #jd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p>Et par un <emph corresp="#&bst; #&bt;">capricorne</emph>.</p></sp>
+       
+     <sp who="#o" toWhom="#em1">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p>Comment <w type="&p1;" function="&ac;">sais</w>-<persPronouns corresp="#em1">tu</persPronouns> cela, <persName ref="#em1" type="&phr;">petite</persName><pc type="&int;" ana="surprise">?</pc></p></sp>
+               
+     <sp who="#jd" toWhom="#o">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p>Votre famille <w type="&i1;" function="&desc;">habitait</w> Argos <pc type="&int;" ana="&enq;">?</pc></p></sp>
+              
+     <sp who="#o" toWhom="#jd #abd">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p>Et <persPronouns corresp="#o">je me</persPronouns> <w type="&i1;" function="&ac;">rappelle</w> aussi beaucoup, beaucoup de <emph corresp="#&tdr;">pieds nus</emph>. Aucun visage, les visages <w type="&i1;" function="&desc;">étaient</w> <emph corresp="#&stat;">haut dans le ciel</emph>, mais des pieds nus. <persPronouns corresp="#o">J’</persPronouns><w type="&i1;" function="&hab;">essayais</w>, entre les franges, de toucher leurs anneaux <emph corresp="#&stat;">d’or</emph>. Certaines chevilles <w type="&i1;" function="&desc;">étaient unies</w> par des <emph corresp="#&vl;">chaînes</emph> ; c’<w type="&i1;" function="&desc;"> était</w> les chevilles d’<emph corresp="#&vl;">esclaves</emph>. <persPronouns corresp="#o">Je me</persPronouns> <w type="&p1;" function="&ac;">rappelle</w> surtout deux pieds tout blancs, les plus nus, <seg ana="syllepse">les plus <emph xml:id="vertu">blancs</emph></seg>. Leur pas <w type="&i1;" function="&hab;">était</w> <emph corresp="#&tps;">toujours</emph> <emph corresp="#&vt;"></emph>égal, <emph corresp="#&px; #&vt;">sage</emph>, mesuré <emph corresp="#&vl;">par une chaîne invisible</emph>. <persPronouns corresp="#o">J’</persPronouns> <w type="&p1;" function="&ac;">imagine</w> que c’<w type="&i1;" function="&desc;">était</w> ceux d’<persName ref="#el" type="&pn;">Électre</persName>. <persPronouns corresp="#o">J’</persPronouns> <w type="&pc1;" function="&evm;">ai dû</w> les <emph corresp="#&tdr;">embrasser</emph>, n’est-ce pas <pc type="&int;" ana="&rh;">?</pc> <persName ref="#o" type="&phr;">Un nourrisson</persName> <emph corresp="#&tdr;"><w type="&p1;" function="&gen;">embrasse</w></emph> tout ce qu’<persPronouns corresp="#o">il</persPronouns> touche.</p></sp>
+               
+     <sp who="#em2" toWhom="#o">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p>En tout cas, c’est le seul <emph corresp="#&tdr;">baiser</emph> qu’<w type="&ps2;" function="&cert;">ait reçu</w> <persName ref="#el" type="&pn;">Électre</persName>.</p></sp>
+               
+     <sp who="#jd" toWhom="#abd">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p>Pour cela, sûrement.</p></sp>
+               
+     <sp who="#em1" toWhom="#jd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><persPronouns corresp="#jd">Tu</persPronouns> <w type="&p1;" function="&ac;">es</w> <emph corresp="#&vl;">jaloux</emph>, hein, <persName ref="#jd" type="&phr;">jardinier</persName> <pc type="&int;" ana="&rll;">?</pc></p></sp>
+               
+     <sp who="#o" toWhom="#jd">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p><persPronouns corresp="#el">Elle</persPronouns> <w type="&p1;" function="&hab;">habite</w> toujours <emph corresp="#&stat;">le palais</emph>, <persName ref="#el" type="&pn;">Électre</persName> <pc type="&int;" ana="&enq;">?</pc></p></sp>
+              
+     <sp who="#em2" toWhom="#o">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><emph corresp="#&tps;">Toujours</emph>. <seg ana="prolepse"><emph corresp="#&tps;">Pas pour longtemps</emph></seg>.</p></sp>
+     <note>Dans la tragédie d'Euripide, Électre a déjà été mariée au Laboureur, et a emménagé dans sa propriété hors de la ville.</note>
+               
+     <sp who="#o" toWhom="#jd">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p>C’<w type="&p1;" function="&ac;">est</w> sa fenêtre, la fenêtre aux <emph corresp="#&px; #&bt;">jasmins</emph> <pc type="&int;" ana="&enq;">?</pc></p></sp>
+              
+     <sp who="#jd" toWhom="#o">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p>Non. C’<w type="&p1;" function="&ac;">est</w> celle de la chambre où <persName ref="#atree" type="&pn;">Atrée</persName>, <persName ref="#atree" type="&phr;">le premier <emph corresp="#&stat;">roi</emph> d’Argos</persName>, <emph corresp="#&vl;"><w type="&ps1;" function="&rec;">tua</w> </emph>les fils de <persName ref="#thyeste" type="&phr;">son frère</persName>.</p></sp>
+               
+     <sp who="#em1" toWhom="#o #abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p>Le repas où <persPronouns corresp="#atree">il</persPronouns> <emph corresp="#&vl;"><w type="&ps1;" function="&rec;">servit leurs cœurs</w></emph> <w type="&ps1;" function="&rec;">eut lieu</w> dans la <emph corresp="#&stat;">salle</emph> voisine. <persPronouns corresp="#em1">Je</persPronouns> <w type="&p3;" function="&sh;">voudrais</w> bien savoir quel goût ils <w type="&i1;" function="&desc;">avaient</w>.</p></sp>
+               
+     <sp who="#em3" toWhom="#abd">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+      <p><persPronouns corresp="#atree">Il</persPronouns> les <emph corresp="#&vl;"> <w type="&pc1;" function="&evm;">a coupés</w></emph>, ou <emph corresp="#&vl;"><w type="&pc1;" function="&evm;">fait cuire</w></emph> entiers<pc type="&int;" ana="&enq;">? </pc></p></sp>
+       
+     <sp who="#em2" toWhom="#o #abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p>Et <persName ref="#cassandre" type="&pn;">Cassandre</persName> <emph corresp="#&vl;"> <w type="&ps1;" function="&rec;">fut  étranglée</w></emph> dans l’<emph corresp="#&stat;">échauguette</emph>.</p></sp>
+               
+     <sp who="#em3" toWhom="#o #abd">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+      <p><persPronouns corresp="#cly #eg">Ils</persPronouns> <persPronouns corresp="#cassandre">l’</persPronouns> <emph corresp="#&vl;"><w type="&pp1;" function="&ac3;"> avaient prise</w></emph> dans un <emph corresp="#&bst;">filet</emph> et <persPronouns corresp="#cassandre">la</persPronouns> <emph corresp="#&vl;"><w type="&i1;" function="&ac2;">poignardaient</w></emph>.  <persPronouns corresp="#cassandre">Elle</persPronouns> <emph corresp="#&vl;"><w type="&i1;" function="&ac2;">criait</w></emph> comme <persName ref="#cassandre" type="&phr;"><emph corresp="#&fl;">une folle</emph></persName>, dans sa voilette<pc type="&ssp;" ana="&desv;">…</pc> <persPronouns corresp="#emd3">J’</persPronouns><w type="&ps3;" function="&sh;">aurais bien voulu</w> voir. </p></sp>
+               
+     <sp who="#em1" toWhom="#o">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><seg ana="antithèse">Tout cela dans <emph corresp="#&stat;">l’aile</emph> qui <emph corresp="#&px;"><w type="&p1;" function="&hab;">rit</w></emph>, comme <persPronouns corresp="#o">tu</persPronouns> le <w type="&p1;" function="&ac;">remarques</w>.</seg></p></sp>
+               
+     <sp who="#o" toWhom="#jd">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p>Celle avec les <emph corresp="#&px; #&bt;">roses</emph> <pc type="&int;" ana="&enq;">?</pc></p></sp>
+               
+     <sp who="#jd" toWhom="#o">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p><persName ref="#o" type="&phr;">Étranger</persName>, ne <w type="&imp;" function="&csl;">cherchez</w> aucune relation entre les fenêtres et les <emph corresp="#&px; #&bt;">fleurs</emph>. <persPronouns corresp="#jd">Je</persPronouns> <w type="&p1;" function="&ac;">suis</w> <persName ref="#jd" type="&phr;">le jardinier <emph corresp="#&stat;">du palais</emph></persName>. 
+<persPronouns corresp="#jd">Je</persPronouns> les <emph corresp="#&px; #&bt;"><w type="&p1;" function="&hab;">fleuris</w> </emph> bien au hasard. Ce <w type="&p1;" function="&gen;">sont</w> <emph corresp="#&tps;">toujours</emph> des <emph corresp="#&px; #&bt;">fleurs</emph>.</p></sp>
+               
+     <sp who="#em2" toWhom="#jd #abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p>Pas du tout. Il y <w type="&p1;" function="&gen;">a</w> fleur et fleur. Le <emph corresp="#&px; #&bt;">phlox</emph> <w type="&p1;" 
+         function="&gen;">va</w> bien mal sur <persName ref="#thyeste" type="&pn;">Thyeste</persName>.</p></sp>
+         <note>Si la symbolique florale est alors en vogue, le phlox n'est pas courant. On peut lui trouver diverses associations (principalement autour de la lumière, donc de la joie), voire un emploi dans le registre médical pour désigner tout <span rend="italics">facteur imprévu</span> (source: <ref target="https://gallica.bnf.fr/ark:/12148/bpt6k12658011"/>) Ce qui souligne la tendance des Erinyes à s'exprimer en paroles obliques.</note>
+               
+     <sp who="#em3" toWhom="#jd #abd">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+      <p>Et le <emph corresp="#&px; #&bt;">réséda</emph> sur <persName ref="#cassandre" type="&pn;">Cassandre</persName>.</p></sp>
+ <note>Le réséda est en revanche fréquemment utilisé en iconologie, et représente la modestie.</note>
+               
+     <sp who="#jd" toWhom="#o">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p><w type="&p1;" function="&od;">Vont</w>-<persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> se taire <pc type="&exc;" ana="&irt;">!</pc> La fenêtre avec les <emph corresp="#&px; #&bt;">roses</emph>, <persName>étranger</persName>, <w type="&p1;" function="&ac;">est</w> celle de la piscine où <persName ref="#agm" type="&phr;">notre <emph corresp="#&stat;">roi</emph> Agamemnon</persName>, <persName ref="#agm" type="&phr;" >le père d’<persName ref="#el" type="&pn;" >Électre</persName></persName>, <w type="&ps1;" function="&rec;">glissa</w>, revenant de la guerre, et <persPronouns corresp="#agm">se</persPronouns> <emph corresp="#&vl;"><w type="&ps1;" function="&rec;">tua</w></emph>, tombant sur son <emph corresp="#&stat; #&vl;">épée</emph>.</p></sp>
+               
+     <sp who="#em1" toWhom="#abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><seg ana="paradoxe"><persPronouns corresp="#agm">Il</persPronouns> <w type="&ps1;" function="&rec;">prit</w> son bain <emph corresp="#&tps;">après</emph> sa <emph corresp="#&de;">mort</emph>. <emph corresp="#&tps;">À deux minutes près</emph>. Voilà la différence.</seg></p></sp>
+               
+     <sp who="#jd" toWhom="#o">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p>La voilà, la fenêtre d’<persName ref="#el" type="&pn;" >Électre</persName>.</p></sp>
+               
+     <sp who="#o" toWhom="#jd">
+      <speaker rend="sc">L’Étranger.></speaker>
+      <p>Pourquoi si haut, presque <emph corresp="#&ld;">aux combles</emph> <pc type="&int;" ana="&enq;">?</pc></p></sp>
+               
+     <sp who="#jd" toWhom="#o">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p>Parce que, de cet étage, on <w type="&p1;" function="&hab;">voit</w> le <emph corresp="#&de;">tombeau</emph> de <persName ref="#agm" type="&phr;" >son père</persName>.</p></sp>
+               
+     <sp who="#o" toWhom="#jd">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p>Pourquoi dans ce <emph corresp="#&ld;">retrait</emph> <pc type="&int;" ana="&enq;">?</pc></p></sp>
+               
+     <sp who="#jd" toWhom="#o">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p>Parce que c’<w type="&p1;" function="&ac;">est</w> <emph corresp="#&de;">l’ancienne chambre</emph> du <persName ref="#o" type="&phr;">petit Oreste, son frère</persName>, que <persName ref="#cly" type="&phr;" >sa mère</persName> <w type="&ps1;" function="&rec;">envoya</w> hors du pays <emph corresp="#&tps;">quand <persPronouns corresp="#o">il</persPronouns> <w type="&i1;" function="&desc;">avait</w> deux ans</emph>, et dont <persPronouns corresp="#abd">on</persPronouns> <w type="&p1;" function="&ac;">n’a</w> plus de nouvelles.</p></sp>
+       
+     <sp who="#em2" toWhom="#em1 #em2">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><seg ana="mise_en_abyme"><seg ana="redondance"><w type="&imp;" function="&cnt;">Écoutez</w>, écoutez</seg>, <persName ref="#em1 #em3" type="&phr;">mes sœurs</persName> <pc type="&exc;" ana="&ett;">!</pc> <persPronouns corresp="#jd #abd">On</persPronouns> <w type="&p1;" function="&ac;">parle</w> du <persName ref="#o" type="&phr;" >petit Oreste</persName> <pc type="&exc;" ana="&ett;">!</pc></seg></p></sp>
+               
+         <sp who="#jd" toWhom="#em1 #em2 #em3">
+      <speaker rend="sc">Le Jardinier.</speaker>
+          <p><seg ana="prolepse"><w type="&p1;" function="&od;">Voulez</w>-<persPronouns corresp="#em1 #em2 #em3">vous</persPronouns> partir <pc type="&exc;" ana="&irt;">!</pc> <w type="&p1;" function="&od;">Allez</w>-<persPronouns corresp="#em1 #em2 #em3">vous</persPronouns> <persPronouns corresp="#jd #o">nous</persPronouns> laisser <pc type="&exc;" ana="&irt;">!</pc> <persPronouns corresp="#abd">On</persPronouns> <w type="&p3;" function="&hyp;">dirait</w> <persName ref="#em1 #em2 #em3" type="&phr;"> <emph corresp="#&bst; #&ld;">des mouches</emph></persName></seg>.</p></sp>
+<note>Métaphore que l'on retrouve filée à l'identique dans la pièce de Jean-Paul Sartre, en 1943.</note>
+               
+     <sp who="#em1" toWhom="#jd #abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> ne <w type="&fs1;" function="&pred;">partirons</w> pas. <persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> <w type="&p1;" function="&ac;">sommes</w> avec <persName ref="#o" type="&phr;">l’étranger</persName>.</p></sp>
+               
+     <sp who="#jd" toWhom="#o">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p><persPronouns corresp="#o">Vous</persPronouns> <w type="&p1;" function="&ac;">connaissez</w> <persName ref="#em1 #em2 #em3" type="&phr;">ces filles</persName> <pc type="&int;" ana="&enq;">?</pc></p></sp>
+
+     <sp who="#o" toWhom="#jd">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p><persPronouns corresp="#o">Je</persPronouns> <persPronouns corresp="#em1 #em2 #em3">les</persPronouns> <w type="&pc1;" function="&evm;">ai rencontrées</w> aux portes. <persPronouns corresp="#em1 #em2 #em3">Elles</persPronouns> <persPronouns corresp="#o">m’</persPronouns><w type="&pc1;" function="&evm;">ont suivi</w>.</p></sp>
+               
+     <sp who="#em2" toWhom="#jd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> <persPronouns corresp="#o">l’</persPronouns> <w type="&pc1;" function="&evm;">avons suivi</w> parce qu’<persPronouns corresp="#o">il</persPronouns> <persPronouns corresp="#em1 #em2 #em3">nous</persPronouns> <emph corresp="#&bt;"><w type="&p1;" function="&ac;">plaît</w></emph>.</p></sp>
+               
+     <sp who="#em3" toWhom="#jd">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+      <p>Parce qu’<persPronouns corresp="#o">il</persPronouns> <w type="&p1;" function="&ac;">est</w> rudement plus <emph corresp="#&bt;">beau</emph> que <persPronouns corresp="#jd">toi</persPronouns>, <persName ref="#jd">jardinier</persName>.</p></sp>
+               
+     <sp who="#em1" toWhom="#jd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p>Les <emph corresp="#&bst; #&ld;">chenilles</emph> ne <persPronouns corresp="#o">lui</persPronouns> <emph corresp="#&ld;"><w type="&p1;" function="&hab;">sortent</w></emph> pas de la barbe.</p></sp>
+               
+     <sp who="#em2" toWhom="#jd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p>Ni les <emph corresp="#&bst; #&ld;">hannetons</emph> du nez.</p></sp>
+               
+     <sp who="#em3" toWhom="#jd #abd">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+      <p>Pour que les <emph corresp="#&bt;">fleurs</emph> <w type="&p2;" function="&gen;">sentent</w> <emph corresp="#&bt;">bon</emph>, il <w type="&p1;" function="&gen;">faut</w> sans doute que <persName ref="#jd">le jardinier</persName> <w type="&p2;" function="&gen;">sente</w> <emph corresp="#&ld; #&vl;">mauvais</emph>.</p></sp>
+               
+         <sp who="#o" toWhom="#em1 #em2 #em3">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p><w type="&imp;" function="&od;">Soyez</w> <emph corresp="#&px;">polies</emph>, <persName ref="#em1 #em2 #em3" type="&phr;"> <emph corresp="#&tdr;">enfants</emph></persName>, et dites-<persPronouns corresp="#jd #o #abd">nous</persPronouns> ce que <persPronouns corresp="#em1 #em2 #em3">vous</persPronouns> <w type="&p1;" function="&hab;">faites</w> dans la vie.</p></sp>
+               
+     <sp who="#em1" toWhom="#o #abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><seg ana="enallage"><persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> y <w type="&p1;" function="&hab;"> faisons</w> que <persPronouns corresp="#em1 #em2 #em3">nous</persPronouns> ne <w type="&p1;" function="&hab;">sommes</w> <emph corresp="#&ld;">pas polies</emph>.</seg></p></sp>
+               
+         <sp who="#em2" toWhom="#o #abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+          <p><seg ana="amplification"><persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> <emph corresp="#&ld;"><w type="&p1;" function="&hab;">mentons</w></emph>. <persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> <emph corresp="#&vl;"><w type="&p1;" function="&hab;">médisons</w></emph>. <persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> <emph corresp="#&vl;"><w type="&p1;" function="&hab;">insultons</w></emph>.</seg></p></sp>
+              
+         <sp who="#em1" toWhom="#o #abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+          <p><seg ana="mise_en_abyme">Mais notre spécialité, c’est que <persPronouns corresp="#em1 #em2 #em3">nous</persPronouns> <seg ana="parodie"><w type="&p1;" function="&hab;">récitons</w></seg>.</seg></p></sp>
+<note>Dans les tragédies classiques, chaque nouvel acte est introduit par un moment psalmodié, ou chanté, du Choeur; il commente les événements en cours de la pièce.</note>
+              
+      <sp who="#o" toWhom="#em1 #em2 #em3">
+      <speaker rend="sc">L'Étranger.</speaker>
+        <p><persPronouns corresp="#em1 #em2 #em3">Vous</persPronouns> <w type="&p1;" function="&hab;">récitez</w> quoi <pc type="&int;" ana="&enq;">?</pc></p></sp>
+               
+         <sp who="#em1" toWhom="#o #abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+          <p><persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> ne le <w type="&p1;" function="&hab;">savons</w> <emph corresp="#&tps;">pas d’avance</emph>. <persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> <w type="&p1;" function="&hab;">inventons</w> <emph corresp="#&tps;">à mesure</emph>. Mais <w type="&p1;" function="&hab;">c’est</w> <seg ana="redondance">très, très</seg> <emph corresp="#&bt;">bien</emph>.</p></sp>
+               
+         <sp who="#em2" toWhom="#o #abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+          <p><said ana="&ind;" who="#agm"> <persName ref="#agm"><emph corresp="#&stat;">Le roi</emph> de Mycènes</persName>, dont  <persPronouns corresp="#em1 #em2 #em3">nous</persPronouns> <emph corresp="#&vl; #&ld;"><w type="&pc1;" function="&evm;">avons injurié</w></emph> la belle-sœur, <persPronouns corresp="#em1 #em2 #em3">nous</persPronouns> a dit que <w type="&i1;" function="&ac;">c’était</w> <emph corresp="#&bt;"><seg ana="redondance">très, très</seg> bien</emph>.</said></p></sp>
+<note>Il s'agit donc ici d'Hélène de Sparte, doublement la belle-soeur d'Agamemnon puisqu'elle est femme de son frère et soeur de son épouse. Elle est l'une des responsables de la guerre de Troie.</note>
+               
+         <sp who="#em3" toWhom="#o #abd">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+           <p><persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> <w type="&p1;" function="&hab;">disons</w> <seg ana="hyperbole">tout le <emph corresp="#&vl;">mal</emph></seg> que <persPronouns corresp="#em1 #em2 #em3">nous</persPronouns> <w type="&p1;" function="&hab;">pouvons</w> trouver.</p></sp>
+              
+     <sp who="#jd" toWhom="#o">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p>Ne <persPronouns corresp="#em1 #em2 #em3">les</persPronouns> <w type="&imp;" function="&csl;">écoutez</w> pas,  <persName ref="#o">étranger</persName>. <persPronouns corresp="#abd">On</persPronouns> ne <w type="&p1;" function="&ac;">sait</w> qui <persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> <w type="&p1;" function="&ac;">sont</w>. <persPronouns corresp="#em1 #em2 #em3">Elles</persPronouns> <w type="&p1;" function="&hab;">circulent</w> <emph corresp="#&tps;">depuis deux jours</emph> dans la ville, sans amis connus, sans famille <pc  type="&exc;" ana="&const;">!</pc> Si <persPronouns corresp="#abd">on</persPronouns> <persPronouns corresp="#em1 #em2 #em3">leur</persPronouns> <w type="&p1;" function="&hab;">demande</w> qui <persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> sont, <said ana="&ind;" who="#em1 #em2 #em3"><persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> <w type="&p1;" function="&hab;">prétendent</w> s’appeler <persName ref="#em1 #em2 #em3" type="&phr;">les petites Euménides</persName></said>. <seg ana="parataxe">Et <emph corresp="#&vl; #&ld;">l’épouvantable</emph>, est qu’<persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> <w type="&p1;" function="&ac;">grandissent</w>, qu’<persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> <emph corresp="#&ld;"><w type="&p1;" function="&ac;">grossissent</w></emph> à vue d’œil<pc type="&ssp;" ana="crainte">…</pc></seg><emph corresp="#&tps;">Hier</emph>, <persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> <w type="&i1;" function="&desc;">avaient</w> <emph corresp="#&tps;">des années de moins</emph> qu’<emph corresp="#&tps;">aujourd’hui</emph><pc type="&ssp;" ana="crainte">…</pc> <w type="&imp;" function="&od;">Viens</w> ici, <persPronouns corresp="#em2">toi</persPronouns><pc  type="&exc;" ana="&irt;">!</pc></p></sp>
+              
+     <sp who="#em2" toWhom="#abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p>Ce qu’<persPronouns corresp="#jd">il</persPronouns> <w type="&p1;" function="&ac;">est</w> <emph corresp="#&vl;">brusque</emph>, pour <persName ref="#jd" type="&phr;"><emph corresp="#&bt;">un marié</emph></persName><pc type="&exc;" ana="&rll;">!</pc></p></sp>
+               
+     <sp who="#jd" toWhom="#o">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p><seg ana="prolepse"><w type="&imp;" function="&od;">Regardez</w>-<persPronouns corresp="#em2">la</persPronouns><pc type="&ssp;" ana="crainte">…</pc> <w type="&imp;" function="&od;">Regardez</w> ces cils qui <emph corresp="#&bst;"><w type="&p1;" function="&ac;">poussent</w></emph>. Regardez sa gorge. <persPronouns corresp="#jd">Je m’</persPronouns>y <w type="&p1;" function="&hab;">connais</w>. <persName ref="#jd" type="&phr;">Mes yeux</persName> <w type="&p1;" function="&hab;">savent</w> voir <emph corresp="#&bst;">pousser</emph> <emph corresp="#&bst; #&ld;">les champignons</emph><pc type="&ssp;" ana="crainte">…</pc> 
+Elle <w type="&p1;" function="&ac;">grandit</w> sous nos yeux <pc type="&ssp;" ana="crainte">…</pc> à la vitesse d’une <emph corresp="#&bst; #&ld;">oronge</emph><pc type="&ssp;" ana="crainte">…</pc></seg></p></sp>
+               
+     <sp who="#em2" toWhom="#abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><persName ref="#em1 #em2 #em3" type="&phr;"><emph corresp="#&bst; #&vl; #&ld;">Les vénéneux</emph></persName> <w type="&p1;" function="&gen;">battent</w> tous les records.</p></sp>
+              
+     <sp who="#em3" toWhom="#em1">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+      <stage>, à la première.</stage>
+      <p>Elle <emph corresp="#&bst;"><w type="&p1;" function="&ac;">grossit</w></emph>, ta gorge, à <persPronouns corresp="#em1"> toi</persPronouns> <pc type="&int;" ana="&enq;">?</pc></p></sp>
+               
+     <sp who="#em1" toWhom="#abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><w type="&p1;" function="&od;">Récitons</w>-<persPronouns corresp="#em1 #em2 #em3">nous</persPronouns>, oui ou non <pc type="&int;" ana="&rh;">?</pc></p></sp>
+               
+     <sp who="#o" toWhom="#jd">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p><w type="&imp;" function="&od;">Laissez</w>-<persPronouns corresp="#em1 #em2 #em3">les</persPronouns> réciter, <persName ref="#jd" type="&phr;">jardinier</persName>.</p></sp>
+              
+     <sp who="#em1" toWhom="#em2 #em3">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><w type="&imp;" function="&cnt;">Récitons</w> <q rend="italics"><persName ref="#cly" type="&phr;" >Clytemnestre, mère d’Électre</persName></q>. <persPronouns corresp="#em2 #em3">Vous</persPronouns> y <w type="&p1;" function="&ac;">êtes</w>, pour <persName ref="#cly" type="&pn;">Clytemnestre</persName><pc type="&int;" ana="&rh;">?</pc></p></sp>
+               
+     <sp who="#em2" toWhom="#em1 #abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><persPronouns corresp="#em2 #em3">Nous</persPronouns> y <w type="&p1;" function="&ac;">sommes</w>.</p></sp>
+             
+     <sp who="#em1" toWhom="#abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+       <p><q rend="italics" ana="comptine"><persName ref="#cly" type="&phr;"><emph corresp="#&stat;">La reine</emph> Clytemnestre</persName> <w type="&p1;" function="&hab;">a</w> <emph corresp="#&ld;">mauvais</emph> teint. <persPronouns corresp="#cly">Elle</persPronouns> se <w type="&p1;" function="&hab;">met</w> du rouge.</q></p></sp>
+              
+     <sp who="#em2" toWhom="#abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+       <p><q rend="italics" ana="comptine"><persPronouns corresp="#cly">Elle</persPronouns> <w type="&p1;" function="&hab;">a</w>  mauvais teint parce qu’<persPronouns corresp="#cly">elle</persPronouns> <w type="&p1;" function="&hab;">a</w> <emph corresp="#&ld; #&fl;">mauvais sommeil</emph>.</q></p></sp>
+               
+      <sp who="#em3" toWhom="#abd">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+       <p><q rend="italics" ana="comptine"><persPronouns corresp="#cly">Elle</persPronouns> <w type="&p1;" function="&hab;">a</w>  <emph corresp="#&ld; #&fl;">mauvais sommeil</emph> parce qu’<persPronouns corresp="#cly">elle</persPronouns> <w type="&p1;" function="&hab;">a</w> <emph corresp="#&vl;">peur</emph>.</q></p></sp>
+               
+      <sp who="#em1" toWhom="#abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+       <p><q rend="italics" ana="comptine">De quoi <w type="&p1;" function="&hab;">a</w> <emph corresp="#&vl;">peur</emph> <persName ref="#cly" type="&phr;"><emph corresp="#&stat;">la reine</emph> Clytemnestre</persName> <pc type="&int;" ana="&rh;">?</pc></q></p></sp>
+              
+      <sp who="#em2" toWhom="#abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><q rend="italics" ana="comptine">De tout.</q></p></sp>
+              
+      <sp who="#em1" toWhom="#abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+       <p><q rend="italics" ana="comptine">Qu’<w type="&p1;" function="&ac;">est</w>-ce, que tout <pc type="&int;" ana="&rh;">?</pc></q></p></sp>
+              
+      <sp who="#em2" toWhom="#abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><q rend="italics" ana="comptine"><seg ana="redondance"><emph corresp="#&px; #&de;">Le silence</emph>. Les silences.</seg></q></p></sp>
+              
+      <sp who="#em3" toWhom="#abd">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+      <p><q rend="italics" ana="comptine"><seg ana="redondance"><emph corresp="#&ld;">Le bruit</emph>. Les bruits.</seg></q></p></sp>
+              
+      <sp who="#em1" toWhom="#abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><q rend="italics"><said ana="&lib;" who="#cly">L’idée qu’il <w type="&fp1;" function="&poss;">va être</w> <emph corresp="#&tps;">minuit</emph>. <lb/> 
+Que <emph corresp="#&bst; #&ld;">l’araignée sur son fil</emph> <w type="&p1;" function="&ac;">est en train</w> de passer de <emph corresp="#&tps;">la partie du jour</emph> où elle <w type="&p1;" function="&gen;">porte</w> <emph corresp="#&px;">bonheur</emph> à celle où elle <w type="&p1;" function="&gen;">porte</w> <emph xml:id="damnation">malheur</emph>.</said></q></p></sp>
+               
+      <sp who="#em2" toWhom="#abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><q rend="italics" ana="comptine"><said ana="&lib;" who="#cly">Tout  ce qui <w type="&p1;" function="&gen;">est</w> <seg ana="syllepse">rouge</seg>, parce que c’<w type="&p1;" function="&gen;">est</w> du <emph corresp="#&vl;">sang</emph></said>.</q></p></sp>
+              
+      <sp who="#em1" toWhom="#abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+         <p><q rend="italics" ana="comptine"><persName ref="#cly" type="&phr;"><emph corresp="#&stat;">La reine</emph> Clytemnestre</persName> <w type="&p1;" function="&hab;">a</w> <emph corresp="#&ld;">mauvais teint</emph>. <persPronouns corresp="#cly">Elle</persPronouns> se <w type="&p1;" function="&hab;"> met</w> du <emph corresp="#&vl;">sang</emph> <pc type="&exc;" ana="révélation">!</pc></q></p></sp>
+               
+      <sp who="#jd" toWhom="#abd">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p><seg ana="mise_en_abyme">Quelles histoires <emph corresp="#&ld;">stupides</emph><pc type="&exc;" ana="&irt;">!</pc></seg></p></sp>
+               
+      <sp who="#em2" toWhom="#jd #abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p>C’<w type="&p1;" function="&ac;">est</w> <emph corresp="#&bt;">bien</emph>, n’est-ce pas <pc type="&int;" ana="&rh;">?</pc></p></sp>
+              
+      <sp who="#em1" toWhom="#abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><seg ana="mise_en_abyme">Comme <persPronouns corresp="#em1 #em2 #em3">nous</persPronouns> <w type="&p1;" function="&hab;">rattrapons</w> <emph corresp="#&tps;">le commencement</emph> avec <emph corresp="#&tps;">la fin</emph>, c’<w type="&p1;" function="&gen;">est</w> <seg ana="hyperbole">on ne <w type="&p1;" function="&gen;">peut</w> plus <seg ana="syllepse"><emph corresp="#&bt;">poétique</emph></seg>.</seg></seg></p></sp>
+               
+         <sp who="#o" toWhom="#em1 #em2 #em3">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p>Très intéressant.</p></sp>
+               
+     <sp who="#em1" toWhom="#o #em2 #em3">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><seg ana="mise_en_abyme">Puisque <persName ref="#el" type="&pn;">Électre</persName> <persPronouns corresp="#o">vous</persPronouns> <w type="&p1;" function="&ac;">intéresse</w>, <persPronouns corresp="#em1 #em2 #em3">nous</persPronouns> <w type="&p1;" function="&ac;">pouvons</w> réciter <seg ana="redondance"><persName ref="#el" type="&pn;">Électre</persName></seg>. <persPronouns corresp="#em1 #em2 #em3">Vous</persPronouns> y <w type="&p1;" function="&ac;">êtes</w>, <persName ref="#em1 #em2 #em3" type="&phr;">sœurs</persName> <pc type="&int;" ana="&rh;">?</pc> Nous <w type="&p1;"  function="&ac;">pouvons</w> réciter <seg ana="prolepse">ce qu’<persPronouns corresp="#el">elle</persPronouns> <w type="&i1;" function="&desc;">était</w>, <persName ref="#el" type="&pn;">Électre</persName>, <emph corresp="#&tps;">à notre âge</emph></seg>.</seg></p></sp>
+              
+     <sp who="#em2" toWhom="#em1">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+       <p><persPronouns corresp="#em2">Je</persPronouns> le <w type="&p1;" function="&ac;">pense</w>, que <persPronouns corresp="#em1 #em2 #em3">nous</persPronouns> y <w type="&p1;" function="&ac;">sommes</w> <pc type="&exc;" ana="&ett;">!</pc></p></sp>
+               
+     <sp who="#em3" toWhom="#em1 #abd">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+      <p><seg ana="antithèse">Depuis que <persPronouns corresp="#em1 #em2 #em3">nous</persPronouns> n’<w type="&i1;" function="&desc;">étions</w> pas nées, <emph corresp="#&tps;">depuis avant-hier</emph>,</seg> <persPronouns corresp="#em1 #em2 #em3">nous</persPronouns> y <w type="&p1;" function="&hab;">sommes</w> <pc type="&exc;" ana="&ett;">!</pc></p></sp>
+               
+      <sp who="#em1" toWhom="#abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><q rend="italics" ana="comptine"><persName ref="#el" type="&pn;">Électre</persName> <emph corresp="#&px;"><w type="&p1;" 
+ function="&hab;">s’amuse</w></emph> à <emph corresp="#&vl;">faire tomber</emph> <persName ref="#o" type="&pn;" >Oreste</persName>  des <emph corresp="#&tdr;">bras</emph>de <persName ref="#cly;" type="&phr;" >sa mère</persName>.</q></p></sp>
+              
+      <sp who="#em2" toWhom="#abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+       <p><q rend="italics" ana="comptine"><persName ref="#el" type="&pn;">Électre</persName> <w type="&p1;" function="&hab;">cire</w>l’<emph corresp="#&stat;">escalier du trône</emph> pour que <persName ref="#eg" type="&phr;" ><persName ref="#eg" type="&phr;">son oncle</persName>, Égisthe, <persName ref="#eg" type="&phr;">le régent</persName>,</persName> <seg ana="prolepse"><emph corresp="#&ld;"><w type="&p2;" function="&cert;">s’étale</w> </emph> sur <emph corresp="#&stat;">le marbre</emph> <pc type="&exc;" ana="&ett;">!</pc></seg></q></p></sp>
+               
+      <sp who="#em3" toWhom="#abd">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+      <p><q rend="italics" ana="comptine"><persName ref="#el" type="&pn;">Électre</persName> <w type="&p1;" function="&hab;">se prépare</w> à <emph corresp="#&vl; #&ld;">cracher</emph> à la figure de <persName ref="#o" type="&phr;" >son petit frère Oreste</persName>, si jamais <persPronouns corresp="#o">il</persPronouns> <w type="&p1;" function="&hyp;">revient</w>.</q></p></sp>
+               
+      <sp who="#em1" toWhom="#o">
+      <speaker rend="sc">Première petite fille.</speaker>
+       <p>Cela, ce n’<w type="&p1;" function="&ac;">est</w> pas vrai. Mais ça <w type="&p1;" function="&ac;">fait</w> <emph corresp="#&bt;">bien</emph>.</p></sp>
+               
+      <sp who="#em2" toWhom="#abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><q rend="italics" ana="comptine"><emph corresp="#&tps;">Depuis dix-neuf ans</emph> <persPronouns corresp="#el">elle</persPronouns> <emph corresp="#&ld;"><w type="&p1;" function="&hab;">amasse</w></emph> <lb/>
+Dans sa bouche un <emph corresp="#&ld;">crachat</emph> <emph corresp="#&vl;">fielleux</emph>.</q></p></sp>
+               
+     <sp who="#em3" toWhom="#jd #abd">
+      <speaker rend="sc">Troisième petite fille.</speaker>
+      <p><q rend="italics" ana="comptine"><persPronouns corresp="#el">Elle</persPronouns> <w type="&p1;" function="&hab;">pense</w> 
+à tes <emph corresp="#&bst; #&ld;">limaces</emph>,<lb/>
+<persName ref="#jd" type="&phr;">Jardinier</persName>, pour <emph corresp="#&ld;">saliver</emph> mieux.</q></p></sp>
+              
+     <sp who="#jd" toWhom="#em1 #em2 #em3">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p>Cette fois, <w type="&imp;" function="&od;">taisez</w>-<persPronouns corresp="#em1 #em2 #em3">vous</persPronouns>,  <persName ref="#em1 #em2 #em3" type="&phr;"><emph corresp="#&ld;">sales</emph> petites <emph corresp="#&bst; #&ld;">vipères</emph></persName><pc type="&exc;" ana="&irt;">!</pc></p></sp>
+               
+      <sp who="#em2" toWhom="#abd">
+       <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p>Ah là ! là <pc  type="&exc;" ana="&rll;">!</pc> <persName ref="#jd" type="&phr;">Le <emph corresp="#&bt;">marié</emph></persName> <emph corresp="#&vl;"><w type="&p1;" function="&ac;">se fâche</w></emph>.</p></sp>
+               
+     <sp who="#o" toWhom="#em1 #em2 #em3">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p><persPronouns corresp="#jd">Il</persPronouns> <w type="&p1;" function="&ac;">a</w> raison. <w type="&imp;" function="&od;"> Filez</w><pc type="&exc;" ana="&irt;">!</pc></p></sp>
+              
+     <sp who="#jd" toWhom="#em1 #em2 #em3">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p>Et ne <w type="&imp;" function="&od;">revenez</w> pas<pc type="&exc;" ana="&irt;">!</pc></p></sp>
+              
+      <sp who="#em1" toWhom="#jd #abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> <w type="&fs1;" function="&pred;">reviendrons</w> <emph corresp="#&tps;">demain</emph>.</p></sp>
+               
+     <sp who="#jd" toWhom="#em1 #em2 #em3">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p><w type="&imp;" function="&od;">Essayez</w> <pc type="&exc;" ana="&irt;">!</pc> <emph corresp="#&stat;">Le palais</emph> <w type="&p1;" function="&hab;">est</w> interdit aux <persName ref="#em1 #em2 #em3" type="&phr;">filles de votre âge</persName> <pc type="&exc;" ana="&irt;">!</pc></p></sp>
+              
+      <sp who="#em1" toWhom="#jd #abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><emph corresp="#&tps;">Demain</emph> <persPronouns corresp="#em1 #em2 #em3">nous</persPronouns> <w type="&fs1;" function="&pred;">serons</w> grandes.</p></sp>
+              
+      <sp who="#em2" toWhom="#abd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><seg ana="parataxe"><emph corresp="#&tps;">Demain</emph> <w type="&fs1;" function="&pred;">sera</w> <emph corresp="#&tps;">le lendemain du <emph corresp="#&bt;">mariage</emph></emph> d’<persName ref="#el" type="&pn;">Électre</persName> avec <persName ref="#jd" type="&phr;">son jardinier</persName>. <persPronouns corresp="#em1 #em2 #em3"> Nous</persPronouns> <w type="&fs1;" function="&pred;">serons</w> <seg ana="syllepse"><emph corresp="#&stat;">grandes</emph></seg></seg>.</p></sp>
+                   
+     <sp who="#o" toWhom="#jd">
+      <speaker rend="sc">L'Étranger.</speaker>
+      <p>Que <w type="&p1;" function="&ac;">disent</w>-<persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> <pc type="&int;" ana="&enq;">?</pc></p></sp>
+              
+     <sp who="#em1" toWhom="#o #abd">
+      <speaker rend="sc">Première petite fille.</speaker>
+      <p><seg ana="parataxe"><persPronouns corresp="#o">Tu</persPronouns> ne <persPronouns corresp="#em1 #em2 #em3">nous</persPronouns> <w type="&pc1;" function="&evm;">as pas défendues</w>, <persName ref="#o" type="&phr;">étranger</persName>, <persPronouns corresp="#o">tu t’</persPronouns>en <emph corresp="#&vt;"><emph corresp="#&dmn;"><w type="&fs1;" function="&pred;">repentiras</w></emph></emph><pc type="&exc;" ana="&irt;">!</pc></seg></p></sp>
+                 
+      <sp who="#jd" toWhom="#abd">
+      <speaker rend="sc">Le Jardinier.</speaker>
+      <p><persName ref="#em1 #em2 #em3" type="&phr;"><emph corresp="#&ld;">Affreuses</emph> petites <emph corresp="#&bst;">bêtes</emph></persName>. <seg ana="prolepse"><persPronouns corresp="#abd">On</persPronouns> <w type="&p3;" function="&hyp;">dirait</w> <persName ref="#em1 #em2 #em3" type="&phr;">trois petites <emph corresp="#&dmn;">Parques</emph></persName><pc type="&exc;" ana="&irt;">!</pc> C’<w type="&p1;" function="&gen;">est</w> <emph corresp="#&vl; #&ld;">effroyable</emph>, <persName ref="#em1 #em2 #em3" type="&phr;"> <emph corresp="#&dmn;">le destin</emph> <emph corresp="#&vt;">enfant</emph></persName></seg>.</p></sp>
+       <note>L'image de l'inéluctabilité du destin caractérisée par l'accélération des choses se trouve fait écho à la scène d'exposition de <span rend="italics">La Guerre de Trois n'aura pas lieu</span>, créée deux ans plus tôt, en 1935 (réplique de Cassandre à Andromaque: "Je vais te dire ce qu'est le destin. C'est tout simplement la forme accellérée du temps. C'est épouvantable.")</note>
+               
+     <sp who="#em2" toWhom="#jd">
+      <speaker rend="sc">Deuxième petite fille.</speaker>
+      <p><persName ref="#em1 #em2 #em3" type="&phr;"><emph corresp="#&dmn;">Le destin</emph></persName> <persPronouns corresp="#jd">te</persPronouns> <w type="&p1;" function="&ac;">montre</w> <emph corresp="#&ld;">son derrière</emph>, <persName ref="#jd" type="&phr;">jardinier</persName>. <w type="&imp;" function="&od;">Regarde</w> s’il <emph corresp="#&ld;"><w type="&p1;" function="&ac;">grossit</w></emph><pc type="&exc;" ana="&rll;">!</pc></p></sp>
+               
+         <sp who="#em1" toWhom="#em2 #em3">
+      <speaker rend="sc">Première petite fille.</speaker>
+          <p><w type="&imp;" function="&od;">Venez</w>, sœurs. <w type="&imp;" function="&od;">Laissons</w>-<persPronouns corresp="#jd #o">les</persPronouns> <persPronouns corresp="#jd #o">tous deux</persPronouns> devant leur façade <seg ana="prolepse"><emph corresp="#&ld;">gâteuse</emph></seg>.</p></sp>
+
+      <stage type="exit">Sortent les petites Euménides, devant qui s’écartent avec terreur les invités.</stage>
+    </div2>
+   </div1>
+
+         <!-- Quelques heures plus tard -->
+
+   <div1 type="act" n="2">
+   
+    <head>ACTE II</head>
+
+    <div2 type="scene" n="9" ana="Avant_dernière_scène">
+     <head rend="sc">Scène 9</head>
+
+     <castList><castItem>Électre.</castItem> <castItem>La femme Narsès.</castItem><castItem>Le mendiant.</castItem>
+     <castItem> Puis Oreste.</castItem></castList>
+
+     <sp who="#mdt" toWhom="#fns">
+      <speaker rend="sc">Le Mendiant</speaker>
+      <p><persPronouns corresp="#fns">Te</persPronouns> voilà, <persName ref="#fns" type="&phr;">femme Narsès <pc type="&int;"  ana="&rh;">?</pc></persName></p></sp>
+
+     <sp who="#fns" toWhom="#mdt #abd">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+      <p><persPronouns corresp="#abd">Nous</persPronouns> <w type="&p1;" function="&ac;">arrivons</w>,<persPronouns corresp="#abd"> tous</persPronouns>, <emph corresp="#&ld;">les mendiants</emph>, pour <emph corresp="#&vt;">sauver</emph> <persName ref="#el" type="&pn;">Électre</persName> et <persName ref="#o" type="&phr;">son frère</persName>, <emph corresp="#&ld;">les infirmes</emph>, <emph corresp="#&ld;">les aveugles</emph>, <emph corresp="#&ld;">les boiteux</emph>.</p></sp>
+
+      <sp who="#mdt" toWhom="#abd">
+      <speaker rend="sc">Le Mendiant</speaker>
+      <p><seg ana="allégorie">La <emph corresp="#&vt;">Justice</emph>, quoi <pc type="&exc;" ana="&desv;">!</pc></seg></p> </sp>
+         <note>Allusion aux représentations de la Justice en déesse aveugle.</note>
+
+      <sp who="#fns" toWhom="#abd">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+      <p>Ils <w type="&p1;" function="&ac;">sont</w> là, à <emph corresp="#&vt;">délier</emph> <persName ref="#o" type="&pn;">Oreste<pc type="&ssp;" ana="attente">…</pc></persName></p></sp>
+              
+     <stage type="entrance">Une foule de mendiants est entrée peu à peu.</stage>
+
+     <sp who="#mdt" toWhom="#fns #&el; #abd">
+      <speaker rend="sc">Le Mendiant</speaker>
+      <p decls="récit"><seg ana="mise_en_abyme">Comment <persPronouns corresp="#cly #eg">ils</persPronouns> <persPronouns corresp="#agm"> l</persPronouns>’<emph corresp="#&vl;"><w type="&pc1;" function="&evm;">ont tué</w></emph>, <persName ref="#fns" type="&phr;">femme Narsès</persName>, <w type="&imp;" function="&cnt;">écoute</w>.</seg> Voici comme tout s’<w type="&pc1;" function="&evm;">est passé</w>, et <emph corresp="#&vt;"><emph corresp="#&tps;">jamais</emph> <persPronouns corresp="#mdt">je</persPronouns> n’<w type="&p1;" function="&hab;">invente</w></emph>. C’<w type="&p1;" function="&ac;">est</w> <persName ref="#cly" type="&phr;"><emph corresp="#&stat;">la reine</emph></persName> qui <w type="&pc1;" function="&evm;">a eu</w> l’idée de savonner les marches qui <w type="&p1;" function="&hab;">descendent</w> à la piscine. <persPronouns corresp="#cly #eg">Ils</persPronouns> <w type="&pc1;" function="&evm;">ont fait</w> cela à <persPronouns corresp="#cly #eg"> eux deux</persPronouns>. <seg ana="zeugma">Alors que toutes les ménagères pour le retour d’<persName ref="#agm" type="&pn;" >Agamemnon</persName> <w type="&i1;" function="&ac2;">savonnaient</w> leur seuil, <persName ref="#cly" type="&phr;"><emph corresp="#&stat;">la reine</emph></persName> et <persName ref="#eg" type="&phr;" >son amant</persName> <w type="&i1;" function="&ac2;">savonnaient</w> le seuil de sa <emph corresp="#&vl;">mort</emph></seg>. <persPronouns corresp="#abd">On</persPronouns> <w type="&p1;" function="&ac;">peut</w> imaginer quelles <emph corresp="#&vt;">mains propres</emph><persPronouns corresp="#cly #eg">ils</persPronouns><w type="&i1;" function="&desc;">avaient</w>, <persPronouns corresp="#cly; #eg">ils</persPronouns> <persPronouns corresp="#agm">lui</persPronouns> <emph corresp="#&vt;"><w type="&pc1;" function="&evm;">ont offertes</w></emph>, quand <persName ref="#agm" type="&pn;">Agamemnon</persName> <w type="&pc1;" function="&evm;">est entré</w>. Et alors comme <persPronouns corresp="#agm">il</persPronouns> <w type="&i1;" function="&ac2;">tendait</w> <emph corresp="#&tdr;">les bras</emph>  vers <persPronouns corresp="#cly">elle</persPronouns>, <persPronouns corresp="#agm">il</persPronouns> <w type="&pc1;" function="&evm;">a glissé</w>, <persName ref="#agm" type="&phr;">ton père</persName>, <persName ref="#el" type="&pn;">Électre</persName>. <persPronouns corresp="#el">Tu</persPronouns> <emph corresp="#&vt;"><w type="&p1;" function="&ac;">as raison</w></emph>, excepté sur ce point. <persPronouns corresp="#agm">Il</persPronouns> <w type="&pc1;" function="&evm;">a glissé</w> jusqu’au milieu <emph corresp="#&stat;"> des dalles</emph>, et le <emph corresp="#&vl; #&ld;">fracas</emph> de <emph corresp="#&dmn;">la chute</emph>, à cause de la <emph corresp="#&stat;"> cuirasse</emph> et du <emph corresp="#&stat;">casque</emph> <w type="&i1;" function="&desc;">était</w> bien celui d’<persName ref="#agm" type="&phr;"><emph corresp="#&stat;">un roi</emph> qui <emph corresp="#&dmn;"><w type="&p1;" function="&gen;">tombe</w></emph></persName>, car tout <w type="&i1;" function="&desc;">était</w> de <emph corresp="#&stat;">l’or</emph>. <said ana="&ind;" who="#agm">Et <w type="&p1;" function="&ac;">c’est</w> <persPronouns corresp="#cly">elle</persPronouns> qui <w type="&pc1;" function="&evm;">s’est précipitée</w>, pour <persPronouns corresp="#agm">le</persPronouns> relever, <w type="&i1;" function="&ac2;">croyait</w>-<persPronouns corresp="#agm">il </persPronouns>, mais qui <persPronouns corresp="#agm">l</persPronouns>’<w type="&pc1;" function="&evm;">a maintenu</w>. <persPronouns corresp="#agm">Il</persPronouns> ne <w type="&i1;" function="&ac2;">comprenait</w> pas. <persPronouns corresp="#agm">Il</persPronouns> ne <w type="&i1;" function="&ac2;">comprenait</w>  pas <persName ref="#cly" type="&phr;">sa femme <emph corresp="#&tdr;">chérie</emph></persName> qui <persPronouns corresp="#agm">le</persPronouns> <emph corresp="#&vl;"> <w type="&i1;" function="&ac2;">maintenait</w></emph> à terre,  <persPronouns corresp="#agm">il</persPronouns> se <w type="&i1;" function="&ac2;">demandait</w> si <w type="&i1;" function="&desc;">c’était</w> dans un <emph corresp="#&tdr;">élan d’amour</emph>, mais alors pourquoi <persName ref="#eg" type="&phr;">cet Égisthe</persName> <w type="&i1;" function="&ac2;">restait</w>-<persPronouns corresp="#eg">il</persPronouns> <pc type="&int;" ana="&enq;">?</pc></said> <said ana="&lib;" who="#agm"><seg ana="euphémisme"><persPronouns corresp="#eg">Il</persPronouns> <w type="&i1;" function="&desc;">était</w> <emph corresp="#&ld;"> indiscret</emph>, <persName ref="#eg" type="&phr;">ce jeune Égisthe</persName>, et <emph corresp="#&ld;">maladroit</emph>.</seg> <persPronouns corresp="#agm">On</persPronouns> <w type="&p3;" function="&irr;">verrait</w> pour son avancement. <persPronouns corresp="#agm">Il</persPronouns> <w type="&p1;" function="&gen;">peut</w> être <emph corresp="#&ld;">vexé</emph>, <persName ref="#agm" type="&phr;">le <emph corresp="#&stat;">maître du monde</emph></persName>, qui <w type="&p1;" function="&gen;">tombe</w> en rentrant chez <persPronouns corresp="#agm"> lui</persPronouns>, qui <w type="&pc1;" function="&evm;">a pris</w> Troie, qui <w type="&p1;" function="&gen;">sort de passer </w> de <emph corresp="#&stat;">la grande revue navale</emph>, et <emph corresp="#&stat;">l’équestre</emph>, et <emph corresp="#&stat;">la pédestre</emph>, et qui <emph corresp="#&ld;"><persPronouns corresp="#abd">vous</persPronouns> <w type="&p1;" function="&gen;">dégringole</w></emph> sur le dos, avec <emph corresp="#&ld;">son bruit de vaisselle</emph>, même si <emph corresp="#&stat;">sa barbe</emph> <w type="&p1;" function="&gen;">reste</w> intacte et <emph corresp="#&stat;"> bouclée</emph>, devant <persName ref="#cly" type="&phr;">sa femme <emph corresp="#&tdr;">amoureuse</emph></persName> et <persName ref="#eg" type="&phr;">le jeune porte-enseigne</persName>. D’autant plus que cela <w type="&i1;" function="&hyp;">pouvait</w> être un <emph corresp="#&dmn;"> mauvais présage</emph>. <emph corresp="#&dmn;">Cette chute</emph> <w type="&i1;" function="&hyp;">pouvait</w> vouloir dire qu’<persPronouns corresp="#agm">il</persPronouns> <emph corresp="#&vl; #&dmn;"><w type="&p3;" function="&irr;">mourrait</w></emph> <emph corresp="#&tps;">dans un an</emph>, <emph corresp="#&tps;">dans cinq ans</emph>. Mais, ce qu’<persPronouns corresp="#agm">il</persPronouns><w type="&i1;" function="&ac2;">trouvait</w> <seg ana="euphémisme">singulier</seg>, c’<w type="&p1;" function="&ac;">est</w> que <persName ref="#cly" type="&phr;">son épouse <emph corresp="#&tdr;">bien-aimée</emph></persName> <persPronouns corresp="#agm">l’</persPronouns><emph corresp="#&vl;"><w type="&ps2;" function="&ac3;">eût saisi</w></emph> aux poignets et <emph corresp="#&vl;"><w type="&i2;" function="&ac3;">pesât</w></emph> de tout son poids pour le <emph corresp="#&vl;">clouer</emph> sur le dos, comme <persName ref="#cly" type="&phr;">la <emph corresp="#&ld;">pêcheuse</emph></persName> <w type="&p1;" function="&gen;">maintient</w> <persName ref="#agm">les <emph corresp="#&bst; #&ld;">grosses tortues échouées</emph></persName>, celles qui <w type="&p1;" function="&gen;">viennent</w> par le détroit. <persPronouns corresp="#cly">Elle</persPronouns> <w type="&i1;" function="&desc;"> avait</w> tort. <persPronouns corresp="#cly">Elle</persPronouns> n’en <w type="&i1;" function="&desc;">était</w> <seg ana="litote"> <emph corresp="#&ld;">pas plus belle</emph></seg>, ainsi penchée, avec le <emph corresp="#&vl;">sang</emph> à la tête, et le cou qui <w type="&i1;" function="&ac2;">prenait</w> <emph corresp="#&ld;">ses plis</emph>. Ce n’<w type="&i1;" function="&desc;">était</w> pas comme <persName ref="#eg" type="&phr;">le jeune Égisthe</persName>, qui <w type="&i1;" function="&ac2;">essayait</w> de <persPronouns  corresp="#agm">lui</persPronouns> tirer <emph corresp="#&vl; #&stat;">son épée</emph>, pour <persPronouns corresp="#agm">lui</persPronouns> éviter <emph corresp="#&vl;">du mal</emph> évidemment, et qui, <emph corresp="#&tps;">à chaque seconde</emph>, <w type="&i1;" function="&ac2;">devenait</w> <emph corresp="#&bt;">beau</emph>, <emph corresp="#&bt;">de plus en plus beau</emph>. Et, ce qui <w type="&i1;" function="&desc;">était</w> <emph corresp="#&dmn;">extraordinaire</emph>, c’est que <persName ref="#eg #cly">tous deux</persName> <w type="&i1;" function="&desc;">étaient</w> muets. <persPronouns corresp="#agm"> Lui</persPronouns> <persPronouns corresp="#cly #eg">leur</persPronouns> <w type="&i1;" function="&ac2;">parlait</w></said> : <said ana="&dir;" who="#agm"><persName ref="#cly" type="&phr;"><emph corresp="#&tdr;"> Chère</emph> femme</persName>, <w type="&i1;" function="&ac2;">disait </w>-<persPronouns corresp="#agm">il</persPronouns>, comme <persPronouns corresp="#cly">tu</persPronouns><w type="&p1;" function="&ac;">es</w> <emph corresp="#&tdr; #&vl;">forte</emph> <pc type="&exc;" ana="admiration">!</pc> <persName ref="#eg" type="&phr;"><emph corresp="#&tdr;">Jeune</emph> homme</persName>, <w type="&i1;" function="&ac2;">disait</w>-<persPronouns corresp="#agm">il</persPronouns>, <w type="&imp;" function="&csl;">prends</w> <emph corresp="#&stat; #&vl;">l’épée</emph> par la garde<pc type="&exc;" ana="&aut;">!</pc></said> Et <persPronouns corresp="#cly #eg">eux</persPronouns> <said ana="&lib;" who="#agm"><w type="&i1;" function="&desc;">étaient</w> muets ; <persPronouns corresp="#abd">on</persPronouns> <w type="&pp1;" function="&ac3;">avait oublié</w> de <persPronouns corresp="#agm">lui</persPronouns> dire cela <emph corresp="#&tps;">pendant ses dix ans</emph> d’absence, <persName ref="#cly" type="périphrase">la reine</persName> <w type="&i1;" function="&desc;">était</w> <persName ref="#cly" type="&phr;">une muette</persName>, les écuyers <w type="&i1;" function="&desc;">étaient</w> des muets. Muets <persPronouns corresp="#cly #abd">ils</persPronouns> <w type="&i1;" function="&desc;">étaient</w> comme <persPronouns corresp="#abd">ceux</persPronouns> qui <w type="&p1;" function="&gen;">préparent</w> une malle quand le départ <w type="&p1;" function="&gen;"> presse</w>. <persPronouns corresp="#abd #cly #eg">Ils</persPronouns> <w type="&i1;" function="&desc;">avaient</w> <seg ana="euphémisme"> quelque chose à faire</seg>, mais vite, avant que personne <w type="&i2;" function="&hyp;">pût</w> entrer. Quel bagage <w type="&i1;" 
+ function="&desc;">avaient</w>-<persPronouns corresp="#cly #eg">ils</persPronouns> à faire si vite <pc type="&int;" ana="&enq;">?</pc> Et soudain le <emph corresp="#&vl;">coup de pied</emph> donné par <persName ref="#eg" type="&pn;">Égisthe</persName> au <emph corresp="#&stat;"> casque</emph> <persPronouns corresp="#agm">lui</persPronouns> <w type="&ps1;" function="&ac1;">apprit</w> tout, comme au <persName ref="#agm" type="&phr;"><emph corresp="#&vl; #&ld;">mourant</emph></persName> le <emph corresp="#&vl;">coup de pied</emph> donné à son <emph corresp="#&bst; #&ld;"> chien</emph>.</said> Et <persPronouns corresp="#agm">il</persPronouns> <emph corresp="#&vl;"><w type="&ps1;" function="&ac1;">cria</w></emph> : <said ana="&dir;" who="#agm"><persName ref="#cly" type="&phr;">Femme</persName>, <w type="&imp;" function="&od;">lâche</w>-<persPronouns corresp="#agm">moi</persPronouns> <pc type="&exc;" ana="&irt;">!</pc> <persName ref="#cly" type="&phr;">Femme</persName>, que <w type="&p1;" function="&ac;">fais</w>-<persPronouns corresp="#cly">tu</persPronouns> là <pc type="&exc;" ana="surprise">!</pc></said> <persPronouns corresp="#cly">Elle</persPronouns> se <w type="&i1;" function="&ac2;">gardait</w> de dire ce qu’<persPronouns corresp="#cly">elle </persPronouns> <w type="&i1;" function="&ac2;">faisait</w>. <persPronouns corresp="#cly">Elle</persPronouns> ne <w type="&i1;" function="&ac2;">pouvait</w> <persPronouns corresp="#agm">lui</persPronouns> répondre : <said ana="&dir;" who="#cly"><persPronouns corresp="#cly">je </persPronouns> <persPronouns corresp="#agm"> te</persPronouns> <emph corresp="#&vl;"><w type="&p1;" function="&ac;">tue</w></emph>, <persPronouns corresp="#cly">je</persPronouns> <persPronouns corresp="#agm">t’</persPronouns><emph corresp="#&vl;"><w type="&p1;" function="&ac;"> assassine</w></emph>. </said> Mais <persPronouns corresp="#cly">elle</persPronouns> se le<w type="&i1;" function="&ac2;">disait</w> tout bas à <persPronouns corresp="#cly">elle-même</persPronouns> ; <said ana="&dir;" who="#cly"><persPronouns corresp="#cly">je</persPronouns> <persPronouns corresp="#agm">le</persPronouns> <emph corresp="#&vl;"><w type="&p1;" function="&ac;">tue</w></emph> parce qu’il n’y <w type="&p1;" function="&ac;">a</w> pas un seul poil <emph corresp="#&ld;">gris</emph> dans <emph corresp="#&stat;">cette barbe</emph>, <persPronouns corresp="#cly"> je</persPronouns> <persPronouns corresp="#agm">l’</persPronouns><emph corresp="#&vl; #&dmn;"><w type="&p1;" function="&ac;">assassine</w></emph> parce que <w type="&p1;" function="&ac;">c’est</w> le seul moyen d’<emph corresp="#&vl; #&dmn;">assassiner</emph> ce <emph corresp="#&stat; #&ld;"> petit doigt</emph>.</said> Des <emph corresp="#&vl; #&bst;">dents</emph>, <persPronouns corresp="#cly">elle</persPronouns> <w type="&pp1;" function="&ac3;">avait délié</w> le lacet de la <emph corresp="#&stat;">cuirasse</emph>, et <seg ana="personnification">les lèvres <emph corresp="#&stat; #&bt;">d’or</emph></seg><emph corresp="#&tps;">déjà</emph> <w type="&i1;" function="&ac2;">s’écartaient</w>,et <persName ref="#eg" type="&pn;">Égisthe</persName> – <said ana="&lib;" who="#agm">Ah<pc type="&exc;" ana="révélation">!</pc> voilà pourquoi <persPronouns corresp="#eg">il</persPronouns> <w type="&i1;" function="&desc;">était</w> <emph corresp="#&bt;">beau</emph>, <persName ref="#eg" type="&pn;">Égisthe</persName><pc type="&exc;" ana="révélation">!</pc> </said> <seg ana="personnification">Cette <emph corresp="#&bt;">beauté</emph>, <persName ref="#agm" type="&pn;">Agamemnon</persName> l’<w type="&pp1;" function="&evm;">avait vue</w> <emph corresp="#&vl;">envahir</emph> Achille <emph corresp="#&vl;">tuant</emph> Hector</seg>, Ulysse <emph corresp="#&vl;">tuant</emph> Dolon –, <w type="&i1;" function="&ac2;">approchait</w>, <emph corresp="#&vl; #&stat;">l’épée</emph> renversée. <emph corresp="#&tps;">Alors</emph> <persName ref="#agm" type="&phr;"> <emph corresp="#&stat;">le roi des rois</emph></persName> <w type="&ps1;" function="&ac1;">donna</w> de <emph corresp="#&vl;">grands coups de pied</emph> dans le dos de <persName ref="#cly;" type="&pn;">Clytemnestre</persName>, à chacun <persPronouns corresp="#cly">elle</persPronouns> <emph corresp="#&vl;"><w type="&i1;" function="&ac2;">sursautait</w></emph> toute, <persName ref="#cly" type="&phr;">la tête muette</persName> <emph corresp="#&vl;"><w type="&i1;" function="&ac2;">sursautait</w> </emph> et se <emph corresp="#&vl;"><w type="&i1;" function="&ac2;">crispait</w></emph>, et <persPronouns corresp="#agm">il</persPronouns> <w type="&ps1;" function="&ac1;">cria</w>, et <emph corresp="#&tps;">alors</emph> pour couvrir <persName ref="#agm" type="&phr;">la voix</persName>, <persName ref="#eg" type="&phr;">Égisthe</persName> <w type="&i1;" function="&ac2;">poussait</w> de <emph corresp="#&px;">grands éclats de rire</emph>, d’un visage <emph corresp="#&ld;">rigide</emph>. Et <persPronouns corresp="#eg">il</persPronouns> <w type="&ps1;" function="&ac1;">plongea</w> <emph corresp="#&vl; #&stat;">l’épée</emph>. Et <persName ref="#agm" type="&phr;">le roi des rois</persName> n’<w type="&i1;" function="&desc;">était</w> pas ce <emph corresp="#&stat; #&vl;">bloc d’airain et de fer</emph> qu’<persPronouns corresp="#agm">il</persPronouns> <w type="&i1;" function="&ac;">imaginait</w>, c’<w type="&i1;" function="&desc;">était</w> une <persName ref="#agm" type="&phr;"><emph corresp="#&tdr; #&bst;">douce chair</emph>, facile à <emph corresp="#&vl;">transpercer</emph> comme <emph corresp="#&tdr; #&vt; #&bst;">l’agneau</emph></persName> ; <persPronouns corresp="#eg">il</persPronouns> y <w type="&ps1;" function="&ac1;">alla</w> <emph corresp="#&vl;">trop fort</emph>, <emph corresp="#&vl; #&stat;">l’épée</emph> <emph corresp="#&vl;"><w type="&ps1;" function="&ac1;">entailla</w></emph> <emph corresp="#&stat;">la dalle</emph>. <seg ana="personnification"><persName ref="#cly #eg" type="&phr;">Les assassins</persName> <w type="&p1;" function="&gen;">ont tort</w> de <emph corresp="#&vl;">blesser</emph> <emph corresp="#&stat;">le marbre</emph>, il <w type="&p1;" function="&gen;">a</w> <emph corresp="#&dmn;">sa rancune</emph></seg> : c’<w type="&p1;" function="&ac;">est</w> à <emph corresp="#&vl;">cette entaille</emph> que <persPronouns corresp="#mdt">moi, j’</persPronouns> <w type="&pc1;" function="&evm;">ai deviné</w> <emph corresp="#&dmn; #&vl;">le crime</emph>. <said ana="&lib;" who="#agm"><emph corresp="#&tps;">Alors</emph> <persPronouns corresp="#agm">il</persPronouns> <w type="&ps1;" function="&ac1;">cessa</w> de lutter ; <seg ana="parallélisme">entre <persName ref="#cly" type="&phr;">cette femme de plus en plus <emph corresp="#&ld;">laide</emph></persName> et <persName ref="#eg" type="&phr;">cet homme <emph corresp="#&bt; #&vt;">de plus en plus beau</emph></persName></seg>, <persPronouns corresp="#agm">il</persPronouns> <w type="&ps1;" function="&ac1;">se laissa</w> aller ; <seg ana="personnification"><emph corresp="#&dmn; #&vl;">la mort</emph> <w type="&p1;" function="&gen;">a</w> ceci de<emph corresp="#&px;"> bon</emph> qu’<persPronouns corresp="#abd">on</persPronouns> <w type="&p1;" function="&gen;">peut</w> <emph corresp="#&tdr; #&px;">se confier</emph> à elle ; c’<w type="&i1;" function="&desc;">était</w> sa seule <emph corresp="#&tdr;">amie</emph> dans ce <emph corresp="#&vl;">guet-apens</emph>, <emph corresp="#&vl; #&dmn;">la mort</emph> ; elle <w type="&i1;" function="&desc;">avait</w> d’ailleurs un <emph corresp="#&tdr;">air de famille</emph>, un air qu’<persPronouns corresp="#agm">il</persPronouns> <w type="&i1;" function="&ac2;">reconnaissait</w>,</seg></said> <said ana="&ind;" who="#agm"> et il <w type="&ps1;" function="&ac1;">appela</w> <persName ref="#&el; #o" type="&phr;">ses enfants</persName>, <persName ref="#o" type="&phr;">le garçon d’abord, Oreste</persName>, pour <persPronouns corresp="#o">le</persPronouns> <emph corresp="#&tdr;">remercier</emph> de <persPronouns corresp="#agm">le</persPronouns> <emph corresp="#&vl;">venger</emph> un jour, puis <persName ref="#el" type="&phr;">la fille, Électre</persName>, pour <persPronouns corresp="#el">la</persPronouns> <emph corresp="#&tdr;">remercier</emph> de prêter ainsi <emph corresp="#&tps;">pour une minute</emph> <emph corresp="#&tdr;">son visage et ses mains</emph> à <emph corresp="#&vl; #&dmn;">la mort</emph>. Et <persName ref="#cly" type="&pn;">Clytemnestre</persName> ne le <w type="&i1;" function="&ac2;">lâchait</w> pas, <emph corresp="#&ld; #&bst;">une mousse à ses lèvres,</emph> et <persName ref="#agm" type="&pn;">Agamemnon</persName> <w type="&i1;" function="&ac2;">voulait</w> bien <emph corresp="#&vl;">mourir</emph>, mais pas que <persName ref="#cly" type="&phr;">cette femme</persName><emph corresp="#&vl; #&ld;"><w type="&i2;" function="&hyp;">crachât</w></emph> sur son <emph corresp="#&stat;">visage</emph>, sur <emph corresp="#&stat;">sa barbe</emph>.</said> Et <persPronouns corresp="#cly">elle</persPronouns> ne <emph corresp="#&vl; #&ld;"><w type="&ps1;" function="&ac1;">cracha</w></emph> pas, tout occupée à tourner autour du <persName ref="#agm"><emph corresp="#&vl;">corps</emph></persName>,à cause du <emph corresp="#&vl;">sang</emph> qu’<persPronouns corresp="#cly">elle</persPronouns> <w type="&i1;" function="&ac2;">évitait</w> aux sandales, <persPronouns corresp="#cly">elle</persPronouns> <w type="&i1;" function="&ac2;">tournait</w> dans sa robe <seg ana="syllepse">rouge</seg>, et <persPronouns corresp="#agm">lui</persPronouns> déjà <emph corresp="#&vl;"> <w type="&i1;" function="&ac2;">agonisait</w></emph>, <said ana="&ind;" who="#agm">et <persPronouns corresp="#agm">il</persPronouns> <emph corresp="#&fl;"><w type="&i1;" function="&ac2;">croyait voir</w></emph> tourner autour de <persPronouns corresp="#agm">lui</persPronouns> <persName ref="#cly" type="&phr;"><emph corresp="#&stat;">le <emph corresp="#&bt; #&stat;">soleil</emph></emph></persName>.<emph corresp="#&tps;"> Puis</emph> <w type="&ps1;" function="&ac1;">vint</w> <emph corresp="#&dmn; #&vl; #&de;">l’ombre</emph>.</said> C’est que <emph corresp="#&tps;">soudain</emph>, chacun d’<persPronouns corresp="#cly #eg">eux</persPronouns> par un bras, <persPronouns corresp="#agm">l’</persPronouns><emph corresp="#&vl;"><w type="&pp1;" function="&ac3;">avaient retourné contre le sol</w></emph>. À la main droite quatre doigts <emph corresp="#&tps;">déjà</emph> ne <w type="&i1;" function="&ac2;">bougeaient</w> plus. <emph corresp="#&tps;">Et puis</emph>, comme <persName ref="#eg" type="&pn;">Égisthe</persName> <w type="&pp1;" function="&ac3;">avait retiré</w> <emph corresp="#&vl; #&stat;">l’épée</emph> sans y penser, <persPronouns corresp="#cly #eg">ils</persPronouns> <persPronouns corresp="#agm">le</persPronouns> <w type="&ps1;" function="&ac1;">retournèrent</w> <emph corresp="#&tps;">à nouveau</emph>, et <persPronouns corresp="#agm">lui</persPronouns> la <w type="&ps1;" function="&ac1;">remit</w> <emph corresp="#&tdr;">bien doucement</emph>, <emph corresp="#&tdr;">bien posément</emph> dans la <emph corresp="#&vl;">plaie</emph>. <said ana="&lib;" who="#eg">Et <persName ref="#eg" type="&phr;">ce jeune Égisthe</persName> <w type="&i1;" function="&ac2;">éprouvait</w> de la <emph corresp="#&px;">gratitude</emph> pour <persName ref="#agm" type="&phr;"><emph corresp="#&vl; #&de;">ce mort</emph></persName> qui <emph corresp="#&tps;">la seconde fois</emph> <seg ana="antithèse"><w type="&i1;" function="&ac2;">se laissait</w> <emph corresp="#&vl;">tuer</emph> <emph corresp="#&tdr;">si doucement</emph>, <emph corresp="#&tdr;">si doucement</emph></seg>. <persPronouns corresp="#eg #abd">On</persPronouns> <persPronouns corresp="#agm">en</persPronouns> <emph corresp="#&vl;"><w type="&p3;" function="&irr;">tuerait</w></emph> des douzaines, de <persName ref="#agm" type="&phr;"><emph corresp="#&stat;">rois des rois</emph></persName>, si <w type="&i1;" function="&gen;">c’était</w> cela le <emph corresp="#&vl; #&dmn;">meurtre</emph>.</said> <seg ana="personnification"> Mais la <emph corresp="#&vl;">haine</emph> de <persName ref="#cly" type="&pn;">Clytemnestre</persName> <w type="&i1;" function="&hab;">grandissait</w></seg> <said ana="&lib;" who="#cly">pour <persPronouns corresp="#agm">celui</persPronouns>qui <emph corresp="#&vl;"><w type="&pp1;" function="&ac3;">s’était débattu</w></emph> <emph corresp="#&vl; #&bst;">si bêtement</emph>, <emph corresp="#&vl; #&bst;">si férocement</emph></said>, car <persPronouns corresp="#cly">elle</persPronouns> <w type="&i1;" function="&desc;">savait</w> que <emph corresp="#&tps;">chaque nuit</emph> <persPronouns corresp="#cly">elle</persPronouns><w type="&p3;" function="&pred;">verrait</w> dans un <emph corresp="#&fl;">cauchemar</emph>ce <emph corresp="#&vl;">massacre</emph>. Et c<w type="&p1;" function="&ac;">’est</w> bien ce qui <w type="&ps1;" function="&rec;">arriva</w>. Et c’<w type="&p1;" function="&ac;">est</w> bien là <emph corresp="#&dmn;">le compte de son crime</emph>. <seg ana="chiasme"><emph corresp="#&tps;">Voilà sept ans</emph> qu’<persPronouns corresp="#cly">elle</persPronouns> <persPronouns corresp="#agm">l</persPronouns><emph corresp="#&vl;"> <w type="&pc1;" function="&evm;">'a tué</w></emph> : <persPronouns corresp="#cly">elle</persPronouns> <persPronouns corresp="#agm">l</persPronouns>’<emph corresp="#&vl;"><w type="&pc1;" function="&evm;">a tué</w></emph> <emph corresp="#&tps; #&dmn;">trois mille fois</emph>.</seg></p></sp>
+     
+      <stage>Oreste est entré pendant le récit.</stage>
+
+      <sp who="#fns" toWhom="#abd">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+      <p>Voilà <persName ref="#o" type="&phr;">le <emph corresp="#&bt;">jeune</emph> homme </persName><pc type="&exc;" ana="&ett;">!</pc> 
+         Qu’<persPronouns corresp="#o">il</persPronouns> <w type="&p1;" function="&ac;">est</w> <emph corresp="#&bt;">beau</emph><pc type="&exc;" 
+         ana="admiration">!</pc></p></sp>
+
+      <sp who="#mdt" toWhom="#abd">
+      <speaker rend="sc">Le Mendiant</speaker>
+        <p>De la <emph corresp="#&bt;">beauté</emph> <persName ref="#eg" type="&phr;">du jeune Égisthe</persName>.</p></sp>
+
+     <sp who="#o" toWhom="#el">
+      <speaker rend="sc">Oreste</speaker>
+       <p>Où <w type="&p1;" function="&ac;">sont</w>-<persPronouns corresp="#cly #eg">ils</persPronouns>, <persName ref="#el" type="&pn;">Électre</persName> <pc type="&int;" ana="&enq;">?</pc></p></sp>
+
+     <sp who="#el" toWhom="#o">
+      <speaker rend="sc">Électre.</speaker>
+      <p><persName ref="#o" type="&phr;">Oreste <emph corresp="#&tdr;">chéri</emph></persName><pc type="&exc;" ana="&ett;">!</pc></p></sp>
+
+     <sp who="#fns" toWhom="#o">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+      <p>Dans la <emph corresp="#&stat;">cour du sud</emph>.</p></sp>
+
+     <sp who="#o" toWhom="#el">
+      <speaker rend="sc">Oreste</speaker>
+       <p><emph corresp="#&tps;">À tout à l’heure</emph>, <persName ref="#el" type="&pn;">Électre</persName>, et<emph corresp="#&tps;"> pour toujours</emph><pc type="&exc;" ana="&ett;">!</pc></p></sp>
+
+     <sp who="#el" toWhom="#o">
+      <speaker rend="sc">Électre.</speaker>
+        <p><w type="&imp;" function="&od;">Va</w>, <persName ref="#o" type="&phr;"><emph corresp="#&tdr;">mon amour</emph></persName>.</p></sp>
+
+     <sp who="#o" toWhom="#mdt">
+      <speaker rend="sc">Oreste</speaker>
+        <p><seg ana="mise_en_abyme">Pourquoi t’interrompre, <persName ref="#mdt" type="&phr;">mendiant</persName>. <w type="&imp;" function="&od;">Continue</w>. <w type="&imp;" function="&cnt;">Raconte-</w><persPronouns corresp="#&el; #fns #abd">leur</persPronouns><emph corresp="#&vl; #&dmn;">la mort</emph> de <persName ref="#cly" type="&pn;">Clytemnestre</persName> et d’<persName ref="#eg" type="&pn;">Égisthe</persName><pc type="&exc;" ana="&ett;">!</pc></seg></p></sp>
+       
+     <stage>Il sort l’épée en main.</stage>
+
+     <sp who="#fns" toWhom="#mdt">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+        <p><w type="&imp;" function="&cnt;">Raconte</w>, <persName ref="#mdt" type="&phr;">mendiant</persName>.</p></sp>
+
+     <sp who="#mdt" toWhom="#fns">
+      <speaker rend="sc">Le Mendiant</speaker>
+      <p><emph corresp="#&tps;">Deux minutes.</emph> <w type="&imp;" function="&od;">Laisse</w><persPronouns corresp="#o">-lui</persPronouns> <emph corresp="#&tps;">le temps d’arriver</emph>.</p></sp>
+
+      <sp who="#el" toWhom="#abd">
+      <speaker rend="sc">Électre.</speaker>
+       <p><persPronouns corresp="#o">Il</persPronouns> <w type="&p1;" function="&ac;">a</w> <emph corresp="#&vl; #&stat;">son épée</emph> <pc type="&int;" ana="&enq;">?</pc></p></sp>
+
+     <sp who="#fns" toWhom="#el">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+        <p>Oui, <persName ref="#el" type="&phr;"><emph corresp="#&tdr;">ma fille</emph></persName>.</p></sp>
+
+     <sp who="#mdt" toWhom="#fns">
+      <speaker rend="sc">Le Mendiant</speaker>
+       <p><persPronouns corresp="#fns">Tu</persPronouns> n’<w type="&p1;" function="&ac;">es</w> pas <emph corresp="#&fl;">folle</emph> d’appeler <persName ref="#el" type="&phr;"><emph corresp="#&stat;">la princesse</emph></persName> ta fille<pc type="&int;" ana="&rh;">?</pc></p></sp>
+
+     <sp who="#fns" toWhom="#mdt">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+       <p><persPronouns corresp="#fns">Je</persPronouns> l’<w type="&p1;" function="&ac;">appelle</w> <persName ref="#el" type="&phr;"><emph corresp="#&tdr;">ma fille</emph></persName>. <persPronouns corresp="#fns">Je</persPronouns> ne <persPronouns corresp="#el">lui</persPronouns> <w type="&p1;" function="&ac;">dis</w> pas qu’<persPronouns corresp="#el">elle</persPronouns> <w type="&p1;" function="&ac;">est</w> <persName ref="#el" type="&phr;">ma fille</persName>. <persPronouns corresp="#fns">Je</persPronouns> <persPronouns corresp="#agm">l’</persPronouns><w type="&pc1;" function="&evm;">ai pourtant vu</w> <emph corresp="#&tps;">souvent</emph>, <persName ref="#agm" type="&phr;">son père</persName>. Oh, mon Dieu, <persName ref="#agm" type="&phr;">le <emph corresp="#&bt;">bel homme</emph></persName><pc  type="&exc;" ana="admiration">!</pc></p></sp>
+
+     <sp who="#el" toWhom="#fns">
+      <speaker rend="sc">Électre.</speaker>
+      <p><persPronouns corresp="#agm">Il</persPronouns> <w type="&i1;" function="&desc;">avait</w> <emph corresp="#&stat;">une barbe</emph>, n’est-ce pas <pc type="&int;" ana="&rh;">?</pc></p></sp>
+
+     <sp who="#fns" toWhom="#el">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+      <p><seg ana="anaphore">Pas une barbe. <emph corresp="#&stat; #&bt;">Un soleil</emph>. <emph corresp="#&stat; #&bt;">Un soleil annelé, ondulé</emph>. <emph corresp="#&stat; #&bt;">Un soleil</emph> d’où <w type="&i1;" function="&desc;">venait</w> de se retirer la mer. </seg><persPronouns corresp="#agm">Il</persPronouns> y <w type="&i1;" function="&hab;">passait</w> <emph corresp="#&stat;">sa main</emph>. La <emph corresp="#&bt;">plus belle</emph> <emph corresp="#&stat;">main</emph> que <persPronouns corresp="#fns">j</persPronouns>’<w type="&ps2;" function="&cert;">ai vue</w> <emph corresp="#&stat;">au monde</emph><pc type="&ssp;" ana="&attd;">…</pc></p></sp>
+
+     <sp who="#el" toWhom="#fns">
+      <speaker rend="sc">Électre.</speaker>
+        <p><w type="&imp;" function="&od;">Appelle</w>-<persPronouns corresp="#el">moi</persPronouns> <persName ref="#el" type="&phr;"> <emph corresp="#&tdr;">ta fille</emph></persName>, <persName ref="#fns" type="&phr;">femme Narsès</persName>, <persPronouns corresp="#el">je</persPronouns> <w type="&p1;" function="&ac;">suis</w> <seg ana="redondance"><persName ref="#el" type="&phr;"><emph corresp="#&tdr;">ta fille</emph></persName></seg><pc type="&ssp;" ana="&ett;">…</pc><persPronouns corresp="#abd #cly #eg">On</persPronouns> <emph corresp="#&vl;"><w type="&pc1;" function="&evm;">a crié</w></emph> <pc type="&exc;" ana="&ett;">!</pc></p></sp>
+
+     <sp who="#fns" toWhom="#el">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+      <p>Non, <persName ref="#el" type="&phr;"><emph corresp="#&tdr;">ma fille</emph></persName> <pc type="&exc;" ana="&aut;">!</pc></p></sp>
+
+     <sp who="#el" toWhom="#fns">
+      <speaker rend="sc">Électre.</speaker>
+       <p><persPronouns corresp="#fns">Tu</persPronouns> <w type="&p1;" function="&ac;">es</w> sûre qu’<persPronouns corresp="#agm #o">il</persPronouns> <w type="&i1;" function="&desc;">avait</w> <emph corresp="#&stat; #&vl;">son épée</emph>, qu’<persPronouns corresp="#agm #o">il</persPronouns> ne s’<w type="&pc1;" function="&evm;">est pas trouvé</w> devant <persPronouns corresp="#cly #eg">eux </persPronouns> sans <seg ana="redondance"><emph corresp="#&stat; #&vl;">épée</emph>
+          </seg> <pc type="&int;" ana="&rh;">?</pc></p></sp>
+
+     <sp who="#fns" toWhom="#el">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+      <p>Tu <persPronouns corresp="#agm">l’</persPronouns><w type="&pc1;" function="&evm;">as bien vu</w> passer <pc type="&exc;" ana="&aut;">!</pc> <persPronouns corresp="#agm">Il</persPronouns> en <w type="&i1;" function="&desc;">avait</w> <seg ana="hyperbole"><emph corresp="#&stat;">mille</emph></seg><pc type="&exc;" ana="&aut;">!</pc> <w type="&imp;" function="&od;">Calme</w>-<persPronouns corresp="#el">toi</persPronouns>. <w type="&imp;" function="&od;">Calme</w>-<persPronouns corresp="#el">toi</persPronouns>.</p></sp>
+
+     <sp who="#el" toWhom="#cly; #abd">
+      <speaker rend="sc">Électre.</speaker>
+      <p>Qu’elle <w type="&i1;" function="&desc;">était</w> longue <emph corresp="#&tps;">la minute</emph> où <persPronouns corresp="#cly;">tu</persPronouns> <w type="&pc1;" function="&evm;">as attendu</w> au seuil de la piscine, <persName ref="#cly" type="&phr;">ô ma mère</persName><pc type="&exc;"
+         ana="&ett;">!</pc></p></sp>
+
+     <sp who="#fns" toWhom="#mdt">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+      <p>Si <persPronouns corresp="#mdt">tu</persPronouns> <w type="&i1;" function="&od;">racontais</w>, <persPronouns corresp="#mdt">toi</persPronouns><pc  type="&exc;" ana="&irt;">!</pc> <seg ana="mise_en_abyme"><seg ana="enallage">Tout <emph corresp="#&tps;"><w type="&fa1;" function="&poss;">sera fini</w></emph> que <persPronouns corresp="#abd">nous</persPronouns> ne <w type="&fs1;" function="&poss;">saurons</w> rien<pc type="&exc;" 
+         ana="&irt;">!</pc></seg></seg></p></sp>
+
+     <sp who="#mdt" toWhom="#fns">
+      <speaker rend="sc">Le Mendiant.</speaker>
+      <p><emph corresp="#&tps;">Une minute</emph>. <persPronouns corresp="#o">Il</persPronouns><persPronouns corresp="#cly #eg">les</persPronouns> <w type="&p1;" function="&ac;">cherche</w>.<emph corresp="#&tps;">Voilà</emph> <pc type="&exc;" ana="&ett;">!</pc><persPronouns corresp="#o">Il</persPronouns> <persPronouns corresp="#cly #eg">les</persPronouns> <w type="&p1;" function="&ac;">rejoint</w><pc type="&exc;" ana="&ett;">!</pc></p></sp>
+
+      <sp who="#fns" toWhom="#abd">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+       <p>Oh <pc type="&exc;" ana="&desv;">!</pc> Moi, je <w type="&p1;" function="&ac;">peux</w> attendre. <w type="&p1;" function="&ac;">C’est</w> <emph corresp="#&tdr;">doux</emph> de <persPronouns corresp="#el">la</persPronouns> <emph corresp="#&tdr;">toucher</emph>, <persName ref="#el" type="&phr;">cette <emph corresp="#&tdr;">petite</emph> Électre</persName>. Je n’<w type="&p1;" function="&ac;">ai</w> que <emph corresp="#&vl;">des garçons, des bandits</emph>. <emph corresp="#&px;">Heureuses <persName ref="#cly">les mères</persName></emph> qui <w type="&p1;" function="&gen;">ont</w> <emph corresp="#&tdr;">des filles</emph> <pc type="&exc;" ana="&attd;">!</pc></p></sp>
+
+      <sp who="#el" toWhom="#fns #abd">
+      <speaker rend="sc">Électre.</speaker>
+      <p>Oui<pc type="&ssp;" ana="trouble">…</pc> <emph corresp="#&px;">Heureuses</emph><pc type="&ssp;" ana="trouble">…</pc> <persPronouns corresp="#cly #eg">On</persPronouns> <emph corresp="#&vl;"><w type="&pc1;" function="&evm;">a crié</w></emph>, cette fois <pc  type="&exc;" ana="&ett;">!</pc></p></sp>
+
+     <sp who="#fns" toWhom="#el">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+      <p>Oui, <persName ref="#el" type="&phr;"><emph corresp="#&tdr;">ma fille</emph></persName>.</p></sp>
+
+      <sp who="#mdt" toWhom="#abd">
+      <speaker rend="sc">Le Mendiant</speaker>
+      <p decls="récit"><seg ana="mise_en_abyme"><emph corresp="#&tps;">Alors voici la fin</emph></seg>. <persName ref="#fns">La femme Narsès </persName> et <emph corresp="#&ld;">les mendiants</emph> <emph corresp="#&vt;"><w type="&ps1;" function="&ac1;">délièrent</w></emph> <persName ref="#o" type="&pn;">Oreste</persName>. <persPronouns corresp="#o">Il</persPronouns> se <w type="&ps1;" function="&ac1;">précipita</w> à travers <emph corresp="#&stat;">la cour</emph>. <seg ana="prétérition"><persPronouns corresp="#o">Il</persPronouns> <emph corresp="#&tdr;">ne <w type="&ps1;" function="&ac1;">toucha</w> même pas</emph>, <persPronouns corresp="#o">il</persPronouns> <emph corresp="#&tdr;"> n<w type="&ps1;" function="&ac1;">’embrassa</w> même pas</emph><persName ref="#el" type="&pn;">Électre</persName>.</seg> <persPronouns  corresp="#o">Il</persPronouns> <w type="&pc1;" function="&evm;">a eu </w>tort. <persPronouns corresp="#o">Il</persPronouns> ne <persPronouns corresp="#el">la</persPronouns> <emph corresp="#&tdr;"><w type="&fs1;" function="&pred;">touchera</w></emph> <emph corresp="#&tps; #&dmn;">jamais plus</emph>. Et <persPronouns corresp="#o">il</persPronouns> <w type="&ps1;" function="&ac1;">atteignit</w> <persName ref="#cly; #eg" type="&phr;">les <emph corresp="#&dmn;">assassins</emph></persName> <emph corresp="#&tps;">comme</emph> <persPronouns corresp="#cly; #eg">ils</persPronouns> <w type="&i1;" function="&ac2;">parlementaient</w> avec <emph corresp="#&vl;">l’émeute</emph>, de la niche en <emph corresp="#&tps;">marbre</emph>. Et <said ana="&ind;" who="#eg"><emph corresp="#&tps;">comme</emph> <persName ref="#eg" type="&pn;">Égisthe</persName> penché <w type="&i1;" function="&ac2;">disait</w> aux meneurs que <seg ana="amplification">tout <emph corresp=" #&px;"><w type="&i1;" function="&ac2;">allait</w> bien</emph>, et que tout <emph corresp="#&tps;">désormais</emph> <emph corresp="#&px;"><w type="&p3;"  function="&irr;">irait</w> bien</emph></seg></said>, <said ana="&lib;" who="#eg"><persPronouns corresp="#eg">il</persPronouns> <w type="&ps1;" function="&ac1;">entendit </w> <emph corresp="#&vl;">crier</emph> dans son dos <seg ana="amplification"> <persName ref="#cly" type="&phr;"><emph corresp="#&bst;">une bête</emph> qu’<persPronouns corresp="#abd #o">on</persPronouns> <emph corresp="#&vl;"><w type="&i1;" function="&ac2;">saignait</w></emph></persName>. Et ce <w type="&i1;" function="&ac2;">n’était</w> pas <emph corresp="#&bst;">une bête</emph> qui <emph corresp="#&vl;"> <w type="&i1;" function="&ac2;">criait</w></emph>, c’<w type="&i1;" function="&ac2;">était</w> <persName ref="#cly" type="&pn;">Clytemnestre</persName>. Mais <persPronouns corresp="#o">on</persPronouns> <persPronouns corresp="#cly">la</persPronouns><emph corresp="#&vl;"> <w type="&i1;" function="&ac2;">saignait</w></emph>. <persName ref="#o" type="&phr;">Son fils</persName> <persPronouns corresp="#cly">la</persPronouns> <emph corresp="#&vl;"><w type="&i1;" function="&ac2;">saignait</w></emph>.</seg> </said><persPronouns corresp="#o">Il</persPronouns> <emph corresp="#&vl;"><w type="&pp1;" function="&ac3;">avait frappé</w></emph> au hasard sur <persName ref="#cly #eg" type="&phr;">le couple</persName>, en fermant les yeux. <said ana="&lib;" who="#o">Mais tout <w type="&p1;" function="&gen;">est</w> <emph corresp="#&tdr;">sensible</emph> et <emph corresp="#&tdr;">mortel</emph> dans <persName ref="#cly" type="&phr;"><emph corresp="#&tdr;">une mère</emph>, <emph corresp="#&dmn;"> même indigne</emph></persName>. Et <persPronouns corresp="#cly">elle</persPronouns> <w type="&i1;" function="&ac2;">n’appelait</w> ni <persName ref="#el" type="&pn;">Électre</persName>, ni <persName ref="#o" type="&pn;">Oreste</persName>, mais <persName ref="#chrysothemis" type="&phr;">sa dernière fille Chrysothémis</persName>, si bien qu’<persName ref="#o" type="&pn;">Oreste</persName> <w type="&i1;" function="&ac2;">avait</w> l’impression que c’<w type="&i1;" function="&desc;">était</w> <persName ref="#cly" type="&phr;">une autre mère, une mère <emph corresp="#&tdr; #&vt;">innocente</emph></persName> qu’<persPronouns corresp="#o">il</persPronouns> <emph corresp="#&vl;"><w type="&i1;" function="&ac2;">tuait</w></emph>. </said> Et <persPronouns corresp="#cly">elle</persPronouns> <emph corresp="#&ld;"><w type="&i1;" function="&ac2;">se cramponnait</w></emph> au bras droit d’<persName ref="#eg" type="&pn;">Égisthe</persName>. <persPronouns corresp="#cly">Elle</persPronouns> <w type="&i1;" function="&ac2;">avait</w> raison, c’<w type="&i1;" function="&ac2;">était</w> sa seule chance <emph corresp="#&tps;">désormais</emph> dans la vie de se tenir un peu debout. Mais <persPronouns corresp="#cly">elle</persPronouns> <w type="&i1;" function="&ac2;">empêchait</w> <persName ref="#eg" type="&pn;">Égisthe</persName> de <emph corresp="#&stat;">dégainer</emph>. <said ana="&lib;" who="#eg"> <persPronouns corresp="#eg">Il</persPronouns> <persPronouns corresp="#cly">la</persPronouns> <emph corresp="#&vl;"><w type="&i1;" function="&ac2;">secouait</w></emph> pour reprendre son bras, rien à faire. Et <persPronouns corresp="#cly">elle</persPronouns> <w type="&i1;" function="&desc;">était</w> <emph corresp="#&ld;">trop lourde</emph> aussi pour servir de <emph corresp="#&stat;">bouclier</emph>. Et il y <w type="&i1;" function="&ac2;">avait</w> encore <emph corresp="#&bst; #&dmn;">cet oiseau</emph> qui <persPronouns corresp="#eg">le</persPronouns> <emph corresp="#&vl;"> <w type="&i1;" function="&ac2;">giflait</w></emph> de ses ailes et <persPronouns corresp="#eg">l</persPronouns>’<emph corresp="#&vl;"><w type="&i1;" function="&ac2;">attaquait</w></emph> du bec. <emph corresp="#&tps;">Alors</emph> <persPronouns corresp="#eg">il</persPronouns> <emph corresp="#&vl;"><w type="&ps1;" function="&ac1;">lutta</w></emph>. Du seul bras gauche <emph corresp="#&vl; #&stat;">sans armes</emph>, <persName ref="#cly" type="&phr;"><emph corresp="#&stat;">une reine</emph> <emph corresp="#&vl; #&ld;">morte </emph>au bras droit avec <emph corresp="#&stat;">colliers</emph> et <emph corresp="#&stat;">pendentifs</emph></persName>, désespéré de <emph corresp="#&vl;">mourir</emph> en <persName ref="#eg" type="&phr;"><emph corresp="#&dmn;">criminel</emph></persName> quand tout de <persPronouns corresp="#eg">lui</persPronouns> <w type="&pp1;" function="&ac3;">était devenu</w> <emph corresp="#&vt;">pur</emph> et <emph corresp="#&vt;">sacré</emph>, de <emph corresp="#&vl; #&vt;">combattre</emph> pour un <emph corresp="#&dmn;">crime</emph> qui <w type="&i1;" function="&desc;">n’était</w> plus le sien et, <seg ana="parallélisme">dans tant de <emph corresp="#&vt;">loyauté</emph> et d’<emph corresp="#&vt;">innocence</emph>, de se trouver <persName ref="#eg" type="&phr;">l’<emph corresp="#&dmn;">infâme</emph></persName> en face de ce <emph corresp="#&vl; #&dmn;">parricide</emph></seg></said>, <persPronouns corresp="#eg">il</persPronouns> <emph corresp="#&vl;"><w type="&ps1;" function="&ac1;">lutta</w></emph> de sa main que <seg ana="personnification"><emph corresp="#&vl; #&stat;">l’épée</emph> <emph corresp="#&vl;"> <emph corresp="#&vl; #&ld;"><w type="&i1;" function="&ac2;">découpait</w></emph> </emph><emph corresp="#&tps;">peu à peu</emph></seg>, mais le lacet de <emph corresp="#&stat;">sa cuirasse </emph><w type="&ps1;" function="&ac1;">se prit</w> dans une <emph corresp="#&stat;">agrafe</emph> de <persName ref="#cly" type="&pn;">Clytemnestre</persName>, et elle <w type="&ps1;" function="&ac1;">s’ouvrit</w>. <emph corresp="#&tps;">Alors</emph> <persPronouns corresp="#eg">il</persPronouns> ne <emph corresp="#&vl; #&vt;"><w type="&ps1;" function="&ac1;">résista</w></emph> plus, <persPronouns corresp="#eg">il</persPronouns> <emph corresp="#&vl;"><w type="&i1;" function="&ac2;">secouait</w></emph> seulement son bras droit, <said ana="&lib;" who="#eg">et l’<persPronouns corresp="#abd">on</persPronouns> <w type="&i1;" function="&ac2;">sentait</w> que s’<persPronouns corresp="#eg">il</persPronouns> <w type="&i1;" function="&ac2;">voulait</w> <emph corresp="#&tps;">maintenant</emph> <emph corresp="#&vl; #&ld;">se débarrasser</emph> de <persName ref="#cly" type="&phr;"><emph corresp="#&stat;">la reine</emph></persName>, ce n’<w type="&i1;" function="&ac2;">était</w> plus pour <emph corresp="#&vl; #&vt;">combattre</emph> seul, mais pour <emph corresp="#&vl;">mourir</emph> seul, pour être <emph corresp="#&px; #&de;">couché dans la mort</emph> loin de <persName ref="#cly" type="&pn;">Clytemnestre</persName>.</said>  Et <persPronouns corresp="#eg">il </persPronouns> <w type="&pc1;" function="&evm;">n’y est pas parvenu</w>. Et il y <w type="&p1;" function="&ac;">a</w> <emph corresp="#&tps;">pour <emph corresp="#&dmn;">l’éternité</emph></emph> <persName ref="#cly #eg" type="&phr;">un couple Clytemnestre-Égisthe</persName>. <seg ana="prétérition"><said ana="&dir;" who="#eg">Mais <persPronouns corresp="#eg">il</persPronouns> <emph corresp="#&vl;"><w type="&pc1;" function="&evm;">est mort</w></emph> <emph corresp="#&vl;">en criant</emph> <persName ref="#el" type="&phr;">un nom</persName> que <persPronouns corresp="#mdt">je</persPronouns> ne <w type="&fs1;" function="&poss;">dirai</w> pas.</said></seg></p></sp>
+
+     <sp who="#eg" toWhom="#el">
+      <speaker rend="sc">La voix d'Egisthe</speaker>
+      <stage type="delivery">, au-dehors.</stage>
+      <p><persName ref="#el" type="&pn;">Électre</persName> <pc type="&exc;" ana="désespoir">!</pc><pc type="&ssp;" ana="désespoir">…</pc></p></sp>
+
+      <sp who="#mdt" toWhom="#abd">
+      <speaker rend="sc">Le Mendiant</speaker>
+      <p><seg ana="paradoxe"><persPronouns corresp="#mdt">J’</persPronouns><w type="&pc1;" function="&evm;">ai raconté</w><emph corresp="#&tps;">trop vite</emph>.<persPronouns corresp="#eg">Il</persPronouns> <persPronouns corresp="#mdt">me</persPronouns> <w type="&p1;" function="&ac;">rattrape</w>.</seg></p></sp>
+
+    </div2>
+    <div2 type="scene" n="10" ana="Dernière_scène" decls="dialogues">
+     <head rend="sc">Scène 10</head>
+
+     <castList>
+        <castItem>Électre.</castItem> <castItem>Le Mendiant.</castItem> <castItem>La femme Narsès.</castItem> 
+        <castItem>Les Euménides.</castItem></castList> 
+     
+        <stage type="costume">Elles ont juste l’âge et la taille d’Électre.</stage>
+
+      <sp who="#abd" toWhom="#abd">
+      <speaker rend="sc">Un serviteur.</speaker>
+       <p><w type="&imp;" function="&csl;">Fuyez</w>, <persPronouns corresp="#abd">vous</persPronouns> autres, <emph corresp="#&stat;">le palais</emph> <emph corresp="#&vl;"> <w type="&p1;" function="&ac;">brûle</w></emph> <pc type="&exc;" ana="&aut;">!</pc></p></sp>
+
+      <sp who="#em1" toWhom="#abd">
+      <speaker rend="sc">Première Euménide.</speaker>
+      <p><w type="&p1;" function="&ac;">C’est</w> <seg ana="syllepse"><emph corresp="#&bt;">la lueur</emph> qui <w type="&i1;" function="&desc;">manquait</w> à <persName ref="#el" type="&pn;">Électre</persName>.</seg> Avec <emph corresp="#&tps;">le jour</emph> et <emph corresp="#&vt;">la vérité</emph>, <emph corresp="#&vl;">l’incendie</emph><persPronouns corresp="#el">lui</persPronouns> en <w type="&p1;" function="&ac;">fait</w> trois.</p></sp>
+
+     <sp who="#em2" toWhom="#el">
+      <speaker rend="sc">Deuxième Euménide.</speaker>
+       <p><seg ana="parataxe"><persPronouns corresp="#el">Te</persPronouns> <emph corresp="#&tps;">voilà</emph> satisfaite, <persName ref="#el" type="&pn;">Électre</persName> <pc type="&exc;" ana="&rll;">!</pc>La ville <emph corresp="#&vl;"><w type="&p1;" function="&ac;">meurt</w></emph><pc type="&exc;" ana="&rll;">!</pc></seg></p></sp>
+
+       <sp who="#el" toWhom="#em1 #em2 #em3 #abd">
+      <speaker rend="sc">Électre.</speaker>
+         <p><seg ana="parataxe"><persPronouns corresp="#el">Me</persPronouns> <emph corresp="#&tps;">voilà</emph> satisfaite. <emph corresp="#&tps;">Depuis une minute</emph>, <persPronouns corresp="#el">je</persPronouns> <w type="&p1;" function="&ac;">sais</w> qu’elle <emph corresp="#&px;"><w type="&fs1;" function="&pred;">renaîtra</w></emph>.</seg></p></sp>
+
+     <sp who="#em3" toWhom="#el">
+      <speaker rend="sc">Troisième Euménide.</speaker>
+       <p><persPronouns corresp="#abd">Ils</persPronouns> <emph corresp="#&px;"><w type="&fs1;" function="&pred;">renaîtront</w></emph> aussi, <persPronouns corresp="#abd">ceux</persPronouns> qui <emph corresp="#&vl;"><w type="&p1;" function="&ac;">s’égorgent</w></emph>dans les rues <pc type="&int;" ana="&rh;">?</pc> Les Corinthiens <emph corresp="#&vl;"><w type="&pc1;" function="&evm;">ont donné l’assaut</w></emph>, et <emph corresp="#&vl;"><w type="&p1;" function="&ac;">massacrent</w></emph>.</p></sp>
+
+       <sp who="#el" toWhom="#em1 #em2 #em3 #abd">
+      <speaker rend="sc">Électre.</speaker>
+         <p><seg  ana="parataxe">S’ils <w type="&p1;" function="&gen;">sont</w> <emph corresp="#&vt;">innocents</emph>, ils <emph corresp="#&px;"> <w type="&fs1;" function="&pred;">renaîtront</w></emph>.</seg></p></sp>
+
+     <sp who="#em1" toWhom="#el">
+      <speaker rend="sc">Première Euménide.</speaker>
+       <p><seg ana="parataxe"><emph corresp="#&tps;">Voilà</emph> où <persPronouns corresp="#el">t’</persPronouns><w type="&pc1;" 
+function="&evm;">a menée</w> <emph corresp="#&dmn;">l’orgueil</emph>, <persName>Électre</persName> <pc type="&exc;" ana="&rll;">!</pc>  <persPronouns corresp="#el">Tu</persPronouns> n’<w type="&p1;" function="&ac;">es</w> <emph corresp="#&dmn;">plus rien</emph> 
+ <pc type="&exc;" ana="&rll;">!</pc> <persPronouns corresp="#el">Tu</persPronouns> n’<w type="&p1;" function="&ac;">as</w> <emph corresp="#&dmn;">plus rien</emph> <pc type="&exc;" ana="&rll;">!</pc></seg></p></sp>
+
+       <sp who="#el" toWhom="#em1 #em2 #em3 #abd">
+      <speaker rend="sc">Électre.</speaker>
+         <p><seg ana="amplification"><persPronouns corresp="#el">J</persPronouns>’<w type="&p1;" function="&ac;">ai</w> <emph corresp="#&vt;">ma conscience</emph>, <persPronouns corresp="#el">j</persPronouns>’<w type="&p1;" function="&ac;">ai</w> <persName>Oreste</persName>, <persPronouns corresp="#el">j</persPronouns>’<w type="&p1;" function="&ac;">ai</w> <emph corresp="#&vt;">la justice</emph>, <persPronouns corresp="#el">j</persPronouns>’<w type="&p1;" function="&ac;">ai</w> tout.</seg></p></sp>
+
+     <sp who="#em2" toWhom="#el">
+      <speaker rend="sc">Deuxième Euménide.</speaker>
+      <p><emph corresp="#&vt;">Ta conscience</emph> <pc type="&exc;" ana="&rll;">!</pc> <persPronouns corresp="#el">Tu</persPronouns> <w type="&fp1;" function="&poss;">vas l’écouter</w>,<emph corresp="#&vt;">ta conscience</emph>, <emph corresp="#&tps; #&dmn;">dans les petits matins</emph> qui <w type="&p1;" function="&ac;">se préparent</w>. <said ana="&lib;" who="#el"><emph corresp="#&tps;">Sept ans</emph> <persPronouns corresp="#el">tu</persPronouns> <w type="&pc1;" function="&evm;">n’as pu</w> <emph corresp="#&px;">dormir</emph> à cause d’un <emph corresp="#&dmn;">crime</emph> que <persName ref="#cly #eg" type="&phr;">d’autres</persName> <emph corresp="#&vl; #&dmn;"><w type="&pp1;" function="&ac3;">avaient commis</w></emph>. <emph corresp="#&tps;">Désormais</emph>, <w type="&p1;" function="&ac;">c’est</w> <persPronouns corresp="#el">toi</persPronouns> <persName ref="#el" type="&phr;">la <emph corresp="#&dmn;">coupable</emph>.</persName></said></p></sp>
+
+       <sp who="#el" toWhom="#em1 #em2 #em3 #abd">
+      <speaker rend="sc">Électre.</speaker>
+         <p><seg ana="amplification"><persPronouns corresp="#el">J’</persPronouns><w type="&p1;" function="&ac;">ai</w> <persName ref="#o" type="&pn;">Oreste</persName>. <persPronouns corresp="#el">J’</persPronouns><w type="&p1;" function="&ac;">ai</w> <emph corresp="#&vt;">la justice</emph>. <persPronouns corresp="#el">J’</persPronouns><w type="&p1;" function="&ac;">ai</w> tout.</seg></p></sp>
+
+     <sp who="#em3" toWhom="#&el; #abd">
+      <speaker rend="sc">Troisième Euménide.</speaker>
+      <p><persName ref="#o" type="&pn;">Oreste</persName> <pc type="&exc;" ana="&rll;">!</pc> <emph corresp="#&tps;">Plus jamais</emph> <persPronouns corresp="#el">tu</persPronouns> ne <w type="&fs1;" function="&pred;">reverras</w> <persName ref="#o" type="&pn;">Oreste</persName>. <persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> <persPronouns corresp="#el">te</persPronouns> <w type="&p1;" function="&ac;">quittons</w> pour <persPronouns corresp="#o">le</persPronouns> <emph corresp="#&vl;">cerner</emph>. <persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> <w type="&p1;" function="&ac;">prenons</w> ton âge et ta forme pour <persPronouns corresp="#o">le</persPronouns> <emph corresp="#&vl;">poursuivre</emph>. <emph corresp="#&tps;">Adieu.</emph> <seg ana="parataxe"><persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> ne <persPronouns corresp="#o">le</persPronouns> <emph corresp="#&vl;"><w type="&fs1;" function="&pred;">lâcherons</w> <emph corresp="#&tps;">plus</emph>, </emph><emph corresp="#&tps;">jusqu’à ce qu</emph>’<persPronouns corresp="#o">il</persPronouns> <emph corresp="#&fl;"><w type="&p2;" function="&cert;">délire</w></emph> et <emph corresp="#&vl;"><persPronouns corresp="#o">se</persPronouns> <w type="&p2;" function="&cert;">tue</w></emph>, <emph corresp="#&vl; #&dmn;">maudissant</emph> <persName ref="#el" type="&phr;">sa sœur</persName>.</seg></p></sp>
+
+       <sp who="#el" toWhom="#em1 #em2 #em3 #abd">
+      <speaker rend="sc">Électre.</speaker>
+         <p><seg ana="amplification"><persPronouns corresp="#el">J’</persPronouns><w type="&p1;" function="&ac;">ai</w> <emph corresp="#&vt;">la justice</emph>. <persPronouns corresp="#el">J’</persPronouns><w type="&p1;" function="&ac;">ai</w> tout.</seg></p></sp>
+
+     <sp who="#fns" toWhom="#&el; #abd">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+       <p>Que <w type="&p1;" function="&ac;">disent</w>-<persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> <pc type="&int;" ana="&enq;">?</pc> <persName ref="#em1 #em2 #em3" type="&phr;">Elles <w type="&p1;" function="&ac;">sont</w> <emph corresp="#&vl; #&ld;">méchantes</emph></persName><pc  type="&exc;" ana="&irt;">!</pc> Où en <w type="&p1;" function="&ac;">sommes</w>-<persPronouns corresp="#abd"> nous</persPronouns>, <persName ref="#el" type="&phr;"><emph corresp="#&tdr; #&ld;">ma pauvre</emph> Électre</persName>, où en <w type="&p1;" function="&ac;">sommes</w>-<persPronouns corresp="#abd">nous</persPronouns> <pc  type="&exc;" ana="&const;">!</pc></p></sp>
+
+     <sp who="#el" toWhom="#fns">
+      <speaker rend="sc">Électre.</speaker>
+       <p>Où <persPronouns corresp="#abd">nous</persPronouns> en <w type="&p1;" function="&ac;">sommes</w> <pc type="&int;" ana="&rh;">?</pc></p></sp>
+
+     <sp who="#fns" toWhom="#el">
+      <speaker rend="sc">La Femme Narsès.</speaker>
+       <p>Oui, <w type="&imp;" function="&od;">explique</w> <pc type="&exc;" ana="consternation">!</pc> <persPronouns corresp="#fns">Je</persPronouns> ne <w type="&p1;" function="&ac;">saisis</w> jamais bien vite. <persPronouns corresp="#fns">Je</persPronouns> <w type="&p1;" function="&ac;">sens</w> évidemment qu’il <w type="&p1;" function="&ac;">se passe</w> quelque chose, mais <persPronouns corresp="#fns">je</persPronouns> <w type="&p1;" function="&ac;">me rends</w> mal compte. Comment cela <w type="&p1;" function="&ac;">s’appelle</w>-t-il, <seg ana="chiasme"><emph corresp="#&tps;">quand</emph> <emph corresp="#&tps; #&px; #&bt;">le jour <w type="&p1;" function="&ac;">se lève</w></emph>, <emph corresp="#&tps;">comme aujourd’hui</emph>, et que tout <emph corresp="#&vl;"><w type="&p1;" function="&ac;">est gâché</w></emph>, que tout <emph corresp="#&vl;"><w type="&p1;" function="&ac;">est saccagé</w></emph>, et que l’air pourtant <emph corresp="#&px;"><w type="&p1;" function="&ac;">se respire</w></emph>, et <seg ana="parallélisme">qu’on <emph corresp="#&vl; #&de;"><w type="&pc1;" function="&evm;">a tout perdu</w></emph>, que la ville <emph corresp="#&vl;"><w type="&p1;" function="&ac;">brûle</w></emph>, que <emph corresp="#&vt;">les innocents</emph> <emph corresp="#&vl;"><w type="&p1;" function="&ac;">s’entretuent</w></emph>, mais que <persName ref="#cly #eg #o" type="&phr;">les <emph corresp="#&dmn;">coupables</emph></persName> <emph corresp="#&vl;"><w type="&p1;" function="&ac;">agonisent</w></emph>,</seg> dans un coin du <emph corresp="#&tps; #&px; #&bt;">jour qui <w type="&p1;" function="&ac;">se lève</w></emph></seg> <pc type="&int;" ana="&enq;">?</pc></p></sp>
+
+     <sp who="#el" toWhom="#fns">
+      <speaker rend="sc">Électre.</speaker>
+       <p><w type="&imp;" function="&od;">Demande</w> au <persName ref="#mdt" type="&phr;">mendiant</persName>. <persPronouns corresp="#mdt">Il</persPronouns> le <w type="&p1;" function="&ac;">sait</w>.</p></sp>
+
+       <sp who="#mdt" toWhom="#fns #abd">
+      <speaker rend="sc">Le Mendiant</speaker>
+         <p>Cela <w type="&p1;" function="&gen;">a</w> <emph corresp="#&bt;">un très beau nom</emph>, <persName ref="#fns" type="&phr;">femme Narsès</persName>. <seg ana="apophtegme">Cela <w type="&p1;" function="&gen;">s’appelle</w> <emph corresp="#&tps; #&px; #&bt;">l’aurore</emph>.</seg></p></sp>
+
+     <stage rend="sc" type="setting">Rideau.</stage>
+    </div2>
+   </div1>
+  </body>
+ </text>
+</TEI>

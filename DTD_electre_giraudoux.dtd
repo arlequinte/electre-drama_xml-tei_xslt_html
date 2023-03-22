@@ -1,0 +1,355 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT ns1:TEI (ns1:teiHeader,ns1:text)>
+<!ATTLIST ns1:TEI
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:teiHeader (ns1:fileDesc,ns1:profileDesc)>
+<!ATTLIST ns1:teiHeader
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:text (ns1:front,ns1:body)>
+<!ATTLIST ns1:text
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:fileDesc (ns1:titleStmt,ns1:editionStmt,
+                        ns1:publicationStmt,ns1:sourceDesc)>
+<!ATTLIST ns1:fileDesc
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:profileDesc (ns1:langUsage,ns1:textDesc,ns1:particDesc)>
+<!ATTLIST ns1:profileDesc
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:front (ns1:docTitle,ns1:set)>
+<!ATTLIST ns1:front
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:body (ns1:div1)+>
+<!ATTLIST ns1:body
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:titleStmt (ns1:title,ns1:author)>
+<!ATTLIST ns1:titleStmt
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:editionStmt (ns1:p)>
+<!ATTLIST ns1:editionStmt
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:publicationStmt (ns1:publisher,ns1:date)>
+<!ATTLIST ns1:publicationStmt
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:sourceDesc (ns1:bibl)+>
+<!ATTLIST ns1:sourceDesc
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:langUsage (ns1:language)>
+<!ATTLIST ns1:langUsage
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:textDesc (ns1:domain,ns1:factuality,ns1:derivation,ns1:interaction,
+                        ns1:purpose)+>
+<!ATTLIST ns1:textDesc
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:particDesc (ns1:listPerson)>
+<!ATTLIST ns1:particDesc
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:docTitle (ns1:titlePart)>
+<!ATTLIST ns1:docTitle
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:set (ns1:p)>
+<!ATTLIST ns1:set
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:div1 (ns1:head,ns1:div2+)>
+<!ATTLIST ns1:div1
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  n CDATA #REQUIRED
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:bibl (ns1:distributor
+                    |(ns1:title,ns1:author,ns1:publisher,ns1:date,
+                      ns1:idno))>
+<!ATTLIST ns1:bibl
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:language (#PCDATA)>
+<!ATTLIST ns1:language
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  ident NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:derivation EMPTY>
+<!ATTLIST ns1:derivation
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:domain EMPTY>
+<!ATTLIST ns1:domain
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:factuality EMPTY>
+<!ATTLIST ns1:factuality
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  type NMTOKEN #REQUIRED>
+  
+  <!ELEMENT ns1:interaction EMPTY>
+  <!ATTLIST ns1:interaction
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:purpose EMPTY>
+<!ATTLIST ns1:purpose
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  degree NMTOKEN #REQUIRED
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:listPerson ((ns1:person|ns1:personGrp)+,ns1:listRelation)>
+<!ATTLIST ns1:listPerson
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:titlePart (#PCDATA|ns1:lb)*>
+<!ATTLIST ns1:titlePart
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:div2 (ns1:head,ns1:castList?,
+                    (ns1:note|ns1:stage|ns1:sp)+)>
+<!ATTLIST ns1:div2
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  ana CDATA #REQUIRED
+  decls NMTOKEN #IMPLIED
+  n CDATA #REQUIRED
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:distributor EMPTY>
+<!ATTLIST ns1:distributor
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  facs CDATA #REQUIRED>
+
+<!ELEMENT ns1:idno (#PCDATA)>
+<!ATTLIST ns1:idno
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:person (ns1:persName,ns1:note?)>
+<!ATTLIST ns1:person
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  xml:id NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:personGrp (ns1:persName)>
+<!ATTLIST ns1:personGrp
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:listRelation (ns1:relation)+>
+<!ATTLIST ns1:listRelation
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:castList (ns1:castItem)+>
+<!ATTLIST ns1:castList
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:sp (ns1:speaker,ns1:stage?,ns1:p)>
+<!ATTLIST ns1:sp
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  toWhom CDATA #IMPLIED
+  who CDATA #REQUIRED>
+
+<!ELEMENT ns1:relation EMPTY>
+<!ATTLIST ns1:relation
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  active CDATA #IMPLIED
+  mutual CDATA #IMPLIED
+  name NMTOKEN #REQUIRED
+  passive CDATA #IMPLIED>
+
+<!ELEMENT ns1:castItem (#PCDATA)>
+<!ATTLIST ns1:castItem
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:speaker (#PCDATA)>
+<!ATTLIST ns1:speaker
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  rend NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:title (#PCDATA)>
+<!ATTLIST ns1:title
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:author (#PCDATA)>
+<!ATTLIST ns1:author
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  key CDATA #IMPLIED
+  ref CDATA #IMPLIED>
+
+<!ELEMENT ns1:p (#PCDATA|ns1:emph|ns1:pc|ns1:persName|ns1:persPronouns
+                 |ns1:said|ns1:seg|ns1:w|ns1:q)*>
+<!ATTLIST ns1:p
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  decls NMTOKEN #IMPLIED>
+
+<!ELEMENT ns1:q (#PCDATA|ns1:emph|ns1:lb|ns1:pc|ns1:persName
+                 |ns1:persPronouns|ns1:said|ns1:seg|ns1:w)*>
+<!ATTLIST ns1:q
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  ana NMTOKEN #IMPLIED
+  rend NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:publisher (#PCDATA)>
+<!ATTLIST ns1:publisher
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:date (#PCDATA)>
+<!ATTLIST ns1:date
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  when-iso CDATA #REQUIRED>
+
+<!ELEMENT ns1:persName (#PCDATA|ns1:emph|ns1:pc|ns1:persName
+                        |ns1:persPronouns|ns1:w)*>
+<!ATTLIST ns1:persName
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  ref CDATA #IMPLIED
+  type NMTOKEN #IMPLIED>
+
+<!ELEMENT ns1:note (#PCDATA|ns1:ref|ns1:span)*>
+<!ATTLIST ns1:note
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:ref EMPTY>
+<!ATTLIST ns1:ref
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  target CDATA #REQUIRED>
+
+<!ELEMENT ns1:span (#PCDATA)>
+<!ATTLIST ns1:span
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  rend NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:lb EMPTY>
+<!ATTLIST ns1:lb
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'>
+
+<!ELEMENT ns1:head (#PCDATA)>
+<!ATTLIST ns1:head
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  rend NMTOKEN #IMPLIED>
+
+<!ELEMENT ns1:stage (#PCDATA)>
+<!ATTLIST ns1:stage
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  rend NMTOKEN #IMPLIED>
+
+<!ELEMENT ns1:said (#PCDATA|ns1:emph|ns1:lb|ns1:pc|ns1:persName
+                    |ns1:persPronouns|ns1:seg|ns1:w)*>
+<!ATTLIST ns1:said
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  ana NMTOKEN #REQUIRED
+  who CDATA #REQUIRED>
+
+<!ELEMENT ns1:emph (#PCDATA|ns1:emph|ns1:persName|ns1:persPronouns
+                    |ns1:seg|ns1:w)*>
+<!ATTLIST ns1:emph
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  corresp CDATA #IMPLIED
+  xml:id NMTOKEN #IMPLIED>
+
+<!ELEMENT ns1:seg (#PCDATA|ns1:emph|ns1:pc|ns1:persName|ns1:persPronouns
+                   |ns1:said|ns1:seg|ns1:w)*>
+<!ATTLIST ns1:seg
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  ana NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:w (#PCDATA)>
+<!ATTLIST ns1:w
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  ana NMTOKEN #IMPLIED
+  corresp CDATA #IMPLIED
+  function NMTOKEN #IMPLIED
+  type NMTOKEN #IMPLIED>
+
+<!ELEMENT ns1:persPronouns (#PCDATA)>
+<!ATTLIST ns1:persPronouns
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  corresp CDATA #IMPLIED>
+
+<!ELEMENT ns1:pc (#PCDATA)>
+<!ATTLIST ns1:pc
+  xmlns:ns1 CDATA #FIXED 'http://www.tei-c.org/ns/1.0'
+  ana NMTOKEN #IMPLIED
+  function NMTOKEN #IMPLIED
+  type NMTOKEN #IMPLIED>
+  
+  <!-- Les entités sont classées par fonction et par ordre d'apparition. -->
+
+<!ENTITY phr "périphrase">
+<!ENTITY pn "prénom">
+    
+<!ENTITY ind "discours_indirect">
+<!ENTITY dir "discours_direct">
+<!ENTITY lib "dicours_indirect_libre">
+
+<!ENTITY p1 "indicatif:présent">
+<!ENTITY i1 "indicatif:imparfait">
+<!ENTITY fs1 "indicatif:futur_simple">
+<!ENTITY fp1 "indicatif:futur_proche">
+<!ENTITY fa1 "indicatif:futur_antérieur">
+<!ENTITY ps1 "indicatif:passé_simple">
+<!ENTITY pc1 "indicatif:passé_composé">
+<!ENTITY pp1 "indicatif:plus_que_parfait">
+<!ENTITY imp "impératif">
+<!ENTITY p2 "subjonctif:présent">
+<!ENTITY ps2 "subjonctif:passé_simple">
+<!ENTITY i2 "subjonctif:imparfait">
+<!ENTITY p3 "conditionnel:présent">
+<!ENTITY ps3 "conditionnel:passé">
+
+<!ENTITY ac "actualité">
+<!ENTITY hab "habitude" >
+<!ENTITY gen "généralité">
+<!ENTITY hyp "hypothèse">
+<!ENTITY poss "possible_immédiat">
+<!ENTITY pred "prédiction_certaine">
+<!ENTITY evm "événement_récent">
+<!ENTITY desc "description">
+<!ENTITY ac2 "action_secondaire">
+<!ENTITY ac1 "action_premier_plan">
+<!ENTITY ac3 "action_irréversible">
+<!ENTITY rec "récit_épique">
+<!ENTITY csl "conseil">
+<!ENTITY od "ordre">
+<!ENTITY cnt "amorce_conte">
+<!ENTITY cert "certitude">
+<!ENTITY sh "souhait">
+<!ENTITY irr "irréel_du_passé">
+
+<!ENTITY exc "exclamation">
+<!ENTITY int "question" >
+<!ENTITY ssp "suspension">
+
+<!ENTITY ett "excitation">
+<!ENTITY irt "irritation">
+<!ENTITY const "consternation" >
+<!ENTITY rll "raillerie" >
+<!ENTITY desv "désinvolture">
+<!ENTITY aut "autorité" >
+<!ENTITY attd "attendrissement">
+<!ENTITY enq "enquête" >
+<!ENTITY rh "rhétorique" >
+
+<!ENTITY bt "beauté">
+<!ENTITY tps "temps" >
+<!ENTITY stat "statut_royal">
+<!ENTITY ld "laideur">
+<!ENTITY fl "folie">
+<!ENTITY bst "bestiaire">
+<!ENTITY de "deuil">
+<!ENTITY tdr "tendresse">
+<!ENTITY vl "violence">
+<!ENTITY px "paix">
+<!ENTITY vt "vertu">
+<!ENTITY dmn "damnation">

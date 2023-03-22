@@ -1,0 +1,1919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI
+   xmlns="http://www.tei-c.org/ns/1.0"
+   xml:lang="en"
+   xmlns:s="http://purl.oclc.org/dsdl/schematron">
+   
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title type="main">Guide d'encodage de l'édition numérique d'extraits 
+               d'<hi>Électre</hi>, de Jean Giraudoux (Grasset, 1937)</title>
+            <title type="sub">Schéma créé avec Oddbyexample</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Édition encodée par Anne Bugner, d'après l'édition livre de la 
+               Librairie Générale Française, 1987, p8-18 et 125-132.</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Générée à partir des fichiers d'encodage via 
+               <ref target="https://www.tei-c.org/Vault/P5/current/xml/tei/odd/p5subset.xml">Oddbyexample</ref>.</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   
+   <text>
+      <body>
+         <div1>
+          <head>Présentation des choix d'encodage</head>
+            
+            <p>La présente édition respecte le schéma TEI All dans le choix de ses éléments et attributs.</p>
+            
+            <p>Les oeuvres littéraires constituent un stimulant terrain de jeu pour les novices en matière d'encodage de texte en TEI. Style et sujet d'une oeuvre suscitent toutes les appréciations; l'encodage par balises fait entrevoir la possibilité de les communiquer au plus près des mots mêmes. Nous tenterons donc ici de cerner à quelles conditions le schéma TEI permet d'inscrire et d'organiser des observations critiques au sein d'un texte de littérature.</p>
+            
+            <p>Nous commenterons ici la pièce de Jean Giraudoux, <hi>Électre</hi>, réécriture contemporaine de l'épopée des Atrides, sujet des tragédies classiques éponymes d'Euripide et Sophocle (env. 413 et 415 av. JC) - et créée en 1937. L'intérêt de cette oeuvre, ici, réside dans sa volonté de mettre en scène un tragique classique à tout point de vue, au sein d'une pièce moderne par sa structure et le style de ses répliques: en somme, de montrer comment l'inéluctable se met en scène en 1937. Spectateurs et lecteurs sont donc invités à apprécier tout le poids des double-sens et autres non-dits au sein des répliques. Encore faut-il les repérer.</p>
+            
+            <p>Cette pièce est particulièrement longue, et entend développer plusieurs dimensions symboliques qui ne confèrent pas au simple tragique classique. Nous nous concentrerons donc sur les trois scènes les plus déterminantes pour commenter cet aspect de la pièce: la scène d'exposition, l'avant-dernière scène et la dernière scène.</p>
+            
+            <p>Les noms et fonctions des éléments TEI sont organisés par modules, en fonction du type de texte concerné et du projet d'édition. Il en existe plusieurs pour l'édition numérique de textes fictifs, toutefois peu portés sur l'analyse littéraire. Il sera donc nécessaire, ici, de combiner plusieurs de ces modules. Or la TEI se veut être une structure logique du balisage des textes, et ne permet pas toutes les combinatoires débridées. Il a donc fallu faire preuve d'un peu de créativité pour organiser ensemble nos balises d'encodage. Nos objectifs se résument ainsi:</p>
+            <p><list>
+               <item>Renseigner a minima le contexte énonciatif des répliques (identification de la scène, de l'acte, des locuteurs, de leurs relations) et ce d'autant plus que Giraudoux aime cultiver les ambiguïtés;</item>
+               <item>Indiquer les fonctions dramatiques desdites répliques, en caractérisant les mots qu'elles emploient;</item>
+               <item>Rendre ces observations interrogeables en les regroupant sous des élements propres à la fonction grammaticale des mots (noms propres, pronoms, verbes, expressions entières) afin de faciliter l'interrogation des données ainsi produites via des outils de recherche, et la constitution d'un commentaire littéraire.</item>               
+            </list>
+Notons alors qu'il n'en résulte pas un commentaire rédigé; il en ressort simplement des observations avec un premier niveau d'interprétation. Il demeure nécessaire de les extaire, les analyser et les mettre en comparaison les unes aux autres pour en tirer des conclusions plus significatives. La TEI favorise ici le ciblage et la navigation; ce présent document sera ce qui s'approche le plus d'un commentaire.</p>
+            
+            <div2><head>Structure du fichier TEI et métadonnées descriptives</head>
+                  
+                  <div3><head>Resituer notre texte dans son contexte éditorial</head>
+                     
+                  <p>Notre fichier TEI concentre ses métadonnées descriptives sur le modèle d'une notice bibliographique, dans l'élément <gi>teiHeader</gi> (du module homonyme). Nous faisons le choix de renseigner le titre, l'auteur et l'éditeur de l'oeuvre initiale dans les éléments <gi>titleStmt</gi> et <gi>publicationStmt</gi> ; car plus bas, l'élément <gi>docTitle</gi> reproduira l'en-tête à l'identique de notre édition papier.</p>
+                  
+                  <p>Pour que l'identification de l'auteur soit sans ambiguïtés, nous avons adopté la forme de son nom du catalogue Data.bnf, ainsi que son identifiant ISNI, tous deux renseignés par l'attribut <att>key</att> au sein de l'élément <gi>author</gi>. Les dates de parution ont également été désignées par un attribut <att>when-iso</att>, susceptible d'aider à la reconstitution automatique de chronologies.</p>
+                 
+                  <p>Le contenu intellectuel de notre texte est bien celui de la pièce créée en 1937, et publiée chez Grasset ; il était donc indispensable de renseigner ces informations au sein de l'élément <gi>fileDesc</gi>, qui le qualifie dans sa globalité. Toutefois, nous n'avons pas directement transcrit cette édition initiale, mais repris le texte numérique publié sur Wikisource (à partir d'une numérisation de l'édition de 1937) ainsi que la présentation typographique de l'édition papier de 1987 (La Librairie Française) en notre possession, que nous estimions plus fluide et mieux détaillée. Ces deux textes sont donc référencés à part, au sein de l'élément <gi>sourceDesc</gi>.</p></div3>
+                  
+                       <div3><head>Reproduire l'en-tête du livre</head>
+                          
+                          <p>Un livre édité présente déjà ses propres métadonnées descriptives en ouverture: il suffit de la calquer, au moyen du module <gi>textStructure</gi>. L'élément <gi>text</gi> contient l'ensemble des extraits de la pièce; l'élément <gi>front</gi> le préambule, et <gi>titlePart</gi> le titre de l'oeuvre tel qu'il se lit sur la page du livre (séparé en titre et sous-titre par l'élément vide <gi>lb</gi></p>
+                          
+                  <p>En bonne tragédie classique (ou en bon huis-clos d'entre-deux guerres) l'action d'<hi>Électre</hi> est située en un même lieu fictif: <hi>une cour du palais d'Agamemnon</hi>. Cette information, qui concerne l'ensemble de la pièce, est alors renseignée dans l'élément <gi>set</gi>, issu du module <gi>drama</gi>.</p>   
+                  <p>Il est traditionnel d'indiquer également la liste des personnages et (des comédiens lors de la création) dans ce <gi>front</gi>, avec l'élément <gi>castList</gi>. Néanmoins, dans notre cas, cette liste va s'avérer la fois redondante et sujette à confusion, en entrant en concurrence avec l'élément <gi>listPerson</gi>. On retrouve toutefois ce <gi>castList</gi> en tête de chaque nouvelle scène qui s'acompagne de l'entrée de personnages sur le plateau, comme c'est le cas pour la dernière scène.</p></div3>
+                  
+                  <div3><head>Renseigner la finalité du texte</head>
+                     
+                   <p>Nous nous trouvons devant un texte <hi>littéraire</hi>, ce qui va d'emblée distinguer la teneur de nos commentaires de ceux d'un texte d'essai, de correspondance ou de témoignages retranscrits (qui pourraient présenter un aspect éditorial similaire.) Si nous gageons que le lecteur de la présente édition n'en a aucune idée, l'élément <gi>textDesc</gi> au sein du <gi>profileDesc</gi>, destiné à la description du contenu intellectuel de notre texte, est approprié. Il renseigne ainsi, par son contenu:</p>
+                      <list>
+                         <item>La visée esthétique du texte, par l'élément <gi>domain</gi> : <val>art</val>;</item>
+                         <item>Le type de discours tenu : une fiction, valeur de l'élément <gi>factuality</gi>;</item>
+                         <item>Le statut de l'idée originale de l'oeuvre: ici une <val>réécriture</val>, valeur de l'élément <gi>derivation</gi>;</item>
+                         <item>Les interactions entre producteurs du texte et destinataires, au sein de l'élément <gi>interaction</gi>: celui-ci s'accompagne de trois attributs. <att>type</att>, ici associé à <val>partial</val>, indique que le texte, bien que produit par un seul auteur, requiert toujours des comédiens pour faire pleinement sens; l'attribut <att>active</att>, associé à la valeur <val>singular</val>, désigne explicitement cet auteur, seul producteur de notre texte, en cette présente édition. Puisque l'oeuvre a été créée explicitement pour un public que l'auteur est de moins en moins amené à connaître, l'attribut <att>passive</att>, désignant le récepteur du texte, se contente d'une peu contraignante valeur <val>world</val>.</item>
+                         <item>Un dernier renseignement utile est l'effet que le texte initial entend produire sur son public, indiqué par l'élément <gi>purpose</gi>. Deux attributs y sont obligatoires: <att>type</att> pour le qualifier, et <att>degree</att> pour le mesurer. Ici, nous pouvons nous amuser à juxtaposer les différents retours d'étudiants sur la prose de Giraudoux, dont il faut bien assumer d'emblée le caractère verbeux.</item>
+                      </list>
+                  <p>L'ordre de ces éléments a été remanié pour procéder du plus évident au plus discutable. D'autres éléments requis ont été supprimés: puisque la pièce a été publiée du vivant de son auteur, on peut se douter que le média est le livre (indication de l'élément <gi>channel</gi>), que le texte est achevé (élément <gi>constitution</gi>) et que son contenu résulte d'une réflexion préalable (<gi>prepardess</gi> - voir ci-dessous, ainsi que dans la DTD liée.)</p></div3>
+                  
+               <div3><head>Ajouter des informations pour la compréhension du contenu</head>
+                  
+                  <p>Le <gi>profileDesc</gi> contient un <gi>particDesc</gi>, qui détaille les informations relatives au contenu fictif de l'oeuvre, en l'occurrence les personnages, car à quelques rares exceptions près, ils ne sont pas des inventions de Giraudoux. Il est utile de le rappeler: d'abord dans un souci de pédagogie (le mythe des Atrides et ses noms de personnages à quatre syllabes relèvent de la culture académique), ensuite parce que Giraudoux entend en développer sa propre version, en se détournant des caractéristiques connues du public. Enfin, pour être bien appréciée, la symbolique tragique requiert du public de comprendre ce qu'il se passe <hi>avant</hi> que les personnages n'en rendent compte.</p>
+                  
+                  <p>C'est donc à cette fin que nous inscrivons une <gi>listPerson</gi> doublée d'une <gi>listRelation</gi> au sein de notre <gi>teiHeader</gi>, tous deux issus du module <gi>namesdates</gi>. Il s'agit bien d'identifier tous les protagonistes dont il est question dans nos extraits: aussi listons-nous les personnages présents sur scène et parlants, mais également les absents mentionnés (qu'ils soient hors scène - ou tués dans le récit.) Nous associons à chaque nom un <att>xml:id</att> afin de retrouver plus aisément les locuteurs: en effet, Giraudoux s'amuse à ménager du suspense pour ses lecteurs - lecteurs, non spectateurs - en ne nommant pas directement ses personnages tant qu'ils ne se sont pas publiquement découverts. Ainsi, <val>l'Etranger</val> désigne en réalité Oreste; et les <val>Petites filles</val> les Erinyes qui le brutaliseront, et entrent avec lui dès la première scène. On trouvera également les mentions d'Agamemnon et de ses ancêtres, dont le récit de la malédiction est fait lors de cette même scène, et plane sur tous les personnages jusqu'à la tombée du rideau. Sont listés ensuite les quelques personnages inventés par Giraudoux, dont la fonction est de porter le regard neuf que celui-ci entend porter sur le mythe initial. Nous nous restreindrons ici à présenter Le Mendiant et La Femme Narsès; les autres personnages - tels qu'Agathe et Le Président - ne sont pas ici utiles à la compréhension de nos extraits.</p>
+                  
+                   <p>Le détail des relations entre personnages est listé sur le même modèle, au sein de l'élément <gi>listRelation</gi>, dont il nous revient de choisir les valeurs. Nous présenterons d'abord les rapports entre les personnages principaux: une famille. Les liens familiaux représentant en principe des relations d'équivalence, on aurait pu les qualifier tous par l'attribut <att>mutual</att>. Néanmoins, le couple parental de Clytemnestre et Agamemnon étant plus que disjoint, Oreste et Électre n'en parlent pas sur le même mode; ils sont donc les parts actives de deux relations distinctes. L'attribut <att>active</att> se retrouve également en majorité lorsque nous parlons du drame conjugal de Clytemnestre et Agamemnon, qui suscitent la vengeance d'Oreste par le meurtre, et de celui de la génération précédente, entre les frères Atrée et Thyeste. Dans le souci d'employer le même terme pour désigner "frères" comme "frère et soeur", et donc de mettre en écho les deux duos Atrée/Thyeste et Oreste/Electre, nous emploierons ici le terme mixte "adelphes".</p> 
+                      
+                   <p>C'est en connaissance de ces liens familiaux - bien mis à mal - que le lecteur peut appréhender les attitudes que les personnages de Giraudoux vont montrer les uns pour les autres, et qui sont résumées dans la troisième partie de la liste: le désamour absolu d'Électre pour sa mère (jusqu'au meurtre), causé par la même malédiction qu'entre Atrée et Thyeste, est donc qualifié de <val>haine</val>; les sentiments du Jardinier et d'Égisthe à son égard, que tous les deux répriment (pour des raisons qu'il peut être intéressant de comparer en commentaire) sont donc une <val>attirance_cachée</val>. La fascination d'Électre pour son père, conjuguée à un vocabulaire de la beauté et de la sensualité que l'on retrouve aussi dans ses répliques avec Oreste, suggère un exemple très net de <hi>complexe d'Électre</hi> au sens freudien ; ce qui est ici condensé en un <val>amour_très_freudien</val>, dont le caractère excessif est à souligner pour rejoindre la thématique fort présente et dérangeante de l'inceste au sein de la famille des Atrides. Il en résulte que ce qui aurait dû être l'agent de rédemption pour les personnages - leur tendresse familiale - est de fait aussi marqué par la malédiction que le reste. Et qu'à ce titre, la famille est toute entière soumise au châtiment divin, dont les Euménides sont les exécutantes. Elles montrent donc un comportement de <val>mépris</val> envers eux, conscientes de leur statut supérieur d'immortelles représentant la justice divine.</p>
+               </div3>                    
+            </div2>
+            
+            <div2><head>Encoder un texte théâtral</head>
+            
+               <div3><head>Segmentation du texte de Giraudoux</head>
+                  
+                  <div4><head>Corps de texte: actes, scènes et répliques</head>
+                     
+                     <p>Une pièce de théâtre est déjà un texte inhabituellement structuré: destiné à être produite par des professionnels du spectacle, son découpage en actes et scènes vise la planification des décors, de leur rotation, le va-et-vient des comédiens et les changements de costumes. Il n'y a donc ici qu'à reproduire cette structure en actes et scènes via le module <gi>textStructure</gi>: <gi>div1</gi> (niveau de l'acte, dont l'inscription du livre est reproduite par l'élément <gi>head</gi>) et <gi>div2</gi> (niveau de la scène) au sein de <gi>body</gi> (le texte entier). La segmentation au niveau plus fin des répliques nécessite de se référer au module <gi>drama</gi>, qui préconise d'encadrer chaque réplique par l'élément <gi>sp</gi> (pour <hi>speech</hi>), comportant la section <gi>speaker</gi>  pour désigner le personnage, (auquel on ajoute l'attribut <att>rend</att> pour reproduire la typographie du livre) et <gi>p</gi> pour ses paroles:</p> 
+                  
+                     <egXML xmlns="http://www.tei-c.org/ns/Examples"><sp>
+                        <speaker rend="sc">Troisième petite fille.</speaker>
+                        <p>Le voilà, monsieur, votre palais d’Agamemnon!</p></sp></egXML></div4>
+                  
+                  <div4><head>Didascalies</head>
+                     
+                     <p>Les disascalies sont renseignées par l'élément dédié <gi>stage</gi> du module <gi>drama</gi>, et qui accepte un attribut <att>type</att> pour expliciter les diverses finalités que les didascalies servent. Ici, notre texte y a très peu recours; elles se contentent d'indiquer entrées et sorties de scène des personnages, sur un modèle épuré qui rappelle le théâtre de Racine. L'une d'entre elles se distingue toutefois par sa portée symbolique: celle qui ouvre la dernière scène, et décrit les Euménides.
+                     <egXML xmlns="http://www.tei-c.org/ns/Examples"><stage type="costume">Elles ont juste l’âge et la taille d’Électre.</stage></egXML>
+                  Les valeurs de l'attribut <att>type</att> sont fournies par défaut. La plus appropriée - celle qui ne concerne pas l'environnement autour des personnages (<val>setting</val>) ni leur mouvement de scène (<val>entrance</val>) ou leur mode de parole (<val>delivery</val>) mais bien leur aspect physique: <val>costume</val>. Cette didascalie suggère implicitement aux metteurs en scène de costumer, (ou simplement coiffer/maquiller) les Euménides comme Électre, ei ainsi faire comprendre qu'Oreste doit ses tourments futurs à sa soeur même; idée renforcée par la réplique de la Troisième Euménide: <hi>Nous prenons ton âge et ta forme pour le cerner</hi>. Il apparaît donc utile d'isoler cette didascalie des autres pour un commentaire.</p></div4>
+                  
+                  <div4><head>Distinguer des types de discours au sein des répliques</head>
+                     
+                     <p>Cependant, toutes les paroles retranscrites ne sont pas à mettre sur le même plan: elles ne correspondent pas toutes strictement aux constats et pensées de leur locuteur. Un premier exemple flagrant est le moment où les Petites filles entreprennent de <hi>réciter</hi> une sorte de chanson: le texte ne concerne alors plus la description de l'action en cours, et l'arrête en mettant les personnages d'Oreste et du Jardinier eux-mêmes en posture de public. Aussi le livre présente-t-il ces répliques en caractères italiques. Mais pour nous, donner une simple indication formelle est insuffisant: les Petites filles amènent au beau milieu de la scène un discours qui semble avoir été écrit avant le début de l'action (d'où "réciter" plutôt qu"improviser"), qui est à comprendre différemment des dialogues plus ou moins réalistes tenus jusqu'à lors.</p> 
+                     
+                        <p>On en revient donc à la qualification d'un texte, fonction initiale du module <gi>core</gi>; l'élément <gi>q</gi> se montre satisfaisant, puisqu'il désigne un discours produit ailleurs (en l'occurrence, une citation) implémenté au sein du discours principal, et peut être contenu dans l'élément <gi>p</gi>. Ce moment a priori hors du développement de l'intrigue est similaire aux préludes élégiaques chantés par le Choeur dans les tragédies classiques, au début de chaque acte, qui commentent les événements sans prendre directement part à l'action; le Choeur, anonyme, n'est de toute manière personne. C'est donc un choix susceptible de signaler une intertextualité, et une portée anticipative: les Euménides ne sont pas quelqu'un, elles sont une entité en charge de citer d'autres forces que personnages et spectateurs ne connaissent pas, assmiliables à des divinités. Néanmoins, il n'est pas possible d'englober au sein d'une seule balise toutes les répliques qui constituent la récitation des petites filles (et donc signaler qu'il s'agit bien d'un seul et même moment) ; l'élément <gi>q</gi> est considéré comme une segmentation fine, qui ne peut pas contenir l'élément <gi>sp</gi>.</p>
+                     
+                     <p>Un autre cas de figure est celui des personnages rapportant les discours et pensées d'un autre, ce qui conditionne tout autrement la compréhension de leurs propos. Il est heureusement documenté dans le même module <gi>core</gi> avec l'élément <gi>said</gi>, qui permet à la fois de renseigner l'identité du locuteur (attribut <att>who</att>) et le type de discours rapporté (<att>ana</att>), en se référant aux termes canoniques de l'analyse narratologique: discours indirect (introduit par des propositions subordonnées) discours direct (reproduisant les paroles d'autrui directement entre guillements) et discours indirect libre (intégrant directement le point de vue d'autrui au discours principal, comme si les points de vue se confondaient).</p>
+                  </div4>
+               </div3>
+            
+               <div3><head>Identifier locuteurs et destinataires</head>
+                  
+                  <div4><head>Relier répliques et personnages</head>
+                     
+                     <p>Une fois l'espace des répliques déterminé, il convient encore de renseigner qui parle à qui: nous avons effectivement vu que l'élément <gi>speaker</gi>, transcrivant les noms tels qu'ils sont donnés par Giraudoux dans son livre, prêtait délibérément à confusion. Or l'élément <gi>sp</gi> accepte d'être spécifié par les attributs <att>who</att> et <att>toWhom</att>, dont la valeur est alors l'<att>xml:id</att> correspondant au personnage, et renseigné au sein de <gi>person</gi>. Ces mêmes attributs peuvent également être renseignés pour l'élément <gi>said</gi>. Il est alors envisageable de recenser toutes les répliques d'un même personnage (pour tester, par exemple, l'hypothèse qu'Électre, en tant que personnage central de la pièce, compte le plus de répliques dans les scènes de dénouement - et s'apercevoir qu'il n'en est rien) ; voire de compter le nombre de mots via une ou deux expressions régulières, et en infirmer quel personnage a le plus long temps de parole, et en conséquence peut constituer le point de vue dominant.</p></div4>
+                  
+                  <div4><head>Le public comme destinataire des répliques : l'identifiant <val>anybody</val></head>
+                     
+                     <p>Mais analyser qui parle à qui met en valeur ceux qui coupent la parole pour jeter des précisions que personne n'a sollicitées, ou proclament des phrases à tendance aphoristique qui semblent dépasser le seul cadre de l'enquête familiale. Ceux-ci montrent une capacité, ou du moins une volonté, de comprendre les rapports de force en présence et de se montrer les égaux des instances qui en décident - problématique de tragédie classique s'il en est. Déterminer s'ils peuvent le prétendre ou non requiert au moins de marquer ces répliques; elles partagent le fait de porter plus loin que leur destinataire identifié, pour atteindre la seule entité susceptible de partager les considérations de leur locuteur: le public. Nous faisons donc le choix de créer une <gi>person</gi>  dédiée au sein de la <gi>listPerson</gi>, dont l'<att>xml:id</att> est <val>anybody</val>, et désigne la portée prédictive, métatextuelle ou collective des paroles d'un personnage.</p>
+                  
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples"><sp who="#jd" toWhom="#em1 #em2 #em3">
+                     <speaker rend="sc">Le Jardinier.</speaker>
+                     <p>Voulez-vous partir ! Allez-vous nous laisser ! On dirait des mouches.</p></sp>
+                     
+                     <sp who="#em1" toWhom="#jd #abd">
+                        <speaker rend="sc">Première petite fille.</speaker>
+                        <p>Nous ne partirons pas. Nous sommes avec l’étranger.</p></sp>
+                     <!-- Les Erinyes énoncent ici clairement que leur présence sur scène est corrélée à celle d'Oreste - on pourrait même alléguer que leur nature, dans l'histoire, est d'être avec Oreste, et qu'elles le suivront potentiellement pour toujours. -->
+                     
+                     <sp who="#jd" toWhom="#o">
+                        <speaker rend="sc">Le Jardinier.</speaker>
+                        <p>Vous connaissez ces filles ?</p></sp></egXML>
+                     
+                    <p>Puisque <val>anybody</val> peut désigner tout le monde et personne, nous pouvons également l'utiliser pour désigner les répliques portées par des personnages très secondaires, et à portée collective:</p>
+                     
+                     <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                        <sp who="#abd" toWhom="#abd">
+                        <speaker rend="sc">Un serviteur.</speaker>
+                        <p>Fuyez, vous autres, le palais brûle !</p></sp></egXML>
+                     
+                     <p>On peut alors apprécier l'ironie qu'il y a à réduire le personnage d'Électre, préoccupé toute la pièce par son histoire intime, à un interchangeable <val>anybody</val>. Auquel cas, le commentaire d'<val>anybody</val> appelle lui-même des analyses contraires. Cela peut être le jeu de l'analyse d'une tragédie, qui affectionne les contradictions.</p> 
+                  </div4>
+                  
+                  <div4><head>Identifier les personnages les plus mentionnés</head>
+                     
+                     <p>Il y a ceux qui ont de nombreuses ou longues répliques, et ceux qui, quand bien même leur présence sur scène est réduite (Électre, dans nos extraits) ou tout à fait nulle (Agamemnon) sont aux centre des paroles des uns et des autres. Puisque c'est une manière indirecte de construire l'action et sa portée symbolique, il peut être intéressant de recenser ces mentions dans l'ensemble des répliques. On peut à cette fin reconvoquer le module <gi>namesdate</gi>. Nous indexons chaque mention nominale (un prénom, une expression) sous la balise <gi>persName</gi>, en incluant l'<val>xml:id</val> du personnage concerné via l'attribut <att>ref</att>, et chaque pronom personnel sous la balise <gi>persPronouns</gi>, qui peut également renseigner un <val>xml:id</val> via l'attribut <att>corresp</att>. Ce qui se présente de la manière suivante:</p>
+                     
+                     <egXML xmlns="http://www.tei-c.org/ns/Examples"><sp who="#jd" toWhom="#o">
+                        <speaker rend="sc">Le Jardinier.</speaker>
+                        <p>Ne <persPronouns corresp="#em1 #em2 #em3">les</persPronouns> écoutez pas, <persName ref="#o">étranger</persName>. <persPronouns corresp="#abd">On</persPronouns> ne sait  qui <persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> sont. <persPronouns corresp="#em1 #em2 #em3">Elles</persPronouns> circulent depuis deux jours dans la ville, sans amis connus, sans famille ! Si <persPronouns corresp="#abd">on</persPronouns> <persPronouns corresp="#em1 #em2 #em3">leur</persPronouns> demande qui <persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> sont,  <said ana="discours_indirect" who="#em1 #em2 #em3"><persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> prétendent s’appeler <persName ref="#em1 #em2 #em3">les petites Euménides</persName></said>. Et l’épouvantable, c'est qu’<persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> grandissent, qu’<persPronouns corresp="#em1; #em2 #em3">elles</persPronouns> >grossissent à vue d’œil… Hier, <persPronouns corresp="#em1 #em2 #em3">elles</persPronouns> avaient des années de moins qu’aujourd’hui… Viens ici, <persPronouns corresp="#em2">toi</persPronouns>!</p></sp>
+                        
+                        <sp who="#em2" toWhom="#abd">
+                           <speaker rend="sc">Deuxième petite fille.</speaker>
+                           <p>Ce qu’<persPronouns corresp="#jd">il</persPronouns> est brusque, pour <persName ref="#jd"> un marié</persName>!</p></sp></egXML>
+                     <p>Le but n'est pas tant de fournir une analyse grammaticale que de permettre la comptabilisation de toutes ces mentions, et ensuite rendre compte de la manière dont leur contenu textuel évolue.</p>
+                     </div4>
+               </div3>
+            </div2>
+            
+            <div2><head>Chercher la construction de la tension dramatique et des niveaux de sens du texte</head>
+               
+               <p>Car savoir combien de fois un personnage est mentionné est une chose; mais il est encore plus appréciable d'analyser comment les termes qui le représentent évolue. Ceci implique non seulement de cibler les expressions significatives, mais également d'en proposer un premier regroupement selon la tonalité qu'ils évoquent.</p> 
+               
+               <div3><head>Commenter les dénominations des personnages</head>
+                  
+                  <div4><head>Cerner les rapports de force entre personnages</head>
+                     
+                     <p>Sans rajouter de balises, une première manière de procéder est de comptabiliser le contenu des éléments <gi>persName</gi> et <gi>persPronouns</gi> en les triant par personnage mentionné et par locuteur. Cela souligne le registres employé par chaque personnage pour s'adresser à un autre, élément central des rapports de pouvoir s'il en est. On se souviendra que les pronoms de la seconde personne s'adressent à un destinataire <hi>présent</hi>, par opposition à ceux de la troisième personne, se référant traditionnellement à des personnes absentes ; et que le vouvoiement a pour fonction principale d'instaurer une distance entre les personnes, que ce soit par formalité (respect d'un statut social supérieur) ou par volonté de ne pas entretenir des rapports de proximité, qui se mueraient en familiarité, voire en fraternité. 
+                        On arrive aux constats suivants:</p>
+                  <list>
+                     <item>Le Jardinier vouvoie Oreste sans connaître son rang. Il se considère alors à distance de tout personnage adulte, par défaut, ce qui facilite l'assignation à une position d'infériorité. De fait, Oreste s'adresse en retour très peu directement à lui (peu de balises <gi>persPronouns</gi> renvoyant vers le Jardinier de sa part), ce qui entérine cette distance;</item>
+                     
+                     <item>Assez logiquement, Électre et Oreste se tutoient: mais leurs moments d'interaction sont très rares dans nos extraits. Ils se désignent donc mutuellement par la troisième personne, ce qui crée l'impression d'une absence irréductible de l'un pour l'autre;</item>
+                     
+                     <item>En revanche, le Mendiant, Électre et la Femme Narsès se tutoient, ce qui traduit des affections réellement vivantes, par opposition à celles qui étaient, ou devraient être.</item>
+                     
+                     <item>Toutefois, le Mendiant comme la Femme Narsès ne désignent Oreste qu'à la troisième personne (y compris en sa présence), l'excluant de ces manifestations d'affection immédiates. Au cours de ses tirades, le Mendiant désigne aussi progressivement Électre par la troisième personne, alors qu'elle est sur scène; ses actions semblent donc être déjà décidées à sa place. La même remarque peut être faite concernant Égisthe et Clytemnestre; bien que hors scène, l'action est censée se dérouler sous les yeux du Mendiant, et donc en temps direct. Il est toutefois le seul en mesure de la voir, ce qui lui confère un pouvoir dramatique à la hauteur de celui des Euménides: ce qu'il dit des personnages leur est imposé.</item>
+                     
+                     <item>Électre rend étrangement Clytemnestre présente sur scène en l'invoquant à la deuxième personne;</item>
+                     
+                     <item>Les personnages s'adressent en majorité aux Euménides comme à une seule entité (emploi du pluriel)  et à la troisième personne. La distance ainsi créée peut s'assimiler à divers affects: crainte (il est dangereux de les confronter directement; d'ailleurs, l'héroïne Électre ne s'adresse pas du tout à elles) ou mépris (elle ne valent pas que des adultes respectables s'adressent à elles). Les tutoiements ne concernent que la première scène. Alors qu'Oreste considère toujours avoir affaire à de simples <hi>petites</hi>, le Jardinier apparaît conscient de leur statut d'êtres supérieurs (<hi>C'est effroyable, le destin enfant</hi>) qui, par leur inconduite, sont plus indignes de respect que tous les autres personnages. Le Jardinier ne passe à la confrontation directe qu'à un seul moment: lorsque les Euménides laissent entendre que la femme qu'il aime est elle-même vulgaire, ce qui est un élément éclairant quant à la définition de ses valeurs.</item>
+                     
+                     <item>En réponse, les Euménides commencent par vouvoyer Oreste - comme les enfants le feraient à un adulte - ce qui lève la défiance de ce dernier. Elles le tutoient dès la fin de la première scène, quand elles commencent à l'accabler de reproches - comme elles le font pour tous les autres personnages, excepté le Mendiant.</item>
+                     
+                     <item>On peut également noter qu'Agamemnon (dans les discours rapportés par le Mendiant) parle tout d'abord directement à Clytemnestre en la tutoyant, puis ne la mentionne plus qu'à la troisième personne à la fin (alors qu'elle est bien à ses côtés), à partir du moment où il se réalise victime de meurtre: le lien de proximité n'a plus lieu d'être, et Clytemnestre elle-même est progressivement muée en une créature que la violence déshumanise.</item> 
+                  </list></div4>
+                   
+                <div4><head>L'évolution signifiante de la caractérisation de chaque personnage dans les mots des autres</head>
+                   
+                   <p>À ce stade, il convient de mettre l'ensemble de ces pronoms personnels en regard des expressions que les personnages emploient pour désigner leurs sembables, dans tous les contextes - y compris lorsque ces derniers ne sont pas au centre de la discussion. Pour recenser toutes ces expressions, il convient de différencier les mentions qui ne comportent qu'un prénom (ce qui causerait du bruit dans le résultat final) et celles qui s'expriment par images, ou du moins y ajoutent au moins un qualificatif. Aussi avons-nous scindé les <gi>persName</gi> en deux catégories, via l'attribut <att>type</att>: les <val>prénom</val> et les <val>périphrase</val>, pour qu'il soit possible de se concentrer sur les périphrases seules, une fois que toutes les mentions ont été comptées. On remarque ainsi que:</p>
+                   <list>
+                      <item>Le Mendiant, le Jardinier et la Femme Narsès n'ont pas de prénom, et par conséquent pas d'individualité signifiante;</item>
+                      <item>Oreste est le plus souvent associé à des images d'enfance, soit d'innocence et de fragilité: son manque de maturité le rend impuissant à toute résistance devant son destin d'Atride maudit;</item>
+                      <item>Dans la première scène, Agamemnon et Clytemnestre sont principalement définis par leur prestance royale et leur proximité affective envers Électre et Oreste; la tirade du Mendiant racontant le meurtre d'Agamemnon voit ce portrait d'abord tourné en ridicule, puis animalisé, et enfin complètement chosifié;</item>
+                      <item>Électre elle-même se trouve réduite à <hi>rien</hi>, dans les mots de la fin des Euménides.</item>
+                   </list>
+                   </div4>
+                  
+                  <div4><head>Et comment les personnages se caractérisent-ils eux-mêmes?</head>
+                     
+                     <p>Recensons enfin les <gi>persName</gi> et <gi>persPronouns</gi> qui pointent vers le même <val>xml:id</val> que celui de l'élément <gi>sp</gi> (ou, en moindre nombre, <gi>said</gi>) qui les contient: ils sont révélateurs de la place que chaque personnage s'attribue dans les échanges. Sans surprise, Électre et Oreste multiplient les recours aux "je", plus encore que le Mendiant qui en fait aussi son pronom principal; leur arc narratif est celui du récit initiatique, et c'est assez logiquement que l'attention des spectateurs se concentre sur eux deux. Le Jardinier et son histoire d'amour impossible eût pu susciter un intérêt semblable. Mais ses répliques ont une préférence marquée pour les tournures grammaticales impersonnelles, de type "C'est" et de "On". Trop inférieur socialement, ou trop pudique, son individualité disparaît; en contrepoint, il devient la première expression du collectif, rejoint en cela par la Femme Narsès qui se présente avec un "Nous". C'est peut-être en eux qu'il faudrait voir les dignes héritiers du Choeur antique, plutôt que les Euménides.</p>
+                     
+                     <p>Ces dernières se désignent elles-mêmes en très grande majorité par le pluriel de la première personne - à l'instar d'un Choeur, bien sûr, mais aussi des trois sorcières du <hi>Macbeth</hi> de Shakespeare - et ce même pour communiquer perceptions, jugements et affects. Il en résulte sans ambiguïté le sentiment d'entendre une seule conscience s'exprimer ; de fait, les rythmes ternaires se multiplient dans leurs répliques (<hi>Nous mentons. Nous médisons. Nous insultons</hi>)Les rares occurrences d'adresses au singulier, placées dans des phrases de tournure familière, sont là pour brouiller les pistes en rapprochant les personnages des Euménides de petites écolières ordinaires.</p>
+                     
+                  <p>Connaître les émotions des personnages est également intéressant pour cerner quelle place ils occupent dans un échange. Pour nous attaquer à un indicateur simple, recensons la ponctuation non ordinaire (points d'exclamation, d'interrogation et de suspension) avec ce que propose le module <gi>analysis</gi>: cela nous permettra de distinguer les phrases de même nature, mais de fonctions différentes. La balise <gi>pc</gi> indique le caractère, dont la valeur dramatique est communiquée par <att>ana</att>. Dans l'espoir d'en fournir une typologie satisfaisante, nous avons opté pour les valeurs suivantes: 
+                     </p>
+                     <list>
+                        <item><val>enquête</val>: concerne une information qui n'est pas absolument évidente pour le spectateur. Suscite des récits rétrospectifs sur lesquels l'action dramatique s'installe. Souligne aussi l'ignorance d'un personnage à un moment critique (comme Agamemnon au moment de son meurtre), et donc sa totale soumission devant les événements;</item>
+                        
+                        <item><val>rhétorique</val>: concerne des phrases uniquement destinées à énerver les autres personnages. Les locuteurs qui en font usage savent ce qui va être répondu; ils connaissent les pensées, sentiments et choix des autres, et révèlent par là une omniscience dérangeante: ce qui est dit va survenir. Les locuteurs ont ce pouvoir sur l'histoire. La <val>raillerie</val> a la même utilité, tout comme la <val>désinvolture</val> - le mépris en moins. Principalement véhiculées par les Euménides, on retrouve aussi ces valeurs dans les répliques du Mendiant (qui s'étonne à peine de voir arriver sur scène la Femme Narsès, l'ayant annoncée quelques scènes plus tôt) ainsi que d'Électre, lorsqu'elle échange ses souvenirs avec la Femme Narsès: quand bien même elle sait déjà tout ce qu'il y a à savoir de son père, elle ne veut pas sortir du ressassement d'un passé fantasmé.</item>
+                        
+                        <item><val>excitation</val>: exprime une réaction positive notable d'un personnage, y compris lors de mentions de souvenirs très violents. Quantifie donc le niveau de compassion des personnages concernés (sans surprise, les Euménides) Proche de la fonction <val>admiration</val>, qui ne décrit néanmoins pas une action, mais juste une caractéristique d'un personnage.</item>
+                        
+                        <item><val>irritation</val>: souligne que ce qui vient d'être dit n'est pas acceptable moralement. L'irritation du locuteur est censée provoquer une contre-action. Généralement, il ne se passe rien: les irritations sont donc un autre marqueur des moments d'impuissance des personnages concernés. C'est également le sens associé à la valeur <val>surprise</val>, qui toutefois se limite au simple constat du sujet de sa propre impuissance.</item>                 
+                        <item><val>attendrissement</val>: pause lyrique. Le personnage laisse sa phrase en suspens, goûtant à la permanence de l'image dans son esprit. Ces moments de délicatesse sont rares, et sont appelés à ressortir pour contraster, afin que personnages comme spectateurs aient quelque chose à <hi>regretter</hi> lorsque le crime est commis et que les relations sont détruites.</item>
+                        
+                        <item><val>crainte</val> et <val>trouble</val>: très rares mais importants, puisqu'ils traduisent des non-dits non assumés. Car tous deux pointent des idées inconcevables (le destin malfaisant qui se rapproche - et une mère qui va se faire tuer) dont la verbalisation implique de se mettre en danger (les Erinyes pourraient riposter -, et les autres personnages désavouer Electre en réalisant qu'elle est coupable de la mort de ladite mère) </item>
+                        
+                        <item>Assez transparentes et aussi rares dans nos extraits, moins significatives d'un point de vue dramatique, les valeurs <val>autorité</val>, <val>incertitude</val>, <val>consternation</val>, <val>révélation</val> et <val>désespoir</val> complètent l'ensemble.</item>
+                     </list>
+                     
+                     <p>Bien sûr, c'est là un découpage grossier, qui n'exclut aucunement l'expression d'émotions plus fines de la part des comédiens. Leur fonction est simplement de démêler l'écheveau des réactions de tous les personnages, et d'en faire ressortir des traits de caractérisation qui pourraient passer inaperçus au regard des ambitions de la pièce:</p>
+                     <list>
+                        <item>Oreste n'est jamais autre chose qu'un total ingénu, assez éloigné de l'image enfiévrée que le public peut connaître de son prédécesseur, l'Oreste d'<hi>Andromaque</hi> de Racine;</item>
+                        
+                        <item>Le Jardinier ressent la nocivité des Euménides et le fait savoir, ce qui fait de lui un potentiel contre-pouvoir aux forces divines (rappelons également qu'il parle au pluriel, et peut prétendre alors être une voix du peuple) sans que, toutefois, ses répliques soient suivies d'actions concrètes;</item>
+                        
+                        <item>Le Mendiant exprime très peu d'émotions: rien ne le surprend, ce qui renforce l'impression qu'il connaît tout à l'avance, et à ce titre pourrait incarner lui aussi un antagoniste des Euménides.</item>
+                        
+                        <item>Électre n'exprime aucune émotion saillante durant la scène finale, qui pourtant devrait être un triomphe, ou (littéralement) une explosion à son encontre. Le personnage est étrangement effacé. On peut alors envisager que toutes ses émotions sont refoulées, parce que ce ne sont pas celles qu'elle aurait voulu avoir; et adapter le jeu de la comédienne en conséquence.</item>
+                     </list> 
+                     <egXML xmlns="http://www.tei-c.org/ns/Examples"><sp who="#mdt" toWhom="#fns">
+                        <speaker rend="sc">Le Mendiant</speaker>
+                        <p>Tu n’es pas folle d’appeler la princesse ta fille<pc type="question" ana="rhétorique">?</pc></p></sp>
+                        
+                        <sp who="#fns" toWhom="#mdt">
+                           <speaker rend="sc">La Femme Narsès.</speaker>
+                           <p>Je l’appelle ma fille. Je ne lui dis pas qu’elle est ma fille. Je l’ai pourtant souvent vu, son père. Oh, mon Dieu, le bel homme <pc  type="excalamtion" ana="admiration">!</pc></p></sp>
+                        
+                        <sp who="#el" toWhom="#fns">
+                           <speaker rend="sc">Électre.</speaker>
+                           <p>Il avait une barbe, n’est-ce pas <pc type="question" ana="rhétorique">?</pc></p></sp>
+                        
+                        <sp who="#fns" toWhom="#el">
+                           <speaker rend="sc">La Femme Narsès.</speaker>
+                           <p>Pas une barbe. Un soleil. Un soleil annelé, ondulé. Un soleil d’où venait de se retirer la mer. Il y passait a main. La plus belle main que j’ai vue au monde<pc type="suspension" ana="attendrissement">…</pc></p></sp>
+                        
+                        <sp who="#el" toWhom="#fns">
+                           <speaker rend="sc">Électre.</speaker>
+                           <p>Appelle-moi ta fille, femme Narsès, je suis ta fille<pc type="suspension" ana="excitation">…</pc> a crié <pc type="exclamation" ana="excitation">!</pc></p></sp></egXML>
+                  </div4>
+               </div3>
+                    
+               <div3><head>Caractériser l'action: recenser et classer les verbes</head>
+                  
+                  <p>Nous avons cerné qui parle, et comment; reste à analyser ce que les personnages se disent. Là encore, nous aurons recours au module <gi>analysis</gi>: l'élément <gi>w</gi> y permet de désigner des mots à l'unité. Il semble donc bien indiqué pour sélectionner les verbes, qui à eux seuls portent l'essentiel de l'action communiquée par la parole. Mais le contexte énonciatif peut induire des valeurs différentes à la même conjugaison; comme pour les émotions traduites par la ponctuation, nous nous efforcerons donc de les inscrire, et de les classer. Le mode et temps de conjugaison de chaque verbe est donc associé à l'attribut <att>type</att>, et sa valeur dramatique à l'attribut <att>function</att>. Ce sont ici les <att>function</att> qui nous intéressent, pour la construction du sens dramatique. On peut en dresser le tableau suivant:</p>
+             
+                  <list>
+                     <!-- Les relais de l'action en cours -->
+                     
+                     <item><val>actualité</val>: le verbe rend simplement l'action réelle sur scène, sur le mode factuel. Il rend également compte de la présence d'éléments accessoires. Souvent associée au présent de l'indicatif.</item>
+                     
+                     <item><val>description</val>: accompagne la précédente, en renseignant des états statiques des choses. Souvent associée à l'imparfait de l'indicatif, dans les récits rétrospectifs.
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples"><sp who="#em1" toWhom="#abd">
+                           <speaker rend="sc">Première petite fille.</speaker>
+                           <p>Ce qu’il <w type="indicatif:présent" function="description">est</w> beau, le jardinier !</p></sp>
+                           
+                           <sp who="#em2" toWhom="#em1">
+                              <speaker rend="sc">Deuxième petite fille.</speaker>
+                              <p>Tu <w type="indicatif:présent" function="actualité">penses</w> ! C’<w type="indicatif:présent" function="actualité">est</w> le jour de son mariage.</p></sp></egXML></item>
+                     
+                     <!-- L'intégration du passé à l'action présente --> 
+                     
+                     <item><val>récit_épique</val>: est attribuée aux verbes conjugués au passé simple de l'indicatif, temps traditionnellement utilisé pour le récit de fictions. Ou, du moins, le récit d'histoires si reculées qu'elles n'existent plus qu'au sein de la mémoire collective. Les conséquences des événements relatés ne sont plus mesurables au présent. Le Jardinier introduit l'usage de ce passé simple dans la scène d'exposition, pour résumer le passif horrifique de la famille royale - dans ce qui ressemble furieusement à un récit de légende. 
+                     
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">C’est celle de la chambre où Atrée, le premier roi d’Argos, <w type="indicatif:passé_simple" function="récit_épique">tua</w> les fils de son frère.</egXML></item>
+                     
+                     <item><val>événement_récent</val>: valeur canonique du passé composé de l'indicatif, il renseigne une action survenue dans un passé proche, encore présent aux esprits, explicitement dans la continuité du présent où son récit a lieu. La distance entre les locuteurs et cette action est minimale. Ils surgissent au milieu de récits au passé simple, en introduction, en conclusion: les horreurs qui y sont racontées reprennent leur place dans la réalité que les personnages expérimentent à l'instant. Elles sont donc plus prêtes de se répéter.
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples"><sp who="#em1" toWhom="#o #abd">
+                           <speaker rend="sc">Première petite fille.</speaker>
+                           <p>Le repas où <persPronouns corresp="#atree">il</persPronouns> <w type="indicatif:passé_simple" function="récit_épique">servit leurs cœurs</w> <w type="indicatif:passé_simple" function="récit_épique">eut lieu</w> dans la salle voisine.</p></sp>
+                           
+                           <sp who="#em3" toWhom="#abd">
+                              <speaker rend="sc">Troisième petite fille.</speaker>
+                              <p>Il les <w type="indicatif:passé_composé" function="événement_récent">a coupés</w>, ou <w type="indicatif:passé_composé" function="événement_récent">fait cuire</w> entiers ? </p></sp></egXML></item> 
+                     
+                     <item><val>action_premier_plan</val>: dans les longues tirades du Mendiant, nous retrouvons la tonalité de récit légendaire mentionnée plus haut. Du fait de leur longueur, les verbes sont toutefois appelés à avoir une fonction plus fine que simplement mettre les événéements à distance. Le récit doit avoir une puissance évocatoire supérieure, et conférer un poids décisif aux actions qui y ont lieu;  il doit les rendre vivantes sur scène, par le simple pouvoir de la parole. Le passé simple est de nouveau de rigueur, sur ce modèle:
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">Et comme Égisthe penché disait aux meneurs que tout allait bien, et que tout désormais irait bien, il <w type="indicatif:passé_simple" function="action_premier_plan">entendit</w> crier dans son dos une bête qu’on saignait.</egXML></item>
+                     
+                     <!-- Les actions banalisées -->
+                     
+                     <item><val>action_secondaire</val>: à l'inverse, beaucoup autres verbes des récits du Mendiant installent leur action en arrière-plan: elles n'ont pas de facteur causal identifié, ni de déclenchement, ni de point d'arrêt; comme si elles s'imposaient d'elles-mêmes aux personnages. Essentiellement conjugués à l'imparfait, ces verbes mettent en valeur, par contraste, les occurrences de passé simple dans le récit. Toutefois, cet effet de mise au second plan s'avère spectaculaire dans les récits de meurtre: comme si la décision de tuer, la violence et l'agonie relevaient presque de l'anecdotique. Par exemple, dans le passage suivant:
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">Et ce <w type="indicatif:imparfait" function="action_secondaire">n’était</w> pas une bête qui <w type="indicatif:imparfait" function="action_secondaire">criait</w>, c’<w type="indicatif:imparfait" function="action_secondaire">était</w> Clytemnestre. Mais on la<w type="indicatif:imparfait" function="action_secondaire">saignait</w>. Son fils la <w type="indicatif:imparfait" function="action_secondaire">saignait</w>.</egXML></item>
+                     
+                     <item><val>action_irréversible</val>: concerne les actions complètement parachevées, que le personnage n'a même pas eu le temps de réaliser. Ironiquement, les verbes pointent vers des situations dont il fallait se défendre, ou des décisions cruciales: le personnage n'y a pris aucune part consciente.
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">Puis vint l’ombre. C’est que soudain, chacun d’eux, par un bras, <persPronouns corresp="#agm">l’</persPronouns><w type="indicatif:plus_que_parfait" function="action_irréversible">avaient retourné contre le sol</w>.</egXML>
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples"><persPronouns corresp="#o">Il</persPronouns> <w type="indicatif:plus_que_parfait" function="action_irréversible">avait frappé</w> au hasard sur le couple, en fermant les yeux.</egXML></item>
+                     
+                     <item><val>habitude</val>: vise des actions qui font partie de la caractérisation des personnages. Associée au présent et à l'imparfait de l'indicatif, ses effets sont également saisissants lorsqu'ils concernent des situations qui ne sont pas censées être, justement, habituelles et banalisées.
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">On <persPronouns corresp="#o">me</persPronouns> <w type="indicatif:imparfait" function="habitude">posait</w> dans un losange de tigres quand j’<w type="indicatif:imparfait" function="habitude">étais</w> méchant, et dans un hexagone de fleurs quand j’ <w type="indicatif:imparfait" function="habitude">étais </w>sage.</egXML>
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples"><sp who="#em1" toWhom="#abd">
+                           <speaker rend="sc">Première petite fille.</speaker>
+                           <p>La reine Clytemnestre <w type="indicatif:présent" function="habitude">a</w> mauvais teint. Elle se <w type="indicatif:présent" function="habitude">met</w> du rouge.</p></sp></egXML></item> 
+           
+                     <!-- Comprendre, avertir, annoncer: contrôler les événements par la parole -->
+                     
+                     <item><val>prédiction_certaine</val>: qualifie les annonces sorties de nulle part, mais systématiquement appelées à se réaliser; et avec, les personnages en mesure de faire advenir l'action qu'ils veulent. Le verbe prend une valeur performative. Les plus productifs en la matière - au futur simple de l'indicatif, ou aux temps du subjonctif - sont les Euménides (ce qui les renvoie comme juges et exécutantes divines) le Mendiant (qui prend alors le ton d'un devin) et, à intervalles sporadiques, le Jardinier (qui se montre donc lucide sur la marche des événements, sans pouvoir y changer quoi que ce soit).
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples"><sp who="#em1" toWhom="#o #abd">
+                           <speaker rend="sc">Première petite fille.</speaker>
+                           <p><persPronouns corresp="#o">Tu</persPronouns> ne nous as pas défendues, étranger, tu t’en <w type="indicatif:futur_simple" function="prédiction_certaine">repentiras</w>!</p></sp></egXML>
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples"><persPronouns corresp="#o">Il</persPronouns> a eu tort. Il ne <persPronouns corresp="#el">la</persPronouns> <w type="indicatif:futur_simple" function="prédiction_certaine">touchera</w> jamais plus.</egXML></item>
+                     
+                     <item><val>possible_immédiat</val>: une variante de la catégorie précédente, mais avec la particularité de n'être pas absolument fiable. Les verbes communiquent une attente, appelée à se réaliser au cours de la scène, ou dans la scène suivante ; même si cela doit être fictif (après le tomber de rideau, particulièrement). La conjugaison la plus courante est celle du futur proche de l'indicatif. Les actions concernées sont plus faciles à deviner, ce qui confère au locuteur un moindre pouvoir de performativité que la catégorie précédente, et un caractère moins surnaturel. Reproduisant la situation d'individus en attente que quelque chose se passe à l'instant, les répliques employant ce type de verbes calquent l'attitude du public lui-même.
+                     
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">C’est comme le jardinier qui vient là, qui veut vous parler. Il ne vient pas. Il ne <w type="indicatif:futur_proche" function="possible_immédiat">va pas pouvoir</w> dire un mot. - Ou il <w type="indicatif:futur_proche" function="possible_immédiat">va braire</w>. Ou miauler.</egXML>
+                     
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">Ta conscience ! <persPronouns corresp="#el">Tu</persPronouns> <w type="indicatif:futur_proche" function="possible_immédiat">vas l’écouter</w>,ta conscience, dans les petits matins qui se préparent.</egXML></item>
+                     
+                     <item><val>certitude</val> est une autre variante de <val>prédiction_certaine</val>, en ce qu'elle énonce un objectif, ou une causalité, qui est sûr d'être accompli. Mais cet accomplissement est plus facilement intelligible qu'une prédiction, puisqu'il s'accompagne d'un déroulé d'événements, ou d'un raisonnement. 
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples"><persPronouns corresp="#em1 #em2 #em3">Nous</persPronouns> ne le <w type="indicatif:futur_simple" function="prédiction_certaine">lâcherons</w> plus, jusqu’à ce qu’il <w type="subjonctif:présent" function="certitude">délire</w> et se <w type="subjonctif:présent" function="certitude">tue</w>, maudissant sa sœur.</egXML></item>
+                     
+                     <item><val>généralité</val>: désigne les verbes muant un constat ponctuel en une maxime à portée collective, et par conséquent, les personnages susceptibles d'en produire. Ces derniers se voient donc en mesure de comprendre les jeux de force en présence dans la pièce, au lieu d'en être de simple relais passifs. Associée au présent de l'indicatif, y compris dans les récits.
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">Les assassins <w type="indicatif:présent" function="généralité">ont tort</w> de blesser le marbre, il <w type="indicatif:présent" function="généralité">a</w> sa rancune</egXML></item>
+                     
+                     <item><val>hypothèse</val>: cette valeur cible le degré minimal d'influence sur les événements, soit la volonté de comprendre les rapports de force, sans pour autant en assumer les conclusions.  
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">Affreuses petites bêtes. On <w type="conditionnel:présent" function="hypothèse">dirait</w> trois petites Parques !</egXML></item>
+                                                                            
+                  <!-- Exprimer un pouvoir explicite -->
+                     
+                   <item><val>ordre</val>: première manifestation de l'autorité d'un individu sur un autre, l'emploi de l'impératif. Doublé d'une exclamation irritée, il communique la volonté ferme d'être obéi, et donc un rapport de force dominant - qui parfois n'est pas pris au sérieux.
+                      
+                      <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                         
+                         <sp who="#o" toWhom="#em1 #em2 #em3">
+                            <speaker rend="sc">L'Étranger.</speaker>
+                            <p><persPronouns corresp="#jd">Il</persPronouns> a raison. <w type="impératif" function="ordre"> Filez</w> !</p></sp>
+                         <sp who="#jd" toWhom="#em1 #em2 #em3">
+                            <speaker rend="sc">Le Jardinier.</speaker>
+                            <p>Et ne <w type="impératif" function="ordre">revenez</w> pas!</p></sp></egXML>
+                   
+                      <egXML xmlns="http://www.tei-c.org/ns/Examples">Et <persPronouns corresp="#agm">il</persPronouns> cria : Femme, <w type="impératif" function="ordre">lâche</w>-moi !</egXML></item>
+                     
+                     <item><val>conseil</val>: autre usage de l'impératif; qui, tout en traduisant un léger rapport de domination (celui de cuex qui savent envers des ignorants, ou d'adultes à enfants, etc) n'entend pas résulter en un acte d'obéissance immédiat. Autrement dit, l'humeur du personnage ne s'en ressentira pas, quand bien même son injonction n'est pas suivie.
+                     
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">La façade est bien d’aplomb, étranger ; <w type="impératif" function="conseil">n’écoutez pas</w> ces menteuses.</egXML></item>
+                     
+                     <item><val>amorce_conte</val>: plus particulière, cette valeur cible les impératifs qui ne concernent pas une action spécifique à accomplir (partir, prendre, lâcher..) ni une relation de domination entre individus d'intérêts contraires. Elle recense les injonctions qui sont celles des conteurs à leur public afin d'attirer leur attention et souligner le caractère important de ce qui va être dit. Le locuteur n'est même pas nécessairement l'auteur du récit qu'il introduit ainsi (comme le Mendiant, qui prétend être le relais d'une histoire qu'il n'invente pas.) Distinguer ces verbes permet également de renvoyer facilement vers les situations où un personnage se fait conteur pour un public d'autres personnages, qui constituent des mises en abyme. Or être en mesure de créer une mise en abyme revient à conférer au personnage conteur le pouvoir de créer une pièce de théâtre, où sa parole s'accomplit telle quelle; somme toute, un pouvoir divin qui est précisément celui qui s'attaque aux personnages principaux.
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                           <sp who="#em1;" toWhom="#em2 #em3 #abd">
+                           <speaker rend="sc">Première petite fille.</speaker>
+                           <p><w type="impératif" function="amorce_conte">Récitons</w> Clytemnestre, mère d’Électre.</p></sp></egXML>
+                     
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                           Comment ils l’ont tué, femme Narsès, <w type="impératif" function="amorce_conte">écoute</w>.</egXML>
+                     
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples"><sp who="#em2" toWhom="#em1 #em3">
+                           <speaker rend="sc">Deuxième petite fille.</speaker>
+                           <p><w type="impératif" function="amorce_conte">Écoutez</w>, écoutez, mes sœurs ! On parle du petit Oreste !</p></sp></egXML></item>
+                     
+                    <!-- Souligner avec ironie les actes manqués -->
+                     
+                     <item><val>souhait</val>: presque toujours employée pour des verbes de volonté - quand bien même un environnement tragique n'est pas initialement conçu pour satisfaire des volontés. De fait, la seule qui aura ce qu'elle voulait est l'Euménide qui visiblement aime entendre les gens crier dans leur agonie, comme Clytemnestre le fera.
+                     
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                           <persPronouns corresp="#cassandre">Elle</persPronouns> criait comme une folle, dans sa voilette… <persPronouns corresp="#em3">J’</persPronouns><w type="conditionnel:passé" function="souhait">aurais bien voulu</w> voir.</egXML></item>
+                     
+                     <item><val>irréel du passé</val> désigne plus spécifiquement les pensées et analyses erronées que se font les personnages au plus mauvais moment - quand tout est déjà décidé autrement. 
+                        
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">Il était  indiscret, ce jeune Égisthe, et maladroit. On <w type="conditionnel:présent" function="irréel_du_passé">verrait</w> pour son avancement.</egXML></item>
+                   </list>      
+               </div3>
+               
+               <div3><head>Travailler le lexique</head>
+                  
+                  <div4><head>L'installation du tragique dans la coexistence de champs lexicaux opposés</head>
+                     
+               <p>Il convient, à ce stade, de résumer les ressorts de la tragédie tels qu'Aristote les décrit dans sa <hi>Poétique</hi>: <hi>faire ressentir pitié et crainte</hi> (en vue d'obtenir la très recherchée <hi>purification des passions, catharsis</hi>) Or pour éprouver de la pitié, il faut éprouver de l'attachement pour les personnages; soit les représenter dans de ce qu'ils ont de plus intime, et mis en danger sans en être responsables (sans trop entrer ici dans les circonvolutions de la notion d'<hi>hybris</hi>). Ils doivent être agents de leur propre perte, mais du fait de leur méconnaissance des conséquences de leurs actions, et qui prouvent la domination irréductible des forces divines sur les décisions individuelles.</p>
+              
+               <p> Ce qui signifie que la violence est instillée au coeur même des relations les plus fusionnelles. Le théâtre antique privilégiait l'élégie - développer la souffrance psychologique des personnages une fois que divers massacres avaient été commis, par de longues tirades lyriques. Giraudoux fait le choix de faire pressentir la violence à venir tout du long de la pièce ; et, une fois qu'elle survient, les mêmes procédés sont utilisés pour renforcer son caractère absurde, qui va donc générer une nouvelle forme de souffrance (damnation et culpabilité) auprès de ceux qui l'ont perpétrée.</p>
+                     
+                     <p>Sémantiquement, cela se traduit par la superposition de champs lexicaux. Chacun d'eux désigne un concept plus général, dont dérivent les représentations que les personnages élaborent les uns des autres. Cette superposition a lieu à toutes les échelles:</p>
+                     <list>
+                        <item>À celle de la scène, qui passera d'une tonalité à l'autre au fur et à mesure que les mots employés au sein des répliques proviennent de champs différents</item>
+                        <item>Celle de la réplique, pour cerner quels personnages s'impliquent le plus dans tel ou tel champ lexical;</item>
+                        <item>Celle de la phrase, pour étudier les relations de cause à effet, et l'action qui en résulte;</item>
+                        <item>Celle du mot même, qui peut connoter plusieurs champs lexicaux simultanément.</item>   
+                     </list> 
+                     <p>Il est donc nécessaire de recenser les occurrences de ces champs lexicaux, et permettre d'associer à une expression, ou un terme, de référer à plusieurs champs. Nous utiliserons donc de nouveau le système d'attribution d'<att>xml:id</att>, sur le même modèle que les personnages, chaque <att>xml:id</att> identifiant un champ lexical choisi. Toutefois, puisque le référencement de ces mots va recouper celui des verbes, ou des périphrases désignant les personnages, nous choisissons une balise susceptible d'accepter de contenir les éléments liés, ou qu'ils puissent la contenir en retour. C'est le cas de l'élément <gi>emph</gi>, issu du module TEI <gi>core</gi>, qui entend simplement souligner une expression pour son intérêt sémantique. Nos balises <gi>emph</gi>, au sein de nos répliques <gi>sp</gi>, ont ici pour fonction exclusive de renseigner des champs lexicaux. Nous en choisirons neuf, et les présentons ici dans leur ordre d'apparition au sein du <gi>body</gi>.</p>
+                     <p>
+                       <list>
+                        <item><val>beauté</val> regroupe les mots qui connotent le jugement positif d'un personnage. Par extension, désigne les situations harmonieuses et les choses désirables, affectionnées par Oreste dans l'évocation de sa mosaïque et dans les fleurs aux fenêtres. Premier champ lexical renseigné, il suggère que la situation initiale de cette histoire était harmonieuse.</item>
+                        
+                        <item><val>statut_royal</val> regroupe tout terme faisant état de la prestance des Atrides, depuis les titres royaux jusqu'aux éléments de description physique évoquant la statuaire (la barbe bouclée d'Agamemnon, les références à l'or) en passant par les bâtiments monumentaux et luxueux. Il connote à la fois la hiérarchie humaine approuvée des dieux, et donc la domination naturelle que les Atrides entendent exercer sur les autres protagonistes.</item>
+                       
+                        <item><val>laideur</val>: contrepoint de <val>beauté</val>, il recense tous les mots liés à la saleté, au dégoût, au vulgaire (les fort roturières <hi>pierres gauloises</hi> du palais) et au ridicule. Progressivement introduit lors de la scène d'exposition, il a deux fonctions: décrédibiliser le si bel ordre du monde initial - pour l'exposer au chaos qui vient, et aux instances qui se montrent plus puissantes que les Atrides ; ensuite, à un autre niveau, donner à la pièce une tonalité burlesque parfois grasse, qui rappelle à la fois le comique classique d'Aristophane, les scènes farcesques des drames shakespeariens et la couleur locale des drames romantiques français.</item>
+                          
+                        <item><val>bestiaire</val> regroupe littéralement tous les noms d'animaux, ou images animales (la <hi>mousse</hi> aux lèvres de Clytemnestre figurant un chien enragé), qui ne sont pas nécessairement péjoratives par défaut. Nous pouvons l'utiliser pour échantillonner les dénominations que se donnent les personnages, et cerner leur évolution générale.</item>
+                          
+                        <item><val>deuil</val>, plus spécifique, regroupe les mots qui désignent le retour au néant, une fois que tout est accompli et irréversible. Et par conséquent, la tristesse des survivants, et le lexique des sépultures, de la mémoire et des hommages. Subrepticement, il peut banaliser la violence.</item>
+                          
+                        <item><val>tendresse</val> regroupe les mots utilisés par les personnages pour évoquer leur affection, ou leur compassion, envers les choses qui les touchent. Il est utile pour cibler les vecteurs de la pitié chère à Aristote: liens familiaux, conjugaux, amoureux.</item>
+                          
+                        <item><val>violence</val> cible toutes les occurrences de l'horreur, et de la douleur causée à un personnage par un autre. Particulièrement récurrentes, on peut apprécier leur intrication avec quasiment tous les autres thèmes.</item>
+                          
+                        <item><val>paix</val> regroupe les termes évoquant le calme et un ordre des choses non perturbé. Il rejoint <val>beauté</val>, mais porte plus spécifiquement sur l'ordre <hi>moral</hi> des choses. Il connote la vie suivant son cours malgré tout, et donc l'espoir de la renaissance après l'horreur.</item>
+                          
+                        <item><val>vertu</val>: désigne spécifiquement la probité morale d'un personnage, susceptible d'être le modèle en la matière auprès des autres, des instances divines et du public.</item>
+                          
+                        <item><val>damnation</val> désigne spécifiquement les termes relatifs à la culpabilité morale, reconnue par la collectivité (et donc les dieux) et au châtiment inévitable qui en résulte.</item>
+                        
+                        <item><val>temps</val> est un cas spécial, puisqu'il ne connote pas un jugement appréciatif. Il regroupe ici toutes les mentions aux durées et aux repères temporels. Cela permet de faciliter leur recensement, pour apprécier la fameuse <hi>accélération du temps</hi> qui définit le destin, selon Giraudoux, ou cerner qui en fait le plus mention, et se montre donc maître de la temporalité au sein de la pièce. Il peut enfin aider à repérer des images symboliques récurrentes: comme le mot <hi>minute</hi>, curieusement associé au mot <hi>mort</hi> dans la même phrase plusieurs fois.</item>
+                     </list></p>
+                     
+                <p>Ces mentions font en sorte d'associer personnages et champs lexicaux: on constate alors que ce sont les Euménides qui introduisent violence et damnation, et Oreste qui centralise la tendresse, et que le thème central de la violence surgit alors que personne ne s'en rend compte (dans le récit attendri de l'enfance d'Oreste) et que des champs lexicaux opposés coexistent bel et bien, à des fins d'ironie tragique - lorsque le public est appelé à comprendre plus de choses que les personnages actants. On peut relever plusieurs combinations impromptues, qui peuvent s'interpréter sommairement ainsi:</p>
+                  <list>
+                     <item>statut royal et deuil (<hi>On dit alors que le palais pleure</hi>) la royauté peut être, et sera, le cadre de tragédies;</item>
+                     <item>statut royal et paix (<hi>le palais rit</hi>): l'ordre des choses peut passer du chaos à l'harmonie de manière subite et arbitraire;</item>
+                     <item>violence et paix (au sein de la réplique attendrie d'Oreste faisant mention d'esclaves) : montre que la violence guette partout. Même sans allusion directe, elle est maintenue à distance respectable, sans jamais être totalement absente)</item>
+                     
+                     <item>bestiaire et laideur: renseigne qui insulte qui. Les deux duos les plus énergiques en la matière sont Clytemnestre et Agamemnon (sans surprise) et Les Euménides et le Jardinier (plus incongru: le Jardinier est censé être insignifiant. Il n'en est pas moins lucide, d'où peut-être les tentatives répétées de le décrédibiliser)</item>
+                     
+                     <item>statut royal et laideur: cible les moments où le pouvoir institué et l'ordre des choses se corrompt, ou se ridiculise (particulièrement la chute d'Agamemnon, dans le récit; du Mendiant)</item>
+                     
+                     <item>deuil et paix: incarnent ensemble le silence de mort, le calme avant la tempête - ou après; une autre manière de tenir la violence à distance respectable, sans l'anihiler;</item>
+                     
+                     <item>damnation et temps: renseigne les moments où la malédiction des Atrides se met en place;</item>
+                     
+                     <item>damnation et violence: les moments où cette malédiction s'accomplit dans les actes (typiquement, le meurtre d'Agamemmnon)</item>
+                     
+                     <item>temps et paix/beauté: symbolisent ensemble la renaissance durable de l'espoir, et la fermeture du cycle infernal de la violence;</item>
+                     
+                     <item>laideur et vertu: montrent des modèles moraux inattendus (les mendiants, figures de la Justice et défaiseurs de liens)</item>
+                     
+                     <item>tendresse et vertu: doublent la représentation positive d'un personnage. Ainsi, le meurtre de Clytemnestre, décrite comme <hi>une mère innocente</hi>, damne Oreste deux fois (comme brute et comme tyran)</item>
+                     
+                     <item>violence et statut royal: incarnent ensemble la symbolique classique du héros, dont le statut social doit être élevé et les prouesses physiques démontrées; ils sont par conséquence légitimes à incarner la violence d'Etat, nécessaire à l'ordre des choses, et/ou la violence divine (ce qui en contexte mythologique, revient strictement au même.) En bon attribut classique éculé, les épées sont partie prenante du héros (y compris d'un point de vue viril et sexuel, on pourrait difficilement esquiver ce point) et donc incarnent, par métonymie, les trajectoires respectives d'Agamemnon et Egisthe. À noter que lorsque deux <att>xml:id</att> sont renseignés à la suite, leur ordre importe. Agamemnon est d'abord un roi, puis un guerrier; Egisthe un soldat mutinier, puis le régent qui prend sa place.</item>
+                     
+                     <item>violence et vertu: cible le rare cas où la cause semble juste, via le terme <hi>combattre</hi>. Surprise: il est question d'Egisthe, et non d'Oreste.</item>
+                     
+                     <item>violence et beauté: également rare, on retrouve cette coocurrence dans les souvenirs d'Agamemnon de ses comparses héros grecs, Achille et Ulysse. Elle reprend également le motif canonique de l'esthétisation du combat, et, par extension, fait écho aux propres ressorts esthétiques de la tragédie.</item> </list>
+                  </div4>
+                  
+                <div4><head>Intégrer des analyses de figures de style académiques</head>
+                   
+                   <p>Il peut être enfin tentant de mettre en valeur des passages que l'on estime particulièrement significatifs et travaillés au point de vue formel. L'élément <gi>emph</gi> pourrait tout à fait avoir cette fonction, mais le réserver pour l'interrogation des champs lexicaux faciliterait le travail d'analyse ; de plus, une figure de style académique peut parfois concerner des lignes de texte entières. Nous avons donc besoin d'un autre élément pour baliser du texte, et ce à tous les niveaux (réplique, paragraphe, et balisage précédemment évoqué), et également en mesure d'accepter des attributs analytiques, comme <att>type</att> ou <att>ana</att>. Le module <gi>linking</gi> peut être pertinent - il se spécialise également sur l'édition de repères. Prenons ici l'élément minimal, pour les fragments de paragraphes: <gi>seg</gi>, qui encadrera l'exemple de figure de style que nous visons, et dont l'attribut <att>ana</att> donnera le nom - mais pas la valeur.</p>
+                   
+                   <p>L'ensemble des figures de style recensées ici constitue une liste finie pour ce projet d'édition, mais dont la limite est virtuelle: on pourrait en recenser beaucoup d'autres, pour des problématiques plus fines que la simple caractérisation des personnages et de leur agentivité au sein de l'intrigue. Dans tous les cas, il sera nécessaire d'expliciter le sens de ces figures de style dans un document annexe, comme ici. Nous estimons important de mentionner les figures suivantes: </p>
+                    <list>
+                       
+                       <!-- Rendre vivantes des forces obscures en action -->
+                       
+                     <item><val>personnification</val>: les personnages sont pris dans des enjeux qui dépassent leurs propres perceptions, décisions ou désirs. Mais le dire ne suffit pas, il faut le montrer: on remarque alors qu'à plusieurs reprises, des abstractions sont rendues vivantes: elles sont sujet de phrase, et on leur prête des caractéristiques humaines. Le palais et la mort sont les plus concernés, au point de pouvoir prétendre être de véritables personnages muets.</item>
+                     <item><val>mise_en_abyme</val>: pour un personnage, le niveau de lucidité ultime est de se savoir sur scène, agissant au service d'une histoire dont le sens est destiné à d'autres. Car l'histoire est décidée à l'avance: se mettre en situation de comédien, ou de conteur, revient à assumer qu'e l'on est conscient de cela, et que l'on sait que les personnages principaux sont appelés à souffrir. Les verbes marqués d'un impératif d'<val>amorce_conte</val> participent à une <val>mise_en_abyme</val>. Néanmoins, on peut trouver des allusions moins directes, comme lorsque la Première Euménide mentionne les qualités d'autrices propres de son trio ; le terme <hi>poétique</hi>, étymologiquement, renvoyant à toute écriture littéraire fictive en général.</item>   
+                     
+                       <item><val>prétérition</val>: puisque sur scène, mentionner une chose la fait exister, un certain pouvoir démiurgique revient aux personnages qui font advenir des événements en disant qu'ils ne veulent pas en parler (l'exemple le plus éclatant étant le cri d'Egisthe qui conclut littéralement, en point d'orgue, les tirades du Mendiant).</item>
+                     
+                   <!-- Rendre logique ce qui ne l'est pas -->  
+                       
+                   <item><val>prolepse</val>: mention d'une situation apparemment sans rapport (Egisthe qui s'étale sur le marbre) mais qui sera répétée à l'identique plus tard dans la pièce (récit de la mort d'Agamemnon)</item>   
+                       
+                   <item><val>parataxe</val>: superpose deux propositions, à peine séparées par une virgule, en supposant que le lien de l'une à l'autre est logique. Mais il ne va pas de soi - d'ailleurs, les personnages ne le comprennent pas. Le public est amené à penser qu'il y en a un du fait du jeu des comédiens (ponctuation expressive, etc). C'est dans ce type de construction qu'un personnage exprime un non-dit. L'échange entre les Euménides, le Jardinier et Oreste, à la fin de la scène I, en est un bon exemple:
+                      
+                      <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                         <sp who="#jd" toWhom="#em1 #em2 #em3">
+                            <speaker rend="sc">Le Jardinier.</speaker>
+                            <p>Le palais est interdit aux filles de votre âge!</p></sp>
+                         
+                         <sp who="#em1" toWhom="#jd #abd">
+                            <speaker rend="sc">Première petite fille.</speaker>
+                            <p>Demain nous serons grandes.</p></sp>
+                         
+                         <sp who="#em2" toWhom="#abd">
+                         <speaker rend="sc">Deuxième petite fille.</speaker>
+                         <p><seg ana="parataxe">Demain sera le lendemain du mariage d’Électre avec son jardinier. Nous serons grandes</seg>.</p></sp>
+                         
+                         <sp who="#o" toWhom="#jd">
+                            <speaker rend="sc">L'Étranger.</speaker>
+                            <p>Que disent-elles ?</p></sp>
+                         
+                         <sp who="#em1" toWhom="#o #abd">
+                            <speaker rend="sc">Première petite fille.</speaker>
+                            <p><seg ana="parataxe">Tu ne nous as pas défendues, étranger, tu t’en repentiras !</seg></p></sp></egXML></item>
+                       
+                    <item><val>zeugma</val>: le zeugma est similaire dans ses effets, mais à l'échelle d'une seule proposition. Un verbe peut par exemple prendre deux compléments d'objet, dont chacun fait sens séparément, mais pas ensemble. Ce qui crée un effet de rapprochement éclair entre deux idées éloignées. 
+                    <egXML xmlns="http://www.tei-c.org/ns/Examples"><seg ana="zeugma">Alors que toutes les ménagères pour le retour d’Agamemnon savonnaient leur seuil, la reine et son amant savonnaient le seuil de sa mort</seg>.
+                    </egXML></item> 
+                    <item><val>syllepse</val>: également similaire, mais jouant à l'échelle du mot seul: les multiples sens d'un mot sont valides au sein de la phrase, et rendent possibles des lectures différentes. On en trouve des exemples tout du long du texte, comme le terme <hi>poétique</hi>, précédemment mentionné. Un autre exemple explicite est le triple sens attribué à <hi>lueur</hi>, dans la scène finale:
+                       
+                       <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                          <speaker rend="sc">Un serviteur.</speaker>
+                          <p>Fuyez, vous autres, le palais brûle !</p>
+
+                             <speaker rend="sc">Première Euménide.</speaker>
+                             <p>C’est <seg ana="syllepse">la lueur qui manquait à Électre.</seg> Avec le jour et la vérité, l’incendielui en fait trois.</p></egXML>
+                       
+                       Les Euménides vont même jusqu'à expliquer directement le procédé, au cours de leur <hi>récitation</hi>:
+                       <egXML xmlns="http://www.tei-c.org/ns/Examples">Tout ce qui est <seg ana="syllepse">rouge</seg>, parce que c’est du sang.</egXML>
+                    </item>
+                       
+                   <item><val>chiasme</val> et <val>parallélisme</val> mettent deux structures grammaticales similaires (ou deux types de lexique) sur le même plan (le chiasme enchâsse l'une dans l'autre, le parallélisme se contente de les superposer). Les constats et actions qu'ils désignent dont donc appelés à se faire écho, comme s'ils ressortaient du même agent causal.
+                      
+                   <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                      <seg ana="chiasme">...Quand le jour se lève, comme aujourd’hui, et que tout <emph corresp="#violence">est gâché</emph>, que tout <emph corresp="#violence">est saccagé</emph>, et que l’air pourtant <emph corresp="#paix;">se respire</emph>, et <seg ana="parallélisme">qu’on <emph corresp="#violence; #deuil">a tout perdu</emph>, que la ville <emph corresp="#violence">brûle</emph>, que <emph corresp="#vertu">les innocents</emph> <emph corresp="#violence">s’entretuent</emph>, mais que les <emph corresp="#damnation">coupables</emph> <emph corresp="#violence">agonisent</emph></seg></seg>
+                   </egXML></item>
+
+                     <item><val>apophtegme</val> désigne les phrases à tonalité sententielle, à portée collective - elles contiennent systématiquement des verbes portant la valeur <val>généralité</val>, et constitue l'exemple extrême de l'aptitude de certains personnages à tirer des morales de ce qu'il se passe. Les apophtegmes ont, dans le théâtre français, pour tradition de résumer le message bienséant que la pièce est censée porter, à la fin d'un acte ou de la pièce (on peut penser au <hi>Tout finit par des chansons</hi> du <hi>Mariage de Figaro</hi> de Beaumarchais). Les recenser permet d'identifier quel personnage est en charge de reprendre ce trope, et se faire le porte-voix de tous les autres. Giraudoux renverse cette tradition en clôturant sa pièce sur un apophtegme opaque: 
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">Cela a un très beau nom, femme Narsès. <seg ana="apophtegme">Cela s’appelle l’aurore.</seg></egXML></item>
+                       
+                     <item><val>euphémisme</val>(une affirmation) et <val>litote</val> (une négation) sont des figures de style employées pour minimiser la signification d'une expression ; en l'occurrence, elles sont ici utiles pour renseigner les moments où les personnages ne sont pas (encore) conscients d'être pris dans une catastrophe, a fortiori dans un système qui avait prévu leur perte depuis longtemps. Par exemple, dans le récit du Mendiant relatant le meurtre d'Agamemnon:
+                       <egXML xmlns="http://www.tei-c.org/ns/Examples">Ils avaient <seg ana="euphémisme"> quelque chose à faire</seg>, mais vite, avant que personne pût entrer.</egXML>
+                     Agamemnon comprend que <hi>quelque chose</hi> est en cours, sans encore admettre qu'il s'agit de quelque chose de <hi>grave</hi>, et encore moins d'un <hi>meurtre</hi>.</item>      
+                     
+                     <item>Les figures de style restantes permettre de cerner - non sans quelques raccourcis, toutefois - les tics de parole associés à une classe sociale ou un comportement. La catégorie <val>enallage</val> s'applique pour les erreurs syntaxiques délibérées, dans le but d'imiter le style de parole oral. Elle concerne la Femme Narsès, que la qualité de mendiante cantonne à la classe des femmes du peuple ; elle concerne également les Petites Euménides, spécifiquement lorsqu'elles sont encore des <hi>Petite fille</hi>, pour imiter un parler plus enfantin et plus vulgaire - et entretenir le doute des personnages sur leur nature: pour Oreste, elles sont insupportables dans le but de rester le centre de son attention. Mais des traits de langage enfantin persistent aussi dans les répliques d'Électre, d'Oreste et de la Femme Narsès. Tout d'abord les exagérations, qu'emploient ceux qui n'ont pas le sens de la mesure (<val>hyperbole</val>) et pour qui une personne représente tout; puis les répétitions, symptômes classiques d'un exercice basique, d'un vocabulaire pauvre ou d'une phrase mal anticipée avant d'être dite (<val>redondance</val>) qui caractérise la <hi>récitation</hi> des Petites Euménides, dont la reprise systématique de chaque phrase imite les comptines. La reprise d'une même structure verbale (<val>anaphore</val>), particulièrement en début de phrase, et en réponse à une question, peut être lue comme le symptôme d'une perception figée (le portrait d'Agamemnon par la Femùme Narsès) ou d'un entêtement persistant, comme si douter de quoi que ce fût allait faire s'effondrer tout un système: à ce regard, l'enchaînement des <hi>J'ai</hi> de la part d'Électre, dans la scène finale, est tout à fait typique.</item>
+                  </list></div4>
+                  
+                  <div4><head>Intégrer des références externes</head>
+                     <p>Implémenter directement des précisions sur le contexte narratif ou relever diverses allusions intertextuelles est complexe dans une édition numérique, car ces remarques tendent à tirer le texte vers de nouvelles directions d'interprétation. Il a donc été décidé de les laisser en-dehors du texte de Giraudoux, encadrées par l'élément <gi>note</gi>.</p>
+                  </div4>
+                  
+               </div3></div2>
+         </div1>
+
+         <div1>
+            <head>Documentation</head>
+            <schemaSpec ident="oddbyexample" start="TEI ">
+               
+            <moduleRef key="tei"/>
+               
+            <!-- Règles modifiées manuellement -->
+               
+            <elementSpec ident="persName" mode="change">
+               <constraintSpec scheme="schematron" ident="valref">
+                  <constraint xmlns:tei="http://www.tei-c.org/ns/1.0">
+                     <s:pattern>
+                        <s:rule context="TEI//body//persName">
+                           <s:assert test="@ref">Les persName qui ne sont PAS dans le Header doivent renseigner l'attribut @ref.</s:assert>
+                           <s:assert test="@type">Les persName qui ne sont PAS dans le Header doivent renseigner l'attribut @type.</s:assert></s:rule>
+                        <s:rule context="//body//persName">
+                           <s:let name="refs" value="for $r in tokenize(., '\s+') return substring-after($r, '#')"/>
+                           <s:assert test="every $ref in $refs satisfies $ref = TEI//listPerson//@xml:id">
+                              la valeur @ref du persName doit correspondre à un @xml:id associé à un élement person de la listPerson.
+                           </s:assert></s:rule></s:pattern>
+                  </constraint>
+               </constraintSpec>
+                  <attList org="group">
+                     <attDef ident="ref" mode="change"/>
+                     <attDef ident="type" mode="change">
+                        <valList mode="add" type="closed">
+                           <valItem ident="prénom"/>
+                           <valItem ident="périphrase"/>
+                        </valList>
+                     </attDef>
+                     <attDef ident="corresp" mode="delete"/>
+                     <attDef ident="ana" mode="delete"/>
+                     <attDef ident="facs" mode="delete"/>
+                     <attDef ident="when" mode="delete"/>
+                     <attDef ident="when-iso" mode="delete"/>
+                     <attDef ident="full" mode="change">
+                        <valList mode="add" type="closed">
+                           <valItem ident="yes"/>
+                        </valList>
+                     </attDef>
+                     <attDef ident="key" mode="delete"/>
+                  </attList>
+            </elementSpec>
+            
+            <elementSpec ident="persPronouns" mode="change">
+               <desc xml:lang="fr">L'attribut <att>corresp</att> doit être renseigné.</desc>
+               <constraintSpec scheme="schematron" ident="valcorresp">
+                  <constraint xmlns:tei="http://www.tei-c.org/ns/1.0">
+                     <s:pattern>
+                        <s:rule context="TEI//body//persPronouns">
+                           <s:let name="refs" value="for $r in tokenize(., '\s+') return substring-after($r, '#')"/>
+                           <s:assert test="every $corresp in $refs satisfies $corresp = TEI//listPerson//@xml:id">
+                              la valeur de @corresp doit être renseignée
+                              et correspondre à un @xml:id associé à un élement person de la listPerson.
+                           </s:assert></s:rule></s:pattern>
+                  </constraint>
+               </constraintSpec>
+                  <attList org="group">
+                     <attDef ident="corresp" mode="change" usage="req"></attDef>
+                     <attDef ident="instant" mode="delete"/>
+                     <attDef ident="evidence" mode="delete"/>
+                     <attDef ident="value" mode="delete"/>
+                     <attDef ident="ana" mode="delete"/>
+                     <attDef ident="facs" mode="delete"/>
+                     <attDef ident="instant" mode="delete"/>
+                     <attDef ident="when" mode="delete"/>
+                     <attDef ident="when-iso" mode="delete"/>
+                     <attDef ident="type" mode="delete"/>
+                  </attList>
+            </elementSpec>       
+               
+            <elementSpec ident="emph" mode="change">
+            <attList org="group">
+               <attDef ident="ana" mode="delete"/>
+               <attDef ident="facs" mode="delete"/>
+               <attDef ident="part" mode="change">
+                  <valList mode="add" type="closed">
+                     <valItem ident="N"/>
+                  </valList>
+               </attDef> 
+               <attDef ident="xml:id" mode="change">
+                  <valList  mode="add" type="closed">
+                     <valItem ident="beauté"/>
+                     <valItem ident="bestiaire"/>
+                     <valItem ident="damnation"/>
+                     <valItem ident="deuil"/>
+                     <valItem ident="folie"/>
+                     <valItem ident="laideur"/> 
+                     <valItem ident="paix"/>
+                     <valItem ident="statut_royal"/>
+                     <valItem ident="temps"/>
+                     <valItem ident="tendresse"/>
+                     <valItem ident="vertu"/>
+                     <valItem ident="violence"/>
+                  </valList>
+               </attDef>
+               <attDef ident="corresp" mode="change">
+                  <valList  mode="add" type="closed">
+                     <valItem ident="#beauté"/>
+                     <valItem ident="#bestiaire"/>
+                     <valItem ident="#damnation"/>
+                     <valItem ident="#deuil"/>
+                     <valItem ident="#folie"/>
+                     <valItem ident="#laideur"/> 
+                     <valItem ident="#paix"/>
+                     <valItem ident="#statut_royal"/>
+                     <valItem ident="#temps"/>
+                     <valItem ident="#tendresse"/>
+                     <valItem ident="#vertu"/>
+                     <valItem ident="#violence"/>
+                 </valList>
+             </attDef>
+         </attList>
+     </elementSpec>
+
+         <elementSpec ident="said" mode="change">
+            <desc xml:lang="fr">L'élément doit renseigner l'attribut <att>who</att>.</desc>
+            <constraintSpec scheme="schematron" ident="valwho">
+               <constraint xmlns:tei="http://www.tei-c.org/ns/1.0">
+                  <s:pattern>
+                     <s:rule context="TEI//body//said">
+                        <s:let name="refs" value="for $r in tokenize(., '\s+') return substring-after($r, '#')"/>
+                        <s:assert test="every $who in $refs satisfies $who = TEI//listPerson//@xml:id">
+                           la valeur @who de said doit être renseignée
+                           et correspondre à (au moins) un @xml:id associé à un élement person de la listPerson.
+                        </s:assert>
+                     </s:rule>
+                  </s:pattern>
+               </constraint>
+            </constraintSpec>
+             <attList org="group">
+                 <attDef ident="who" mode="change" usage="req"></attDef>
+                 <attDef ident="aloud" mode="delete"/>
+                 <attDef ident="corresp" mode="delete"/>
+                 <attDef ident="facs" mode="delete"/>
+                 <attDef ident="toWhom" mode="delete"/>
+             </attList>
+         </elementSpec>
+         
+         <elementSpec ident="sp" mode="change">   
+            <desc xml:lang="fr">L'élément <gi>sp</gi> doit renseigner les attributs <att>who</att> et <att>toWhom</att>.</desc>
+            <constraintSpec scheme="schematron" ident="valwho">
+               <constraint xmlns:tei="http://www.tei-c.org/ns/1.0">
+                  <s:pattern>
+                     <s:rule context="TEI//body//sp">
+                        <s:let name="refs" value="for $r in tokenize(., '\s+') return substring-after($r, '#')"/>
+                        <s:assert test="every $who in $refs satisfies $who = TEI//listPerson//@xml:id">
+                           la valeur @who de sp doit être renseignée
+                           et correspondre à (au moins) un @xml:id associé à un élement person de la listPerson.
+                        </s:assert>
+                        <s:assert test="every $toWhom in $refs satisfies $toWhom = TEI//listPerson//@xml:id">
+                           la valeur @toWhom de sp doit être renseignée
+                           et correspondre à (au moins) un @xml:id associé à un élement person de la listPerson.
+                        </s:assert>
+                     </s:rule>
+                 </s:pattern>
+               </constraint>
+            </constraintSpec>
+             <attList org="group">
+                 <attDef ident="who" mode="change" usage="req"></attDef>
+                 <attDef ident="toWhom" mode="change" usage="req"></attDef>
+                 <attDef ident="corresp" mode="delete"/>
+                 <attDef ident="ana" mode="delete"/>
+                 <attDef ident="facs" mode="delete"/>
+             </attList>
+         </elementSpec>
+         
+         <elementSpec ident="seg" mode="change">                              
+             <attList org="choice">
+                 <attDef ident="corresp" mode="delete"/>
+                 <attDef ident="facs" mode="delete"/>
+                 <attDef ident="function" mode="delete"/>
+                 <attDef ident="ana" mode="change" usage="req">
+                    <desc xml:lang="fr">L'attribut <att>ana</att> est requis et doit renseigner l'une des valeurs suivantes:</desc>
+                     <valList mode="add" type="closed">
+                        <valItem ident="allégorie"/>
+                        <valItem ident="allusion"/>
+                        <valItem ident="amplification"/>
+                        <valItem ident="anaphore"/>
+                        <valItem ident="antithèse"/>
+                        <valItem ident="apophtegme"/> 
+                        <valItem ident="chiasme"/>
+                        <valItem ident="enallage"/>
+                        <valItem ident="euphémisme"/>
+                        <valItem ident="hypallage"/>
+                        <valItem ident="hyperbole"/>
+                        <valItem ident="litote"/>
+                        <valItem ident="mise_en_abyme"/>
+                        <valItem ident="paradoxe"/>
+                        <valItem ident="parallélisme"/>
+                        <valItem ident="parataxe"/>
+                        <valItem ident="parodie"/>
+                        <valItem ident="personnification"/>
+                        <valItem ident="prétérition"/>
+                        <valItem ident="prolepse"/>
+                        <valItem ident="redondance"/>
+                        <valItem ident="syllepse"/>
+                        <valItem ident="zeugma"/>
+                     </valList>
+                 </attDef>
+                 <attDef ident="type" mode="delete"/>
+             </attList>
+         </elementSpec>
+         
+         <elementSpec ident="w" mode="change">
+             <attList org="choice">
+                <attDef ident="part" mode="change">
+                   <valList mode="add" type="closed">
+                      <valItem ident="N"/>
+                   </valList>
+                </attDef> 
+                <attDef ident="type" mode="change" usage="req">
+                   <desc xml:lang="fr">L'attribut <att>type</att> est obligatoire et doit renseigner l'une des valeurs suivantes:</desc>
+                   <valList mode="add" type="closed">
+                      <valItem ident="conditionnel:passé"/>
+                      <valItem ident="conditionnel:présent"/>
+                      <valItem ident="impératif"/>
+                      <valItem ident="indicatif:futur_antérieur"/>
+                      <valItem ident="indicatif:futur_proche"/>
+                      <valItem ident="indicatif:futur_simple"/>
+                      <valItem ident="indicatif:imparfait"/>
+                      <valItem ident="indicatif:passé_composé"/>
+                      <valItem ident="indicatif:passé_simple"/>
+                      <valItem ident="indicatif:plus_que_parfait"/>
+                      <valItem ident="indicatif:présent"/>
+                      <valItem ident="subjonctif:imparfait"/>
+                      <valItem ident="subjonctif:passé_simple"/>
+                      <valItem ident="subjonctif:présent"/>
+                   </valList>
+                </attDef>
+                 <attDef ident="facs" mode="delete"/>
+                 <attDef ident="function" mode="change" usage="req">
+                    <desc xml:lang="fr">L'attribut <att>function</att> est requis et doit renseigner l'une des valeurs suivantes:</desc>
+                     <valList mode="add" type="closed">
+                         <valItem ident="action_irréversible"/>
+                         <valItem ident="action_premier_plan"/>
+                         <valItem ident="action_secondaire"/>
+                         <valItem ident="actualité"/>
+                         <valItem ident="amorce_conte"/>
+                         <valItem ident="certitude"/>
+                         <valItem ident="conseil"/>
+                         <valItem ident="description"/>
+                         <valItem ident="généralité"/>
+                         <valItem ident="habitude"/>
+                         <valItem ident="hypothèse"/>
+                         <valItem ident="irréel_du_passé"/>
+                         <valItem ident="ordre"/>
+                         <valItem ident="possible_immédiat"/>
+                         <valItem ident="prédiction_certaine"/>
+                         <valItem ident="récit_épique"/>
+                         <valItem ident="souhait"/>
+                         <valItem ident="événement_récent"/>
+                     </valList>
+                 </attDef>
+                </attList>
+         </elementSpec>
+         
+         <elementSpec ident="pc" mode="change">           
+             <attList org="choice">
+                 <attDef ident="force" mode="delete"/>
+                 <attDef ident="unit" mode="delete"/>
+                 <attDef ident="pre" mode="delete"/>
+                 <attDef ident="corresp" mode="delete"/>
+                 <attDef ident="facs" mode="delete"/>
+                 <attDef ident="function" mode="delete"/>
+                 <attDef ident="part" mode="change">
+                     <valList mode="add" type="closed">
+                         <valItem ident="N"/>
+                     </valList>
+                 </attDef>
+                 <attDef ident="type" mode="change" usage="req">
+                    <desc xml:lang="fr">L'attribut <att>type</att> est obligatoire et doit renseigner l'une des valeurs suivantes:</desc>
+                     <valList mode="add" type="closed">
+                         <valItem ident="exclamation"/>
+                         <valItem ident="question"/>
+                         <valItem ident="suspension"/>
+                     </valList>
+                 </attDef>
+                 <attDef ident="ana" mode="change" usage="req">
+                    <desc xml:lang="fr">L'attribut <att>ana</att> est obligatoire et doit renseigner l'une des valeurs suivantes:</desc>
+                     <valList mode="add" type="closed">
+                         <valItem ident="admiration"/>
+                         <valItem ident="attendrissement"/>
+                         <valItem ident="attente"/>
+                         <valItem ident="autorité"/>
+                         <valItem ident="consternation"/>
+                         <valItem ident="crainte"/>
+                         <valItem ident="désespoir"/>
+                         <valItem ident="désinvolture"/>
+                         <valItem ident="enquête"/>
+                         <valItem ident="excitation"/>
+                         <valItem ident="incertitude"/>
+                         <valItem ident="irritation"/>
+                         <valItem ident="raillerie"/>
+                         <valItem ident="révélation"/>                                                           
+                         <valItem ident="rhétorique"/>
+                         <valItem ident="surprise"/>
+                         <valItem ident="trouble"></valItem>
+                     </valList>
+                 </attDef>
+             </attList>
+         </elementSpec>
+         
+          <elementSpec ident="div1" mode="change">
+                <attList>
+                 <attDef ident="corresp" mode="delete"/>
+                 <attDef ident="ana" mode="delete"/>
+                 <attDef ident="facs" mode="delete"/>
+                 <attDef ident="org" mode="change">
+                     <valList mode="add" type="closed">
+                         <valItem ident="uniform"/>
+                     </valList>
+                 </attDef>
+                 <attDef ident="sample" mode="change">
+                     <valList mode="add" type="closed">
+                         <valItem ident="complete"/>
+                     </valList>
+                 </attDef>
+                 <attDef ident="part" mode="change" usage="req">
+                     <valList mode="add" type="closed">
+                         <valItem ident="N"/>
+                     </valList>
+                 </attDef>
+                 <attDef ident="type" mode="change" usage="req">
+                    <desc xml:lang="fr">L'attribut <att>type</att> et <att>n</att> sont obligatoires.</desc>
+                     <valList mode="add" type="closed">
+                         <valItem ident="act"/>
+                     </valList>
+                 </attDef>
+                 <attDef ident="decls" mode="delete"/>
+             </attList>
+         </elementSpec>
+         
+         <elementSpec ident="div2" mode="change">
+             <attList org="choice">
+                 <attDef ident="corresp" mode="delete"/>
+                 <attDef ident="facs" mode="delete"/>
+                 <attDef ident="org" mode="change">
+                     <valList mode="add" type="closed">
+                         <valItem ident="uniform"/>
+                     </valList>
+                 </attDef>
+                 <attDef ident="sample" mode="change">
+                     <valList mode="add" type="closed">
+                         <valItem ident="complete"/>
+                     </valList>
+                 </attDef>
+                 <attDef ident="part" mode="change" usage="req">
+                     <valList mode="add" type="closed">
+                         <valItem ident="N"/>
+                     </valList>
+                 </attDef>
+                 <attDef ident="ana" mode="change" usage="req">
+                    <valList mode="add" type="closed">
+                       <valItem ident="Scène_d'exposition"/>
+                       <valItem ident="Avant_dernière_scène"></valItem>
+                       <valItem ident="Dernière_scène"></valItem>
+                    </valList>
+                 </attDef>
+                 <attDef ident="type" mode="change" usage="req">
+                    <desc xml:lang="fr">Les attributs <att>n</att>, <att>type</att> et <att>ana</att> sont obligatoires.</desc>
+                     <valList mode="add" type="closed">
+                         <valItem ident="scene"/>
+                     </valList>
+                 </attDef>
+             </attList>
+         </elementSpec>
+         
+         <elementSpec ident="textDesc" mode="change">
+            <desc xml:lang="fr">Réorganisation du contenu par défaut de l'élément ; 
+               suppression des éléments non pertinents (<gi>change</gi>, <gi>constitution</gi>, <gi>preparedness</gi>)</desc>
+             <content>
+                 <sequence preserveOrder="true">
+                    <elementRef key="domain"/>
+                    <elementRef key="factuality"/>
+                    <elementRef key="derivation"/>
+                    <elementRef key="interaction"/>
+                    <elementRef key="purpose"/>
+                    <elementRef key="purpose"/>
+                    <elementRef key="purpose"/>
+                 </sequence>
+             </content>
+             <attList>
+                 <attDef ident="corresp" mode="delete"/>
+                 <attDef ident="ana" mode="delete"/>
+                 <attDef ident="facs" mode="delete"/>
+                 <attDef ident="default" mode="change">
+                     <valList mode="add" type="closed">
+                         <valItem ident="false"/>
+                     </valList>
+                 </attDef>
+             </attList>
+         </elementSpec>   
+               
+            <!-- Règles générées automatiquement et inchangées -->
+               
+            <!--Checking module textcrit-->
+            <classRef key="att.textCritical"/>
+            <classRef key="model.rdgLike"/>
+            <classRef key="model.rdgPart"/>
+            <classSpec ident="att.textCritical" type="atts" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="cause" mode="delete"/>
+                  <attDef ident="varSeq" mode="delete"/>
+                  <attDef ident="require" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <!--Checking module msdescription-->
+            <classRef key="model.physDescPart"/>
+               
+            <!--Checking module namesdates-->
+            <classRef key="att.datable.iso"/>
+            <classRef key="model.persNamePart"/>
+            <moduleRef key="namesdates"
+                       include="persName listPerson listRelation person personGrp persPronouns relation"/>
+              
+            <elementSpec ident="listPerson" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="fictional"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="default" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="false"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="listRelation" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="person" mode="change">
+               <attList>
+                  <attDef ident="role" mode="delete"/>
+                  <attDef ident="sex" mode="delete"/>
+                  <attDef ident="gender" mode="delete"/>
+                  <attDef ident="age" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="personGrp" mode="change">
+               <attList>
+                  <attDef ident="role" mode="delete"/>
+                  <attDef ident="sex" mode="delete"/>
+                  <attDef ident="gender" mode="delete"/>
+                  <attDef ident="age" mode="delete"/>
+                  <attDef ident="size" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="relation" mode="change">
+               <attList>
+                  <attDef ident="name" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="adelphes"/>
+                        <valItem ident="affection"/>
+                        <valItem ident="amants"/>
+                        <valItem ident="amour_très_freudien"/>
+                        <valItem ident="attirance_cachée"/>
+                        <valItem ident="époux"/>
+                        <valItem ident="fiancés"/>
+                        <valItem ident="haine"/>
+                        <valItem ident="mépris"/>
+                        <valItem ident="mère"/>
+                        <valItem ident="meurtriers"/>
+                        <valItem ident="père"/>
+                        <valItem ident="tortionnaires"/>
+                      </valList>
+                  </attDef>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="when-iso" mode="delete"/>
+                  <attDef ident="key" mode="delete"/>
+                  <attDef ident="ref" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <classSpec ident="att.datable.iso" type="atts" mode="change">
+               <attList>
+                  <attDef ident="notBefore-iso" mode="delete"/>
+                  <attDef ident="notAfter-iso" mode="delete"/>
+                  <attDef ident="from-iso" mode="delete"/>
+                  <attDef ident="to-iso" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <!--Checking module dictionaries-->
+            <classRef key="att.lexicographic"/>
+            <classRef key="model.entryLike"/>
+            <classRef key="model.formPart"/>
+            <classRef key="model.gramPart"/>
+            <classRef key="model.lexicalRefinement"/>
+            <classRef key="model.morphLike"/>
+            <classRef key="model.ptrLike.form"/>
+            <classSpec ident="att.lexicographic" type="atts" mode="change">
+               <attList>
+                  <attDef ident="expand" mode="delete"/>
+                  <attDef ident="split" mode="delete"/>
+                  <attDef ident="value" mode="delete"/>
+                  <attDef ident="location" mode="delete"/>
+                  <attDef ident="mergedIn" mode="delete"/>
+                  <attDef ident="opt" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <!--Checking module tagdocs-->
+            <classRef key="att.combinable"/>
+            <classRef key="att.identified"/>
+            <classRef key="model.contentPart"/>
+            <moduleRef key="tagdocs"
+                       include="classRef moduleRef schemaSpec elementSpec classSpec attList attDef valItem valList"/>
+           
+               <elementSpec ident="classRef" mode="change">
+               <attList>
+                  <attDef ident="expand" mode="delete"/>
+                  <attDef ident="include" mode="delete"/>
+                  <attDef ident="except" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="moduleRef" mode="change">
+               <attList>
+                  <attDef ident="prefix" mode="delete"/>
+                  <attDef ident="except" mode="delete"/>
+                  <attDef ident="url" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="schemaSpec" mode="change">
+               <attList>
+                  <attDef ident="prefix" mode="delete"/>
+                  <attDef ident="targetLang" mode="delete"/>
+                  <attDef ident="docLang" mode="delete"/>
+                  <attDef ident="defaultExceptions" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="mode" mode="delete"/>
+                  <attDef ident="status" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="elementSpec" mode="change">
+               <attList>
+                  <attDef ident="prefix" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="mode" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="change"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="classSpec" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="atts"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="generate" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="mode" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="change"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="atts"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="attList" mode="change">
+               <attList>
+                  <attDef ident="org" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="attDef" mode="change">
+               <attList>
+                  <attDef ident="usage" mode="delete"/>
+                  <attDef ident="ns" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="mode" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="change"/>
+                        <valItem ident="delete"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="valItem" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="mode" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="valList" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="closed"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="mode" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="add"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+               
+            <classSpec ident="att.identified" type="atts" mode="change">
+               <attList>
+                  <attDef ident="predeclare" mode="delete"/>
+                  <attDef ident="module" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.anchoring" type="atts" mode="change">
+               <attList>
+                  <attDef ident="targetEnd" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.dimensions" type="atts" mode="change">
+               <attList>
+                  <attDef ident="unit" mode="delete"/>
+                  <attDef ident="quantity" mode="delete"/>
+                  <attDef ident="extent" mode="delete"/>
+                  <attDef ident="precision" mode="delete"/>
+                  <attDef ident="scope" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.damaged" type="atts" mode="change">
+               <attList>
+                  <attDef ident="agent" mode="delete"/>
+                  <attDef ident="degree" mode="delete"/>
+                  <attDef ident="group" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.datable.w3c" type="atts" mode="change">
+               <attList>
+                  <attDef ident="notBefore" mode="delete"/>
+                  <attDef ident="notAfter" mode="delete"/>
+                  <attDef ident="from" mode="delete"/>
+                  <attDef ident="to" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.datable" type="atts" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="period" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.editLike" type="atts" mode="change">
+               <attList>
+                  <attDef ident="evidence" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.media" type="atts" mode="change">
+               <attList>
+                  <attDef ident="width" mode="delete"/>
+                  <attDef ident="height" mode="delete"/>
+                  <attDef ident="scale" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.naming" type="atts" mode="change">
+               <attList>
+                  <attDef ident="role" mode="delete"/>
+                  <attDef ident="nymRef" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.typed" type="atts" mode="change">
+               <attList>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.pointing" type="atts" mode="change">
+               <attList>
+                  <attDef ident="targetLang" mode="delete"/>
+                  <attDef ident="evaluate" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.pointing.group" type="atts" mode="change">
+               <attList>
+                  <attDef ident="domains" mode="delete"/>
+                  <attDef ident="targFunc" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.timed" type="atts" mode="change">
+               <attList>
+                  <attDef ident="start" mode="delete"/>
+                  <attDef ident="end" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.transcriptional" type="atts" mode="change">
+               <attList>
+                  <attDef ident="status" mode="delete"/>
+                  <attDef ident="cause" mode="delete"/>
+                  <attDef ident="seq" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <classSpec ident="att.personal" type="atts" mode="change">
+               <attList>
+                  <attDef ident="sort" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <!--Checking module core-->
+            <moduleRef key="core"
+                       include="p emph said q date ref head note lb author title publisher pubPlace bibl l sp speaker stage"/>
+            
+            <elementSpec ident="p" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="part" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="N"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="q" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="toWhom" mode="delete"/>
+                  <attDef ident="who" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="date" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="key" mode="delete"/>
+                  <attDef ident="ref" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="ref" mode="change">
+               <attList>
+                  <attDef ident="decls" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="head" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="note" mode="change">
+               <attList>
+                  <attDef ident="part" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="N"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="target" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="lb" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="author" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="when-iso" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="title" mode="change">
+               <attList>
+                  <attDef ident="level" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="short"/>
+                        <valItem ident="sub"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="short"/>
+                        <valItem ident="sub"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="key" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="when-iso" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="publisher" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="key" mode="delete"/>
+                  <attDef ident="ref" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="pubPlace" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="key" mode="delete"/>
+                  <attDef ident="ref" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="bibl" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="default" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="false"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="status" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="draft"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="l" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="part" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="F"/>
+                        <valItem ident="I"/>
+                        <valItem ident="N"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="speaker" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="stage" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="entrance"/>
+                        <valItem ident="exit"/>
+                        <valItem ident="delivery"/>
+                        <valItem ident="setting"/>
+                        <valItem ident="costume"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="toWhom" mode="delete"/>
+                  <attDef ident="who" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <!--Checking module figures-->
+            <!--Checking module header-->
+            <moduleRef key="header"
+                       include="teiHeader fileDesc titleStmt editionStmt edition publicationStmt distributor idno sourceDesc profileDesc creation langUsage language"/>
+            
+               <elementSpec ident="teiHeader" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="fileDesc" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="titleStmt" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="editionStmt" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="edition" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="publicationStmt" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="distributor" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="key" mode="delete"/>
+                  <attDef ident="ref" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="idno" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="ISBN"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="when-iso" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="ISBN"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="sourceDesc" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="default" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="false"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="profileDesc" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="creation" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="when-iso" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="langUsage" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="default" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="false"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="language" mode="change">
+               <attList>
+                  <attDef ident="usage" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <!--Checking module gaiji-->
+            <!--Checking module verse-->
+            <!--Checking module transcr-->
+            <classRef key="att.global.facs"/>
+               
+            <!--Checking module linking-->
+            <classRef key="att.global.linking"/>
+            <moduleRef key="linking" include="seg"/>
+               
+            <classSpec ident="att.global.linking" type="atts" mode="change">
+               <attList>
+                  <attDef ident="synch" mode="delete"/>
+                  <attDef ident="sameAs" mode="delete"/>
+                  <attDef ident="copyOf" mode="delete"/>
+                  <attDef ident="next" mode="delete"/>
+                  <attDef ident="prev" mode="delete"/>
+                  <attDef ident="exclude" mode="delete"/>
+                  <attDef ident="select" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <!--Checking module analysis-->
+            <classRef key="att.global.analytic"/>
+            <classRef key="att.linguistic"/>
+            <moduleRef key="analysis" include="w pc span"/>
+               
+            <elementSpec ident="span" mode="change">
+               <attList>
+                  <attDef ident="from" mode="delete"/>
+                  <attDef ident="to" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="target" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <classSpec ident="att.linguistic" type="atts" mode="change">
+               <attList>
+                  <attDef ident="lemma" mode="delete"/>
+                  <attDef ident="lemmaRef" mode="delete"/>
+                  <attDef ident="pos" mode="delete"/>
+                  <attDef ident="msd" mode="delete"/>
+                  <attDef ident="join" mode="delete"/>
+               </attList>
+            </classSpec>
+               
+            <!--Checking module textstructure-->
+            <moduleRef key="textstructure"
+                       include="TEI text body div div1 div2 docTitle titlePart front"/>
+               
+            <elementSpec ident="TEI" mode="change">
+               <attList>
+                  <attDef ident="version" mode="delete"/>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="text" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="decls" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="body" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="decls" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="div" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="org" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="uniform"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="sample" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="complete"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="part" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="N"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="act"/>
+                        <valItem ident="scene"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="decls" mode="delete"/>
+               </attList>
+            </elementSpec>
+              
+            <elementSpec ident="docTitle" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="key" mode="delete"/>
+                  <attDef ident="ref" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="titlePart" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="main"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="main"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="front" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="decls" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <!--Checking module drama-->
+            <moduleRef key="drama" include="set castList castItem"/>
+               
+            <elementSpec ident="set" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="castList" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="castItem" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="role"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="role"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+               
+            <!--Checking module corpus-->
+            <moduleRef key="corpus"
+                       include="textDesc particDesc derivation interaction domain factuality purpose"/>
+                  
+            <elementSpec ident="particDesc" mode="change">
+               <attList>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="default" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="false"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="derivation" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="réécriture"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="domain" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="art"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="factuality" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="fiction"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="interaction" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="partial"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="active" mode="change">
+                   <valList mode="add" type="closed">
+                     <valItem ident="singular"/>
+                   </valList>
+                  </attDef>
+                  <attDef ident="passive" mode="change">
+                   <valList mode="add" type="closed">
+                     <valItem ident="world"/>
+                   </valList>
+                  </attDef>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+               
+            <elementSpec ident="purpose" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="distrayant"/>
+                        <valItem ident="instructif"/>
+                        <valItem ident="déprimant"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="corresp" mode="delete"/>
+                  <attDef ident="ana" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                </attList>
+            </elementSpec>
+         </schemaSpec></div1>
+      </body>
+   </text>
+</TEI>
