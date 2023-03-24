@@ -61,7 +61,23 @@
                 <xsl:number count="//note" level="any" format="1"/>
             </xsl:element>
         </xsl:element></xsl:for-each>
-    </xsl:template>    
+    </xsl:template>
+    
+    <xsl:template name="q" match="//q">
+        <xsl:for-each select=".">
+            <xsl:element name="i">
+                <xsl:value-of select="."/>
+            </xsl:element>
+        </xsl:for-each>
+    </xsl:template>
+    
+    <xsl:template name="span" match="//span[@rend='italics']">
+        <xsl:for-each select=".">
+            <xsl:element name="i">
+                <xsl:value-of select="."/>
+            </xsl:element>
+        </xsl:for-each>
+    </xsl:template>
     
     <xsl:template name="w" match="//w">
         <xsl:for-each select=".">
@@ -262,16 +278,8 @@
                             </xsl:for-each>
                             <xsl:for-each select="./p">
                                 <p class="lines">
-                                    <xsl:apply-templates/>
-                                    
-                                        <xsl:if test="./parent::sp/following-sibling::note">
-                                    <xsl:call-template name="footnote"/></xsl:if>
-                                        <xsl:if test="not(./parent::sp/following-sibling::note)">
-                                            <xsl:text> </xsl:text>
-                                        </xsl:if>                                
+                                    <xsl:apply-templates/>                              
                                     </p></xsl:for-each>
-                            
-                            
                         </xsl:for-each>   
 
                        <p class="stage">
@@ -327,8 +335,7 @@
                                   </xsl:for-each>
                                   <xsl:for-each select="./p">
                                       <p class="lines">
-                                          <xsl:apply-templates/>
-                                          <xsl:call-template name="footnote"/></p>
+                                          <xsl:apply-templates/></p>
                                   </xsl:for-each>
                               </xsl:for-each>   
                               
@@ -342,8 +349,7 @@
                                   </xsl:for-each>
                                   <xsl:for-each select="./p">
                                       <p class="lines">
-                                          <xsl:apply-templates/>
-                                          <xsl:call-template name="footnote"/></p>
+                                          <xsl:apply-templates/></p>
                                   </xsl:for-each>
                               </xsl:for-each>
                               
@@ -357,8 +363,7 @@
                                   </xsl:for-each>
                                   <xsl:for-each select="./p">
                                       <p class="lines">
-                                          <xsl:apply-templates/>
-                                          <xsl:call-template name="footnote"/></p>
+                                          <xsl:apply-templates/></p>
                                   </xsl:for-each>
                               </xsl:for-each>
                
@@ -374,8 +379,7 @@
                                   </xsl:for-each>
                                   <xsl:for-each select="./p">
                                       <p class="lines">
-                                          <xsl:apply-templates/>
-                                          <xsl:call-template name="footnote"/></p>
+                                          <xsl:apply-templates/></p>
                                   </xsl:for-each>
                               </xsl:for-each>                        
                         </div>
@@ -400,8 +404,7 @@
                                 </xsl:for-each>
                                 <xsl:for-each select="./p">
                                     <p class="lines">
-                                        <xsl:apply-templates/>
-                                        <xsl:call-template name="footnote"/></p>
+                                        <xsl:apply-templates/></p>
                                 </xsl:for-each>
                             </xsl:for-each>
                            
