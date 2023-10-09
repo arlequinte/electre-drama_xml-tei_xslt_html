@@ -1365,11 +1365,6 @@ Notons alors qu'il n'en résulte pas un commentaire rédigé; il en ressort simp
                
             <elementSpec ident="note" mode="change">
                <attList>
-                  <attDef ident="part" mode="change">
-                     <valList mode="add" type="closed">
-                        <valItem ident="N"/>
-                     </valList>
-                  </attDef>
                   <attDef ident="corresp" mode="delete"/>
                   <attDef ident="ana" mode="delete"/>
                   <attDef ident="facs" mode="delete"/>
